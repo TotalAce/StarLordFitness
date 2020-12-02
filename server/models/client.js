@@ -9,9 +9,9 @@ module.exports = function (sequelize, DataTypes) {
       allowNull: false,
       unique: true,
     },
-    // trainerId: {
-    //   type: DataTypes.INTEGER
-    // }
+    trainerId: {
+      type: DataTypes.INTEGER
+    }
     // // The email cannot be null, and must be a proper email before creation
     // email: {
     //   type: DataTypes.STRING,
