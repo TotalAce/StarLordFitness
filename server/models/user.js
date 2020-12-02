@@ -39,16 +39,16 @@ module.exports = function (sequelize, DataTypes) {
     user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   });
 
-  // User.associate = function (models) {
+  User.associate = function (models) {
 
-    // User.hasMany(models.Trainer, {
-    //   onDelete: "cascade"
-    // });
+    User.hasMany(models.Trainer, {
+      onDelete: "cascade",
+    });
 
-    // User.hasMany(models.Client, {
-    //   onDelete: "cascade"
-    // });
-  // }
+    User.hasMany(models.Client, {
+      onDelete: "cascade",
+    });
+  }
 
   return User;
 };

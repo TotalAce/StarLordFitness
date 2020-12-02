@@ -1,16 +1,20 @@
 const router = require("express").Router();
-// const clientRoutes = require("./clients");
+const clientRoutes = require("./clients");
 // const trainerRoutes = require("./trainers");
 const userRoutes = require("./users");
+const workoutRoutes = require("./workouts");
 
 
 // client routes
-// router.use("/clients", clientRoutes);
+router.use("/client", clientRoutes);
 
-// client routes
+// trainer routes
 // router.use("/trainers", trainerRoutes);
 
-// client routes
-router.use("/users", userRoutes);
+// user routes
+router.use(userRoutes);
+
+// workout routes
+router.use(workoutRoutes);
 
 module.exports = router;

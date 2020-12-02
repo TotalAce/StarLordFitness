@@ -34,15 +34,15 @@ module.exports = function (sequelize, DataTypes) {
   //   user.password = bcrypt.hashSync(user.password, bcrypt.genSaltSync(10), null);
   // });
 
-  // Trainer.associate = function (models) {
+  Trainer.associate = function (models) {
 
-    // Trainer.belongsTo(models.User);
+    Trainer.belongsTo(models.User);
 
-    // Trainer.hasMany(models.Client, {
-    //   foreignKey: 'trainerId'
-    // });
+    Trainer.hasMany(models.Client, {
+      foreignKey: 'trainerId'
+    });
 
-  // };
+  };
 
   return Trainer;
 };
