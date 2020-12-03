@@ -15,4 +15,14 @@ module.exports = {
             })
     },
 
+    trainerList: (req, res) => {
+        db.Trainer.findAll()
+            .then(function (data) {
+                res.json(data);
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+    },
+
 }
