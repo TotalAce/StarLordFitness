@@ -24,6 +24,17 @@ module.exports = {
             .then(function (data) {
                 res.json(data[0].Trainer);
             });
+    },
+
+    notes: (req, res) => {
+        db.Client.findAll(
+            {
+                where: { id: req.body.id },
+                include: [db.Note]
+            })
+            .then(function (data) {
+                res.json(data);
+            });
     }
 
 }
