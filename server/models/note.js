@@ -5,6 +5,7 @@ module.exports = function (sequelize, DataTypes) {
       date: {
         type: DataTypes.DATE,
         allowNull: false,
+        unique: true
       },
       note: {
         type: DataTypes.STRING(500),

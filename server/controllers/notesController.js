@@ -18,5 +18,18 @@ module.exports = {
             })
     },
 
+    editNote: (req, res) => {
+        db.Note.update
+            (
+                req.body,
+                { where: { id: req.body.id } }
+            )
+            .then(function (data) {
+                res.json(data);
+            })
+            .catch(function (err) {
+                console.log(err);
+            })
+    }
 
 }

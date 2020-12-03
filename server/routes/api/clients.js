@@ -16,5 +16,6 @@ router.route("/trainerInfo")
 router.route("/notes")
     .get(clientsController.notes)
     .post(notesController.createNote)
+    .put(notesController.editNote)
 
 module.exports = router;

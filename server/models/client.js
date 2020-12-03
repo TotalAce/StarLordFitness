@@ -35,7 +35,6 @@ module.exports = function (sequelize, DataTypes) {
 
     Client.hasMany(models.Note);
 
-
   };
 
   return Client;
