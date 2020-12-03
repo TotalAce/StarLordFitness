@@ -1,15 +1,14 @@
 const db = require("../../models");
 const express = require("express");
 const router = express.Router();
+const clientsController = require("../../controllers/clientsController")
 
-router.put("/chooseTrainer", function (req, res) {
-    db.Client.update({ trainerID: req.body.trainerID },
-        { where: { id: req.body.id } })
-        .then(function (data) {
-            console.log(req);
-            console.log(req.body);
-            res.json(data);
-        });
-})
+// ---------------CHOOSE A TRAINER TO WORK WITH---------------
+router.route("/chooseTrainer")
+    .put(clientsController.updateTrainer)
+
+// ---------------GET THEIR TRAINERS INFO---------------
+router.route("/trainerInfo")
+    .get(clientsController.trainerInfo)
 
 module.exports = router;

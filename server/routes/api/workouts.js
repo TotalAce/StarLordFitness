@@ -1,30 +1,26 @@
 const db = require("../../models");
 const express = require("express");
 const router = express.Router();
+const workoutsController = require("../../controllers/workoutsController")
+const workoutPlansController = require("../../controllers/workoutPlansController")
 
-router.get("/workouts", function (req, res) {
-    db.Workout.findAll()
-        .then(function (data) {
-            res.json(data);
-        });
-});
+// ---------------GET ALL WORKOUTS/CREATE NEW WORKOUT---------------
+router.route("/workouts")
+    .get(workoutsController.allWorkouts)
+    .post(workoutsController.createWorkout)
 
-router.get("/workouts/musclegroup", function (req, res) {
-    db.Workout.findAll({ where: { muscleGroup: req.body.muscleGroup } })
-        .then(function (data) {
-            res.json(data);
-        });
-});
+// ---------------GET WORKOUTS BY MUSCLEGROUP CHOSEN---------------
+router.route("/workouts/muscle")
+    .get(workoutsController.workoutsByMuscle)
 
-router.post("/workouts", function (req, res) {
-    console.log(req.body);
-    db.Workout.create({
-        muscleGroup: req.body.muscleGroup,
-        exercise: req.body.exercise
-    })
-        .then(function (data) {
-            res.json(data);
-        });
-});
+// ---------------POST AN EXERCISE TO A CLIENT'S WORKOUT, CLIENT CAN GET THEIR WORKOUT---------------
+router.route("/workoutPlan")
+    .get(workoutPlansController.getWorkoutPlan)
+    .post(workoutPlansController.createWorkoutPlan)
+
+// ---------------DELETE AN EXERCIES FROM A CLIENT'S WORKOUT---------------
+router.route("/workoutPlan/:id")
+    .delete(workoutPlansController.deleteWorkoutPlan)
+
 
 module.exports = router;
