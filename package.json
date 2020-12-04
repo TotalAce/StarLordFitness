@@ -7,7 +7,7 @@
     "start": "cd ./server && npm run start",
     "install": "cd ./server && npm install",
     "build": "cd ./server && npm run build",
-    "heroku-postbuild": "cd ./server && npm run heroku-postbuild"
+    "heroku-postbuild": "cd ./client && npm run build"
   },
   "engines": {
     "node": "10.x"
