@@ -24,7 +24,7 @@ class Calendar extends Component {
     }
 
 
-    const dp = new DayPilot.Scheduler("dp");
+    const dp = new DayPilot.Calendar("dp");
     
 
  //Delete Event
@@ -82,15 +82,15 @@ class Calendar extends Component {
   dp.init();
 
     //double-click function
- const dp = new DayPilot.Scheduler("dp");
+ const dps = new DayPilot.Scheduler("dps");
 
-  dp.eventDoubleClickHandling = "Enabled";
-  dp.onEventDoubleClick = function(args) {
+  dps.eventDoubleClickHandling = "Enabled";
+  dps.onEventDoubleClick = function(args) {
     alert("Event with id " + args.e.id() + " was double-clicked");
   };
 
        
-  const dp = new DayPilot.Calendar("dp");
+  
   dp.eventArrangement = "SideBySide";
   dp.init();
 
