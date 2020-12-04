@@ -3,7 +3,7 @@ module.exports = function (sequelize, DataTypes) {
   const WorkoutPlan = sequelize.define("WorkoutPlan",
     {
       date: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false,
       },
       exercise: {
@@ -17,10 +17,6 @@ module.exports = function (sequelize, DataTypes) {
       reps:{
         type: DataTypes.INTEGER,
         allowNull: false,
-      },
-      ClientId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
       }
     },
     {
@@ -31,7 +27,7 @@ module.exports = function (sequelize, DataTypes) {
 
   WorkoutPlan.associate = function (models) {
 
-    WorkoutPlan.belongsTo(models.Client);
+    WorkoutPlan.belongsTo(models.User);
 
   };
 
