@@ -2,8 +2,7 @@ import React from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import "./style.css";
 import Login from "./login.js";
@@ -12,13 +11,11 @@ import ClientHome from "./clientside/clienthome";
 import Landing from "./landing.js";
 import Client from "./clientside/client";
 import ClientCalender from "./clientside/clientcalender";
-import ClientHome from "./clientside/clienthome";
 import ClientProfile from "./clientside/clientprofile";
 import Trainer from "./trainerside/trainer";
 import TrainerCalender from "./trainerside/trainercalender";
 import TrainerProfile from "./trainerside/trainerprofile";
 import TrainerSearch from "./trainerside/trainersearch";
-import Logout from "./logout.js";
 
 function App() {
   return (
