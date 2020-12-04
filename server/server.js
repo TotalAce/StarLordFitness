@@ -15,7 +15,7 @@ if (process.env.NODE_ENV === "production") {
 }
 
 // We need to use sessions to keep track of our user's login status
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true }));
+app.use(session({ secret: "keyboard cat", resave: false, saveUninitialized: false }));
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -23,7 +23,7 @@ app.use(passport.session());
 app.use(routes);
 
 // Start the API server
-db.sequelize.sync({}).then(function () {
+db.sequelize.sync({ alter: true }).then(function () {
   app.listen(PORT, function () {
     console.log(`🌎  ==> API Server now listening on http://localhost:${PORT}`);
   });
