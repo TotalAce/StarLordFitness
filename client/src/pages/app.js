@@ -8,6 +8,7 @@ import {
 import "./style.css";
 import Login from "./login.js";
 import Signup from "./signup.js";
+import ClientHome from "./clientside/clienthome";
 import Landing from "./landing.js";
 import Client from "./clientside/client";
 import ClientCalender from "./clientside/clientcalender";
@@ -17,7 +18,7 @@ import Trainer from "./trainerside/trainer";
 import TrainerCalender from "./trainerside/trainercalender";
 import TrainerProfile from "./trainerside/trainerprofile";
 import TrainerSearch from "./trainerside/trainersearch";
-
+import Logout from "./logout.js";
 
 function App() {
   return (

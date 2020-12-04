@@ -7,4 +7,9 @@ const trainersController = require("../../controllers/trainersController")
 router.route("/clients")
     .get(trainersController.clientList)
 
+    
+// ---------------GET LIST OF ALL TRAINERS---------------
+router.route("/list")
+    .get(trainersController.trainerList)
+
 module.exports = router;

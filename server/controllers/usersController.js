@@ -19,9 +19,9 @@ module.exports = {
                             firstName: req.body.firstName,
                             lastName: req.body.lastName,
                             UserId: UserId
-                        }).then(() => {
-                            res.send("Successfully added Trainer")
-                            console.log(req.body);
+                        }).then((data) => {
+                            res.json(data)
+
                         }).catch(function (err) {
                             res.status(401).json(err);
                         });

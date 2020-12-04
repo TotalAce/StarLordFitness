@@ -31,8 +31,6 @@ module.exports = function (sequelize, DataTypes) {
 
     Client.belongsTo(models.Trainer);
 
-    Client.hasMany(models.WorkoutPlan);
-
   };
 
   return Client;
