@@ -3,19 +3,15 @@ module.exports = function (sequelize, DataTypes) {
   const Note = sequelize.define("Note",
     {
       date: {
-        type: DataTypes.DATE,
+        type: DataTypes.DATEONLY,
         allowNull: false,
         unique: true
       },
       note: {
         type: DataTypes.STRING(500),
       },
-      completed:{
+      completed: {
         type: DataTypes.BOOLEAN,
-      },
-      ClientId: {
-        type: DataTypes.INTEGER,
-        allowNull: false,
       }
     },
     {
@@ -26,7 +22,7 @@ module.exports = function (sequelize, DataTypes) {
 
   Note.associate = function (models) {
 
-    Note.belongsTo(models.Client);
+    Note.belongsTo(models.User);
 
   };
 

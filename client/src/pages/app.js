@@ -7,7 +7,9 @@ import {
 import "./style.css";
 import Login from "./login.js";
 import Signup from "./signup.js";
+import ClientHome from "./clientside/clienthome";
 import Landing from "./landing.js";
+import Logout from "./logout.js";
 
 function App() {
   return (
@@ -18,6 +20,12 @@ function App() {
             </Route>
             <Route path="/signup">
                 <Signup />
+            </Route>
+            <Route path="/clienthome">
+                <ClientHome />
+            </Route>
+            <Route path="/logout">
+                <Logout />
             </Route>
             <Route path="/">
                 <Landing />
