@@ -1,18 +1,16 @@
 import React from "react";
-import { Button } from 'reactstrap';
 import { ListGroup, ListGroupItem } from 'reactstrap';
 
 
-function TrainerWorkout() {
 
-    const Example = (props) => {
+    const TrainerWorkout = (props) => {
     return (
         <div>
         <h3>Lower Body </h3>
-        <p> <strong> <code>.btn</code></strong>.</p>
+        <p> <strong> <code>Workouts to give your clients.</code></strong></p>
         <ListGroup>
-            <ListGroupItem active tag="a" href="#" action>Cras justo odio</ListGroupItem>
-            <ListGroupItem tag="a" href="#" action>Dapibus ac facilisis in</ListGroupItem>
+            <ListGroupItem active tag="a" href="#" action>Squats</ListGroupItem>
+            <ListGroupItem tag="a" href="#" action>Calf Raises</ListGroupItem>
             <ListGroupItem tag="a" href="#" action>Morbi leo risus</ListGroupItem>
             <ListGroupItem tag="a" href="#" action>Porta ac consectetur ac</ListGroupItem>
             <ListGroupItem disabled tag="a" href="#" action>Vestibulum at eros</ListGroupItem>
@@ -28,16 +26,6 @@ function TrainerWorkout() {
         </ListGroup>
         </div>
     );
-
-
-
-
-        return (
-            <>
-                <h1>TrainerWorkout</h1>
-            </>
-        )
-    }
-
+    } 
 
 export default TrainerWorkout;
