@@ -3,6 +3,7 @@ const express = require("express");
 const passport = require("../../config/passport");
 const router = express.Router();
 const usersController = require("../../controllers/usersController");
+const db = require("../../models");
 
 // If the user has valid login credentials, send them to the members page.
 router.post("/login", (req, res, next) => {
@@ -20,7 +21,31 @@ router.post("/login", (req, res, next) => {
 });
 
 router.get("/user", (req, res) => {
-  res.send(req.user)
+  if (!req.user) {
+    res.json({});
+  } else {
+    db.User.findOne({
+      where: { id: req.user.id },
+      attributes: {exclude: ['password', 'email']},
+      // include: [
+      //   {
+      //     model: db.Trainer
+      //   },
+      //   {
+      //     model: db.WorkoutPlan,
+      //   },
+      //   {
+      //     model: db.Client
+      //   }
+      // ],
+      // order: [
+      //   [db.Income, 'day', 'ASC'],
+      //   [db.Expense, 'day', 'ASC']
+      // ]
+    }).then(function (data) {
+      res.json(data);
+    });
+  }
 })
 
 // Route for signing up a user

@@ -5,8 +5,8 @@ function ClientHome() {
 
     useEffect((res, req) => {
         axios.get("/api/logout")
-            .then(() => {
-                console.log("Logged out");
+            .then((data) => {
+                console.log(data);
             })
             .catch(err => console.log(err))
     })

@@ -10,6 +10,8 @@ import Signup from "./signup.js";
 import ClientHome from "./clientside/clienthome";
 import Landing from "./landing.js";
 import Logout from "./logout.js";
+import Workout from "./clientside/workout";
+
 
 function App() {
   return (
@@ -26,6 +28,9 @@ function App() {
             </Route>
             <Route path="/logout">
                 <Logout />
+            </Route>
+            <Route path="/workouts">
+                <Workout />
             </Route>
             <Route path="/">
                 <Landing />
