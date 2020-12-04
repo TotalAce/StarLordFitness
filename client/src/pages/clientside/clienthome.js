@@ -18,8 +18,9 @@ function ClientHome() {
     useEffect(() => {
         axios.get("/api/user")
             .then((res) => {
+                console.log(res);
                 console.log(res.data);
-                if (!res.data) {
+                if (res.data === "") {
                     window.location.href = "/login"
                 }
                 setId(res.data.id)

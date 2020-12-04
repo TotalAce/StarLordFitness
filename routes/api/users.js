@@ -22,7 +22,7 @@ router.post("/login", (req, res, next) => {
 
 router.get("/user", (req, res) => {
   if (!req.user) {
-    res.json({});
+    res.json();
   } else {
     db.User.findOne({
       where: { id: req.user.id },
