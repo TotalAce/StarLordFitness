@@ -19,10 +19,10 @@ function ClientHome() {
         axios.get("/api/user")
             .then((res) => {
                 console.log(res.data);
-                setId(res.data.id)
                 if (!res.data) {
                     window.location.href = "/login"
                 }
+                setId(res.data.id)
                 loadWorkouts()
             })
             .catch(err => console.log(err));
@@ -87,8 +87,8 @@ function ClientHome() {
             <NavBar
                 name1="Workouts"
                 name2="Trainer"
-                to1=""
-                to2=""
+                to1="/workouts"
+                to2="/trainer"
             />
 
             <div className="container col-12 text-center">

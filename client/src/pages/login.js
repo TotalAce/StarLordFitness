@@ -35,6 +35,7 @@ function Login() {
             })
             .catch(function (error) {
                 console.log(error);
+                alert("Wrong username and/or password")
             });
     }
 
