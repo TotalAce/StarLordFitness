@@ -2,7 +2,7 @@
   "name": "machlifitness",
   "version": "1.0.0",
   "description": "Fitness App for Trainers to reach their clients",
-  "main": "index.js",
+  "main": "./server/server.js",
   "scripts": {
     "start": "cd ./server && npm run start"
   },
