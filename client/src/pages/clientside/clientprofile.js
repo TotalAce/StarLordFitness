@@ -1,12 +1,24 @@
 import React from "react";
+import NavBar from "../../components/Navbar"
 
 function ClientProfile() {
 
 
     return (
-        <>
-            <h1>ClientProfile</h1>
-        </>
+        <div className="container">
+            <br></br>
+            <NavBar />
+            <br></br>
+            <h2 className="d-flex justify-content-center"> Client Name</h2>
+            <br></br>
+            <div className="img-container d-flex justify-content-center">
+                <p>Insert Client Image</p>
+            </div>
+            <br></br>
+            <div className="d-flex justify-content-center">
+                <p>Client Summary</p>
+            </div>
+        </div>
     )
 }
 
