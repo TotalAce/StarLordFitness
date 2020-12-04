@@ -1,0 +1,23 @@
+{
+  "name": "machlifitness",
+  "version": "1.0.0",
+  "description": "Fitness App for Trainers to reach their clients",
+  "main": "index.js",
+  "scripts": {
+    "start": "cd ./server && npm run start"
+  },
+  "engines": {
+    "node": "10.x"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TotalAce/StarLordFitness.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TotalAce/StarLordFitness/issues"
+  },
+  "homepage": "https://github.com/TotalAce/StarLordFitness#readme"
+}
