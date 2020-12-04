@@ -23,7 +23,7 @@ app.use(passport.session());
 app.use(routes);
 
 // Start the API server
-db.sequelize.sync({ alter: true }).then(function () {
+db.sequelize.sync({}).then(function () {
   app.listen(PORT, function () {
     console.log(`🌎  ==> API Server now listening on http://localhost:${PORT}`);
   });

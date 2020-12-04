@@ -8,12 +8,12 @@ const usersController = require("../../controllers/usersController");
 router.post("/login", (req, res, next) => {
   passport.authenticate("local", (err, user, info) => {
     if (err) throw err;
-    if (!user) res.send("No User Exists");
+    if (!user) res.status(401).json(err);
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
         res.send("Successfully Authenticated");
-        console.log(req.user);
+        // console.log(req.user);
       });
     }
   })(req, res, next);
