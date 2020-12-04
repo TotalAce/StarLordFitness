@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
+// import { Redirect } from "react-router-dom";
 
 function Login() {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    const [success, setSuccess] = useState(false)
+    // const [success, setSuccess] = useState(false)
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
@@ -22,7 +22,15 @@ function Login() {
                 console.log(response.status)
                 if (response.status === 200) {
                     console.log(response);
-                    setSuccess(true);
+                    // setSuccess(true);
+                    // window.location.href = "/login"
+                    axios.get("/api/user")
+                        .then((res) => {
+                            console.log(res.data.isTrainer);
+                            (res.data.isTrainer === false ?
+                                window.location.href = "/clienthome" :
+                                window.location.href = "/trainer")
+                        })
                 }
             })
             .catch(function (error) {
@@ -30,31 +38,25 @@ function Login() {
             });
     }
 
-    // if (success) {
-    //     return <Redirect to="/" />;
-    // }
-
-    // console.log(success);
-
     return (
         <>
-            {(success ? <Redirect to="/clienthome" /> :
-                <form onSubmit={handleSubmit}>
-                    <label htmlFor="email">Username:</label><br />
-                    <input
-                        type="text"
-                        value={userName}
-                        onChange={event => setUserName(event.target.value)}
-                    /><br />
-                    <label htmlFor="password">Password:</label><br />
-                    <input
-                        type="password"
-                        value={password}
-                        onChange={event => setPassword(event.target.value)}
-                    /><br />
-                    <input type="submit" value="Log In" />
-                </form>
-            )}
+            {/* {(success ? <Redirect to="/clienthome" /> : */}
+            <form onSubmit={handleSubmit}>
+                <label htmlFor="email">Username:</label><br />
+                <input
+                    type="text"
+                    value={userName}
+                    onChange={event => setUserName(event.target.value)}
+                /><br />
+                <label htmlFor="password">Password:</label><br />
+                <input
+                    type="password"
+                    value={password}
+                    onChange={event => setPassword(event.target.value)}
+                /><br />
+                <input type="submit" value="Log In" />
+            </form>
+            {/* )} */}
         </>
     );
 }

@@ -10,6 +10,8 @@ function ClientHome() {
     const [note, setNote] = useState("")
     const [completed, setCompleted] = useState(false)
     const [workout, setWorkout] = useState([])
+    const [id, setId] = useState(1)
+    const [submitted, setSubmitted] = useState(false)
 
     const date = moment().format('YYYY-MM-DD')
 
@@ -17,6 +19,7 @@ function ClientHome() {
         axios.get("/api/user")
             .then((res) => {
                 console.log(res.data);
+                setId(res.data.id)
                 if (!res.data) {
                     window.location.href = "/login"
                 }
@@ -25,7 +28,7 @@ function ClientHome() {
             .catch(err => console.log(err));
     }, [])
 
-    console.log(workout);
+    // console.log(workout);
 
     function loadWorkouts() {
         API.getClientWorkoutPlan()
@@ -42,7 +45,7 @@ function ClientHome() {
         setNote(value)
     };
 
-    console.log(note);
+    // console.log(note);
 
     function handleFormSubmit(event) {
         event.preventDefault();
@@ -50,15 +53,21 @@ function ClientHome() {
         API.addNotes({
             date: date,
             note: note,
-            completed: completed
+            completed: completed,
+            UserId: id
         })
-            .then((res) => console.log(res))
-            .catch(err => console.log(err))
+            .then((res) => {
+                alert("Workout Submitted!")
+                setSubmitted(true)
+                console.log(res)
+            })
+            .catch(err => {
+                console.log(err)
+            })
 
     };
 
-    function handleButtonClick(event) {
-
+    function handleButtonClick() {
         if (completed === false) {
             setCompleted(true)
         } else if (completed === true) {
@@ -66,11 +75,12 @@ function ClientHome() {
         }
     }
 
-    console.log(completed);
-    console.log(workout);
+    // console.log(submitted);
+    // console.log(completed);
+    // console.log(workout);
 
     const todaysWorkout = workout.filter(workout => workout.date === date)
-    console.log(todaysWorkout);
+    // console.log(todaysWorkout);
 
     return (
         <>
@@ -101,7 +111,7 @@ function ClientHome() {
                 </div>
 
                 <div className="row justify-content-center">
-                    <button type="button" className="btn btn-primary" onClick={handleFormSubmit}>Submit</button>
+                    <button type="button" className="btn btn-primary" onClick={handleFormSubmit} disabled={submitted}>Submit</button>
                 </div>
             </div>
         </>
