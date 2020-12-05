@@ -10,6 +10,7 @@
     "axios": "^0.21.0",
     "bootstrap": "^4.5.3",
     "daypilot-pro-react": "https://npm.daypilot.org/daypilot-pro-react/trial/2020.4.4788.tar.gz",
+    "http-proxy-middleware": "^1.0.6",
     "moment": "^2.29.1",
     "react": "^17.0.1",
     "react-dom": "^17.0.1",
