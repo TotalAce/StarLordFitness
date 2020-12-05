@@ -4,6 +4,9 @@ const router = express.Router();
 const clientsController = require("../../controllers/clientsController")
 const notesController = require("../../controllers/notesController")
 
+router.route("/signup")
+    .post(clientsController.create)
+
 // ---------------CHOOSE A TRAINER TO WORK WITH---------------
 router.route("/chooseTrainer")
     .put(clientsController.updateTrainer)

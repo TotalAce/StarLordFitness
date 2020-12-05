@@ -35,6 +35,20 @@ module.exports = {
             .then(function (data) {
                 res.json(data);
             });
+    },
+
+    create: (req, res) => {
+        db.Client.create({
+            username: req.body.username,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            UserId: req.body.UserId,
+        }).then((data) => {
+            res.send(data)
+            console.log(data2);
+        }).catch(function (err) {
+            res.status(401).json(err);
+        });
     }
 
 }

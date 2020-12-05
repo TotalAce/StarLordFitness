@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function Landing() {
     return (
-        <div className="container" style={{ padding: "15%" }}>
+        <div className="container" style={{ padding: "10%" }}>
             <h1 style={{ fontSize: "100px" }}>Machli Fitness</h1>
             <h3>Earn Your Stripes!</h3>
 

@@ -38,7 +38,7 @@ function Login() {
     }
 
     return (
-        <div className="container" style={{ padding: "15%" }}>
+        <div className="container" style={{ padding: "10%" }}>
             <h1 style={{ fontSize: "100px" }}>Machli Fitness</h1>
             <h1>Login</h1>
 

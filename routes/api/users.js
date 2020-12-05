@@ -1,6 +1,7 @@
 // const db = require("../../models");
 const express = require("express");
 const passport = require("../../config/passport");
+const trainersController = require("../../controllers/trainersController");
 const router = express.Router();
 const usersController = require("../../controllers/usersController");
 const db = require("../../models");
