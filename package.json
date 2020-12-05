@@ -8,7 +8,6 @@
     "start:prod": "cd ./server && npm run start:prod",
     "start:dev": "cd ./server && npm run start:dev",
     "client": "cd ./server && npm run client",
-    "seed": "cd ./server && npm run seed",
     "install": "cd ./server && npm run install",
     "build": "cd ./server && npm run build",
     "heroku-postbuild": "cd ./server && npm run heroku-postbuild"
