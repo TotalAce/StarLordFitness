@@ -1,36 +1,27 @@
 {
-  "name": "starlordfitness",
+  "name": "StarLordFitness",
   "version": "1.0.0",
-  "description": "",
-  "main": "server.js",
+  "description": "Fitness App for Trainers to reach their clients",
+  "main": "index.js",
   "scripts": {
-    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
-    "start:prod": "node server.js",
-    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
-    "client": "cd ./client && npm run start",
-    "seed": "node scripts/seedDB.js",
-    "install": "cd ./client && npm install",
-    "build": "cd ./client && npm run build",
-    "heroku-postbuild": "npm run build"
+    "start": "cd ./server && npm run start",
+    "start:prod": "cd ./server && npm run start:prod",
+    "start:dev": "cd ./server && npm run start:dev",
+    "client": "cd ./server && npm run client",
+    "seed": "cd ./server && npm run seed",
+    "install": "cd ./server && npm run install",
+    "build": "cd ./server && npm run build",
+    "heroku-postbuild": "cd ./server && npm run heroku-postbuild"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TotalAce/StarLordFitness.git"
+  },
+  "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^4.1.0",
-    "nodemon": "^1.18.7"
+  "bugs": {
+    "url": "https://github.com/TotalAce/StarLordFitness/issues"
   },
-  "dependencies": {
-    "axios": "^0.18.0",
-    "bcryptjs": "^2.4.3",
-    "body-parser": "^1.19.0",
-    "cookie-parser": "^1.4.5",
-    "cors": "^2.8.5",
-    "express": "^4.16.3",
-    "express-session": "^1.17.1",
-    "if-env": "^1.0.4",
-    "mysql2": "^2.2.5",
-    "passport": "^0.4.1",
-    "passport-local": "^1.0.0",
-    "sequelize": "^6.3.5"
-  }
+  "homepage": "https://github.com/TotalAce/StarLordFitness#readme"
 }

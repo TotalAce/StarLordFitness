@@ -84,12 +84,12 @@ function ClientHome() {
     // console.log(todaysWorkout);
 
     return (
-        <>
+        <div className="container">
             <NavBar
-                name1="Workouts"
+                name1="clientcalender"
                 name2="Trainer"
-                to1="/workouts"
-                to2="/trainer"
+                to1="/clientcalender"
+                to2="/trainerprofile"
             />
 
             <div className="container col-12 text-center">
@@ -115,7 +115,7 @@ function ClientHome() {
                     <button type="button" className="btn btn-primary" onClick={handleFormSubmit} disabled={submitted}>Submit</button>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 

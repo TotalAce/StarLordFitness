@@ -47,6 +47,10 @@ function Signup() {
     }
 
     return (
+        <div className="container" style={{textAlign:"center"}}>
+        <h1>Machli Fitness</h1>
+        <h1>Signup</h1>
+        <br/>
         <form onSubmit={handleSubmit}>
             <input
                 type="checkbox"
@@ -91,6 +95,10 @@ function Signup() {
                 /><br/>
             <input type="submit" value="Log In"/>
         </form>
+
+        <br/>
+        <h2><a href="/login">I have a login</a></h2>
+        </div>
     );
 }
 

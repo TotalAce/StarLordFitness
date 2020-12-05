@@ -58,7 +58,7 @@ router.get('/logout', function (req, res) {
     if (err) {
       return next(err);
     }
-    return res.send({ success: true });
+    return res.status(205).json(err);
   });
 });
 

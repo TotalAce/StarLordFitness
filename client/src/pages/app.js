@@ -6,10 +6,9 @@ import Logout from "./logout.js";
 import Signup from "./signup.js";
 import ClientHome from "./clientside/clienthome";
 import Landing from "./landing.js";
-import Client from "./clientside/client";
 import ClientCalender from "./clientside/clientcalender";
 import ClientProfile from "./clientside/clientprofile";
-import ClientWorkout from "./clientside/workout";
+import Workout from "./trainerside/workout";
 import Trainer from "./trainerside/trainer";
 import TrainerCalender from "./trainerside/trainercalender";
 import TrainerProfile from "./trainerside/trainerprofile";
@@ -25,9 +24,6 @@ function App() {
                 <Route path="/signup">
                     <Signup />
                 </Route>
-                <Route path="/client">
-                    <Client />
-                </Route>
                 <Route path="/clientcalender">
                     <ClientCalender />
                 </Route>
@@ -38,7 +34,7 @@ function App() {
                     <ClientProfile />
                 </Route>
                 <Route path="/workouts">
-                    <ClientWorkout />
+                    <Workout />
                 </Route>
                 <Route path="/trainer">
                     <Trainer />

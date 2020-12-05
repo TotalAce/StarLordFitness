@@ -35,12 +35,15 @@ function Login() {
             })
             .catch(function (error) {
                 console.log(error);
-                alert("Wrong username and/or password")
+                alert("Wrong username and password combination")
             });
     }
 
     return (
-        <>
+        <div className="container" style={{textAlign:"center"}}>
+            <h1>Machli Fitness</h1>
+            <h1>Login</h1>
+
             {/* {(success ? <Redirect to="/clienthome" /> : */}
             <form onSubmit={handleSubmit}>
                 <label htmlFor="email">Username:</label><br />
@@ -58,7 +61,7 @@ function Login() {
                 <input type="submit" value="Log In" />
             </form>
             {/* )} */}
-        </>
+        </div>
     );
 }
 
