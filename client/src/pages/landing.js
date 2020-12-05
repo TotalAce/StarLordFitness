@@ -1,16 +1,19 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-function Login() {
+function Landing() {
     return (
-        <div>
-            <h1>Machli Fitness</h1>
-            <p>Earn Your Stripes!</p>
-            <Link to="/login">Log In</Link>
-            <br/>
-            <Link to="/signup">Sign Up</Link>
+        <div className="container" style={{ padding: "15%" }}>
+            <h1 style={{ fontSize: "100px" }}>Machli Fitness</h1>
+            <h3>Earn Your Stripes!</h3>
+
+            <div className="row justify-content-center">
+                <Link to="/login"><button type="button" className="btn btn-primary" style={{ margin: "5px" }}>Login</button></Link>
+                <br />
+                <Link to="/signup"><button type="button" className="btn btn-secondary" style={{ margin: "5px" }}>Signup</button></Link>
+            </div>
         </div>
     );
 }
 
-export default Login;
+export default Landing;

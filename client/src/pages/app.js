@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import "./style.css";
 import Login from "./login.js";
 import Logout from "./logout.js";
 import Signup from "./signup.js";

@@ -26,7 +26,7 @@ router.get("/user", (req, res) => {
   } else {
     db.User.findOne({
       where: { id: req.user.id },
-      attributes: {exclude: ['password', 'email']},
+      attributes: { exclude: ['password', 'email'] },
       // include: [
       //   {
       //     model: db.Trainer
