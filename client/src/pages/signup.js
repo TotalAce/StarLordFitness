@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Redirect } from "react-router-dom";
 
 function Signup() {
     const [userName, setUserName] = useState("");
@@ -10,7 +9,6 @@ function Signup() {
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
     const [isTrainer, setTrainer] = useState();
-    let success = false;
 
     function validateEmail(email) {
         var re = /\S+@\S+\.\S+/;
@@ -19,7 +17,7 @@ function Signup() {
 
     // console.log(validateEmail(email))
 
-    const handleSubmit = (evt) => {
+    async function handleSubmit(evt) {
         evt.preventDefault();
 
         if (!userName || !password || !firstName || !lastName || !email || isTrainer === undefined) {
@@ -30,32 +28,57 @@ function Signup() {
             return alert("Password does not match password confirmation.")
         }
 
-        axios.post("/api/signup", {
-            username: userName,
-            email: email,
-            password: password,
-            isTrainer: isTrainer,
-            firstName: firstName,
-            lastName: lastName
-        })
-            .then(function (res) {
-                console.log(res)
-                alert(`Field ${res.data.errors[0].message}`)
-
-                // if (response.status === 200) {
-                //     success = true;
-                // }
+        await axios.post("/api/signup",
+            {
+                username: userName,
+                email: email,
+                password: password,
+                isTrainer: isTrainer,
+                firstName: firstName,
+                lastName: lastName
             })
-            .catch(function (err) {
-                // console.log(err);
-                if (err !== undefined) {
-                    alert(`Field ${err.data.errors[0].message}`)
-                }
-            });
-    }
+            .then(function (res) {
+                console.log(res);
+                console.log(res.data.hasOwnProperty('errors'));
+                console.log("is trainer?", res.data.isTrainer);
 
-    if (success) {
-        return <Redirect to="/" />;
+                if (res.data.hasOwnProperty('errors') === true) {
+                    alert(`Field ${res.data.errors[0].message}`)
+                }
+
+                (res.data.isTrainer === true ? signupTrainer() : signupClient())
+
+                async function signupTrainer() {
+                    await axios.post("/api/trainer/signup", {
+                        username: userName,
+                        firstName: firstName,
+                        lastName: lastName,
+                        UserId: res.data.id
+                    })
+                        .then(res => {
+                            console.log(res);
+                            alert(`User ${userName} has been created. Please login with this information`)
+                            window.location.href = "/login"
+                        })
+                        .catch(err => console.log(err))
+                }
+                async function signupClient() {
+                    await axios.post("/api/client/signup", {
+                        username: userName,
+                        firstName: firstName,
+                        lastName: lastName,
+                        UserId: res.data.id
+                    })
+                        .then(res => {
+                            console.log(res);
+                            alert(`User ${userName} has been created. Please login with this information`)
+                            window.location.href = "/login"
+                        })
+                        .catch(err => console.log(err))
+                }
+
+            })
+            .catch(err => console.log(err))
     }
 
     return (

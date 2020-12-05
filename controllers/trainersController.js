@@ -30,4 +30,17 @@ module.exports = {
             })
     },
 
+    create: (req, res) => {
+        db.Trainer.create({
+            username: req.body.username,
+            firstName: req.body.firstName,
+            lastName: req.body.lastName,
+            UserId: req.body.UserId,
+        }).then((data) => {
+            res.send(data)
+            console.log(data2);
+        }).catch(function (err) {
+            res.status(401).json(err);
+        });
+    }
 }

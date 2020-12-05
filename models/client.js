@@ -18,6 +18,10 @@ module.exports = function (sequelize, DataTypes) {
       about: {
         type: DataTypes.STRING,
       },
+      UserId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     },
     {
       freezeTableName: true,
