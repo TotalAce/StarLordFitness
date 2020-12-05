@@ -1,14 +1,11 @@
 import React from "react";
-import Navbar from "../../components/Navbar"
+import { TrainerNavBar } from "../../components/Navbar"
 function Trainer() {
 
 
     return (
         <div className="container">
-            <Navbar
-                name1="trainercalender"
-                to1="/trainercalender"
-            />
+            <TrainerNavBar />
             <h1 className="row justify-content-center">Trainer Home</h1>
 
             <div className="row">

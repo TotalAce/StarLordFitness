@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "../../components/Navbar"
+import { ClientNavBar } from "../../components/Navbar"
 import API from "../../utils/API"
 import axios from "axios"
 import moment from "moment"
@@ -84,13 +84,8 @@ function ClientHome() {
     // console.log(todaysWorkout);
 
     return (
-        <div className="container">
-            <NavBar
-                name1="clientcalender"
-                name2="Trainer"
-                to1="/clientcalender"
-                to2="/trainerprofile"
-            />
+        <>
+            <ClientNavBar />
 
             <div className="container col-12 text-center">
                 <h1 className="row justify-content-center">{moment().format('l')}</h1>
@@ -115,7 +110,7 @@ function ClientHome() {
                     <button type="button" className="btn btn-primary" onClick={handleFormSubmit} disabled={submitted}>Submit</button>
                 </div>
             </div>
-        </div>
+        </>
     )
 }
 

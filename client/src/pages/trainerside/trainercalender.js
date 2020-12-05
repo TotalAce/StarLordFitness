@@ -141,7 +141,7 @@
 
 
 import React from "react";
-import Navbar from "../../components/Navbar"
+import { TrainerNavBar } from "../../components/Navbar"
 
 function TrainerCalendar() {
 
@@ -149,10 +149,7 @@ function TrainerCalendar() {
   return (
     <>
       <div className="container">
-        <Navbar 
-        name1="home"
-        to1="/trainer"
-        />
+        <TrainerNavBar />
         <h1 className="row justify-content-center">Trainer Calendar</h1>
 
 
@@ -180,7 +177,7 @@ function TrainerCalendar() {
               <li class="list-group-item">Exercise 2</li>
             </ul>
           </div>
-          
+
           <div class="card" style={{ width: "18rem" }}>
             <ul class="list-group list-group-flush">
               <li class="list-group-item">12/7/2020</li>

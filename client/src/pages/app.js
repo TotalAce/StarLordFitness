@@ -1,6 +1,5 @@
 import React from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import "./style.css";
 import Login from "./login.js";
 import Logout from "./logout.js";
 import Signup from "./signup.js";
@@ -12,7 +11,7 @@ import Workout from "./trainerside/workout";
 import Trainer from "./trainerside/trainer";
 import TrainerCalender from "./trainerside/trainercalender";
 import TrainerProfile from "./trainerside/trainerprofile";
-import TrainerSearch from "./trainerside/trainersearch";
+import TrainerSearch from "./clientside/trainersearch";
 
 function App() {
     return (

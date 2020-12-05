@@ -1,6 +1,6 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import axios from 'axios';
-import NavBar from "../../components/Navbar";
+import { TrainerNavBar } from "../../components/Navbar";
 
 function TrainerProfile() {
 
@@ -19,7 +19,7 @@ function TrainerProfile() {
     return (
         <div className="container">
             <br></br>
-            <NavBar />
+            <TrainerNavBar />
             <br></br>
             <h2 className="d-flex justify-content-center"> Trainer Name</h2>
             <br></br>

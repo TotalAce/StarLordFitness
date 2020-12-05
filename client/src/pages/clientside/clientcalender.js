@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
 import axios from 'axios';
-import Navbar from "../../components/Navbar"
+import {ClientNavBar} from "../../components/Navbar"
 
 function ClientCalendar() {
 
@@ -19,10 +19,7 @@ function ClientCalendar() {
     return (
         <>
             <div className="container">
-                <Navbar
-                    name1="home"
-                    to1="/trainer"
-                />
+                <ClientNavBar />
                 <h1 className="row justify-content-center">Client Calendar</h1>
 
 

@@ -1,6 +1,6 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import axios from 'axios';
-import NavBar from "../../components/Navbar"
+import { ClientNavBar } from "../../components/Navbar"
 
 function ClientProfile() {
 
@@ -16,11 +16,11 @@ function ClientProfile() {
             })
             .catch(err => console.log(err));
     }, [])
-    
+
     return (
         <div className="container">
             <br></br>
-            <NavBar />
+            <ClientNavBar />
             <br></br>
             <h2 className="d-flex justify-content-center"> Client Name</h2>
             <br></br>
