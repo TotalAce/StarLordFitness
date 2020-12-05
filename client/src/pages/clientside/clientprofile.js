@@ -1,13 +1,26 @@
-import React from "react";
-import NavBar from "../../components/Navbar"
+import React, { useEffect } from "react";
+import axios from 'axios';
+import { ClientNavBar } from "../../components/Navbar"
 
 function ClientProfile() {
 
+    useEffect(() => {
+        axios.get("/api/user")
+            .then((res) => {
+                console.log(res);
+                console.log(res.data);
+                if (res.data === "") {
+                    window.location.href = "/login"
+                }
+
+            })
+            .catch(err => console.log(err));
+    }, [])
 
     return (
         <div className="container">
             <br></br>
-            <NavBar />
+            <ClientNavBar />
             <br></br>
             <h2 className="d-flex justify-content-center"> Client Name</h2>
             <br></br>

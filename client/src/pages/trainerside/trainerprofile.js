@@ -1,13 +1,25 @@
-import React from "react";
-import NavBar from "../../components/Navbar";
+import React, { useEffect } from "react";
+import axios from 'axios';
+import { TrainerNavBar } from "../../components/Navbar";
 
 function TrainerProfile() {
 
+    useEffect(() => {
+        axios.get("/api/user")
+            .then((res) => {
+                console.log(res);
+                console.log(res.data);
+                if (res.data === "") {
+                    window.location.href = "/login"
+                }
+            })
+            .catch(err => console.log(err));
+    }, [])
 
     return (
         <div className="container">
             <br></br>
-            <NavBar />
+            <TrainerNavBar />
             <br></br>
             <h2 className="d-flex justify-content-center"> Trainer Name</h2>
             <br></br>

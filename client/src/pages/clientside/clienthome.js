@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import NavBar from "../../components/Navbar"
+import { ClientNavBar } from "../../components/Navbar"
 import API from "../../utils/API"
 import axios from "axios"
 import moment from "moment"
@@ -18,8 +18,9 @@ function ClientHome() {
     useEffect(() => {
         axios.get("/api/user")
             .then((res) => {
+                console.log(res);
                 console.log(res.data);
-                if (!res.data) {
+                if (res.data === "") {
                     window.location.href = "/login"
                 }
                 setId(res.data.id)
@@ -84,12 +85,7 @@ function ClientHome() {
 
     return (
         <>
-            <NavBar
-                name1="Workouts"
-                name2="Trainer"
-                to1="/workouts"
-                to2="/trainer"
-            />
+            <ClientNavBar />
 
             <div className="container col-12 text-center">
                 <h1 className="row justify-content-center">{moment().format('l')}</h1>

@@ -5,7 +5,6 @@ import axios from "axios";
 function Login() {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-    // const [success, setSuccess] = useState(false)
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
@@ -22,8 +21,7 @@ function Login() {
                 console.log(response.status)
                 if (response.status === 200) {
                     console.log(response);
-                    // setSuccess(true);
-                    // window.location.href = "/login"
+
                     axios.get("/api/user")
                         .then((res) => {
                             console.log(res.data.isTrainer);
@@ -35,30 +33,41 @@ function Login() {
             })
             .catch(function (error) {
                 console.log(error);
-                alert("Wrong username and/or password")
+                alert("Wrong username and password combination")
             });
     }
 
     return (
-        <>
-            {/* {(success ? <Redirect to="/clienthome" /> : */}
+        <div className="container" style={{ padding: "15%" }}>
+            <h1 style={{ fontSize: "100px" }}>Machli Fitness</h1>
+            <h1>Login</h1>
+
             <form onSubmit={handleSubmit}>
-                <label htmlFor="email">Username:</label><br />
                 <input
+                    autoFocus
+                    style={{ margin: "5px 5px 0 5px" }}
                     type="text"
                     value={userName}
+                    placeholder="Username"
                     onChange={event => setUserName(event.target.value)}
-                /><br />
-                <label htmlFor="password">Password:</label><br />
+                />
+                <br />
                 <input
+                    style={{ margin: "5px" }}
                     type="password"
                     value={password}
+                    placeholder="Password"
                     onChange={event => setPassword(event.target.value)}
                 /><br />
                 <input type="submit" value="Log In" />
             </form>
-            {/* )} */}
-        </>
+
+            <br />
+            <h6>
+                <a href="/signup">I don't have a login</a>
+            </h6>
+
+        </div>
     );
 }
 
