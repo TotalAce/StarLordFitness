@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
+import { withRouter } from "react-router-dom"
 import { ClientNavBar } from "../../components/Navbar"
 import API from "../../utils/API"
-import axios from "axios"
 import moment from "moment"
 // import { Route, Redirect } from "react-router-dom";
 
@@ -16,17 +16,8 @@ function ClientHome() {
     const date = moment().format('YYYY-MM-DD')
 
     useEffect(() => {
-        axios.get("/api/user")
-            .then((res) => {
-                console.log(res);
-                console.log(res.data);
-                if (res.data === "") {
-                    window.location.href = "/login"
-                }
-                setId(res.data.id)
-                loadWorkouts()
-            })
-            .catch(err => console.log(err));
+        // API.checkLoggedIn()
+        loadWorkouts()
     }, [])
 
     // console.log(workout);
@@ -89,6 +80,8 @@ function ClientHome() {
 
             <div className="container col-12 text-center">
                 <h1 className="row justify-content-center">{moment().format('l')}</h1>
+                <br />
+                <h1 className="row justify-content-center">Welcome back { }</h1>
                 <h1 className="row justify-content-center">Workout of the Day</h1>
 
                 <ul className="container list-group col-6 text-center">
@@ -115,4 +108,4 @@ function ClientHome() {
 }
 
 
-export default ClientHome;
+export default withRouter(ClientHome);

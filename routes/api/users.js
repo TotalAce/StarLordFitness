@@ -14,6 +14,7 @@ router.post("/login", (req, res, next) => {
     else {
       req.logIn(user, (err) => {
         if (err) throw err;
+        // res.send(req.user)
         res.send("Successfully Authenticated");
         // console.log(req.user);
       });
@@ -21,24 +22,24 @@ router.post("/login", (req, res, next) => {
   })(req, res, next);
 });
 
-router.get("/user", (req, res) => {
+router.get("/user", (req, res, next) => {
   if (!req.user) {
     res.json();
   } else {
     db.User.findOne({
       where: { id: req.user.id },
       attributes: { exclude: ['password', 'email'] },
-      // include: [
-      //   {
-      //     model: db.Trainer
-      //   },
-      //   {
-      //     model: db.WorkoutPlan,
-      //   },
-      //   {
-      //     model: db.Client
-      //   }
-      // ],
+      include: [
+        {
+          model: db.Trainer
+        },
+        {
+          model: db.WorkoutPlan,
+        },
+        {
+          model: db.Client
+        }
+      ],
       // order: [
       //   [db.Income, 'day', 'ASC'],
       //   [db.Expense, 'day', 'ASC']
@@ -47,6 +48,7 @@ router.get("/user", (req, res) => {
       res.json(data);
     });
   }
+  (req, res, next)
 })
 
 // Route for signing up a user

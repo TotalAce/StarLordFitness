@@ -12,7 +12,11 @@ module.exports = function (sequelize, DataTypes) {
       },
       completed: {
         type: DataTypes.BOOLEAN,
-      }
+      },
+      UserId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     },
     {
       freezeTableName: true,

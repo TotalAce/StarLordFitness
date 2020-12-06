@@ -57,7 +57,7 @@ function Signup() {
                     })
                         .then(res => {
                             console.log(res);
-                            alert(`User ${userName} has been created. Please login with this information`)
+                            alert(`Trainer profile ${userName} has been created. Please login with this information`)
                             window.location.href = "/login"
                         })
                         .catch(err => console.log(err))
@@ -71,7 +71,7 @@ function Signup() {
                     })
                         .then(res => {
                             console.log(res);
-                            alert(`User ${userName} has been created. Please login with this information`)
+                            alert(`Client profile ${userName} has been created. Please login with this information`)
                             window.location.href = "/login"
                         })
                         .catch(err => console.log(err))

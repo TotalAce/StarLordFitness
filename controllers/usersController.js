@@ -5,7 +5,9 @@ function create(req, res) {
         username: req.body.username,
         email: req.body.email,
         password: req.body.password,
-        isTrainer: req.body.isTrainer
+        isTrainer: req.body.isTrainer,
+        firstName: req.body.firstName,
+        lastName: req.body.lastName,
     }).then(function (data) {
         res.send(data)
         // console.log(data);
