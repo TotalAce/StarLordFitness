@@ -3,16 +3,16 @@ const db = require("../models");
 module.exports = {
 
     getWorkoutPlan: (req, res) => {
-        db.User.findAll(
+        db.WorkoutPlan.findAll(
             {
-                where: { id: req.user.id },
-                include: [db.WorkoutPlan]
+                where: { UserId: req.params.id },
+                // include: [db.WorkoutPlan]
                 // [{
                 //     model: db.Client,
                 //     include: [db.WorkoutPlan]
                 // }]
             })
-            .then((data) => res.json(data[0].WorkoutPlans))
+            .then((data) => res.send(data))
             .catch((err) => console.log(err))
     },
 

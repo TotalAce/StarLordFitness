@@ -1,8 +1,10 @@
 import React, { useEffect } from "react";
+import { Redirect } from "react-router-dom"
 import axios from 'axios';
 import { ClientNavBar } from "../../components/Navbar"
 
 function ClientProfile() {
+    const { isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user"))
 
     useEffect(() => {
         axios.get("/api/user")
@@ -18,20 +20,28 @@ function ClientProfile() {
     }, [])
 
     return (
-        <div className="container">
-            <br></br>
-            <ClientNavBar />
-            <br></br>
-            <h2 className="d-flex justify-content-center"> Client Name</h2>
-            <br></br>
-            <div className="img-container d-flex justify-content-center">
-                <p>Insert Client Image</p>
-            </div>
-            <br></br>
-            <div className="d-flex justify-content-center">
-                <p>Client Summary</p>
-            </div>
-        </div>
+        <>
+            {(isLoggedIn === false ?
+                <Redirect to="/login" /> :
+                (isTrainer ? <Redirect to="/unauthorized" /> :
+
+                    <div className="container">
+                        <br></br>
+                        <ClientNavBar />
+                        <br></br>
+                        <h2 className="d-flex justify-content-center"> Client Name</h2>
+                        <br></br>
+                        <div className="img-container d-flex justify-content-center">
+                            <p>Insert Client Image</p>
+                        </div>
+                        <br></br>
+                        <div className="d-flex justify-content-center">
+                            <p>Client Summary</p>
+                        </div>
+                    </div>
+                )
+            )}
+        </>
     )
 }
 

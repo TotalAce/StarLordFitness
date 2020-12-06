@@ -1,22 +1,21 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./style.css";
-import { TrainerProtectedRoutes, ClientProtectedRoutes } from "./ProtectedRoutes"
-import { Unauthorized } from './misc'
+// import { TrainerProtectedRoutes, ClientProtectedRoutes } from "./ProtectedRoutes"
+import { Unauthorized, NoMatch, Logout } from './misc'
 import Login from "./login.js";
-import Logout from "./logout.js";
 import Signup from "./signup.js";
 import ClientHome from "./clientside/clienthome";
 import Landing from "./landing.js";
-import ClientCalender from "./clientside/clientcalender";
+import ClientCalendar from "./clientside/clientcalendar";
 import ClientProfile from "./clientside/clientprofile";
 import Workout from "./trainerside/workout";
 import Trainer from "./trainerside/trainer";
-import TrainerCalender from "./trainerside/trainercalender";
+import TrainerCalendar from "./trainerside/trainercalendar";
 import TrainerProfile from "./trainerside/trainerprofile";
 import TrainerSearch from "./clientside/trainersearch";
-import API from '../utils/API'
 import LoggedInContext from '../utils/loggedInContext'
+// import API from '../utils/API'
 
 
 function App() {
@@ -30,98 +29,57 @@ function App() {
         isLoggedIn: null,
     })
 
-    // useEffect(() => {
-    //     API.checkLoggedIn()
-    //         .then(res => {
-    //             // console.log(res);
-
-    //             if (res.data === "") {
-    //                 setLoggedInState({ isLoggedIn: false })
-    //             }
-    //             else {
-    //                 setLoggedInState({
-    //                     id: res.data.id,
-    //                     username: res.data.username,
-    //                     firstName: res.data.firstName,
-    //                     lastName: res.data.lastName,
-    //                     isTrainer: res.data.isTrainer,
-    //                     isLoggedIn: true
-    //                 })
-    //             }
-    //         })
-    // }, [])
-
-    // setLoggedInState({ handleChange: handleChange })
-
-    console.log("istrainer: ", loggedInState.isTrainer);
-    console.log("isloggedin: ", loggedInState.isLoggedIn);
+    useEffect(() => {
+        if (loggedInState.id === 0) {
+            const loggedInUser = localStorage.getItem("user");
+            if (loggedInUser) {
+                const foundUser = JSON.parse(loggedInUser);
+                setLoggedInState(foundUser);
+            }
+        }
+    }, [loggedInState.id]);
 
     function handleChange(status) {
-        setLoggedInState(status);
-        console.log(status);
+        localStorage.setItem("user", JSON.stringify(status))
+        setLoggedInState(JSON.parse(localStorage.getItem("user")))
     }
 
     console.log("State", loggedInState);
 
-
-
     return (
         <LoggedInContext.Provider value={loggedInState}>
-
             <Router>
                 <Switch>
-
-                    <Route path="/login">
-                        <Login
-                            handleChange={handleChange}
-                        />
-
-                    </Route>
-                    <Route path="/signup">
-                        <Signup />
+                    <Route exact path="/login">
+                        <Login handleChange={handleChange} />
                     </Route>
 
-                    <ClientProtectedRoutes
-                        path="/clienthome"
-                        component={ClientHome}
-                        errorComponent={Unauthorized}
-                        isLoggedIn={loggedInState.isLoggedIn}
-                        isTrainer={loggedInState.isTrainer}
-                    // isLoggedIn={true}
-                    // isTrainer={false}
-                    />
+                    <Route exact path="/signup" component={Signup} />
 
-                    <Route path="/clientcalender">
-                        <ClientCalender />
-                    </Route>
-                    {/* <Route path="/clienthome">
-                    <ClientHome />
-                </Route> */}
-                    <Route path="/clientprofile">
-                        <ClientProfile />
-                    </Route>
-                    <Route path="/workouts">
-                        <Workout />
-                    </Route>
-                    <Route path="/trainer">
-                        <Trainer />
-                    </Route>
-                    <Route path="/trainercalender">
-                        <TrainerCalender />
-                    </Route>
-                    <Route path="/trainerProfile">
-                        <TrainerProfile />
-                    </Route>
-                    <Route path="/trainersearch">
-                        <TrainerSearch />
-                    </Route>
-                    <Route path="/logout">
-                        <Logout />
-                    </Route>
+                    <Route exact path="/logout" component={Logout} />
 
-                    <Route path="/">
-                        <Landing />
-                    </Route>
+                    <Route exact path="/unauthorized" component={Unauthorized} />
+
+                    <Route exact path="/clientcalendar" component={ClientCalendar} />
+
+                    <Route exact path="/clienthome" component={ClientHome} />
+
+                    <Route exact path="/clientprofile" component={ClientProfile} />
+
+                    <Route exact path="/workouts" component={Workout} />
+
+                    <Route exact path="/trainer" component={Trainer} />
+
+                    <Route exact path="/trainercalendar" component={TrainerCalendar} />
+
+                    {/* <Route exact path="/trainerProfile/" component={TrainerProfile} /> */}
+                    <Route path="/trainerProfile/:id" component={TrainerProfile} />
+
+                    <Route exact path="/trainersearch" component={TrainerSearch} />
+
+                    <Route exact path="/" component={Landing} />
+
+                    {/* <Route component={Landing} /> */}
 
                 </Switch>
             </Router >
@@ -130,5 +88,98 @@ function App() {
     );
 }
 
-
 export default App;
+
+
+
+// useEffect(() => {
+//     API.checkLoggedIn()
+//         .then(res => {
+//             // console.log(res);
+
+//             if (res.data === "") {
+//                 setLoggedInState({ isLoggedIn: false })
+//             }
+//             else {
+//                 setLoggedInState({
+//                     id: res.data.id,
+//                     username: res.data.username,
+//                     firstName: res.data.firstName,
+//                     lastName: res.data.lastName,
+//                     isTrainer: res.data.isTrainer,
+//                     isLoggedIn: true
+//                 })
+//             }
+//         })
+// }, [])
+
+// setLoggedInState({ handleChange: handleChange })
+<>
+    {/* <ClientProtectedRoutes
+                        path="/clienthome"
+                        component={ClientHome}
+                        errorComponent={Unauthorized}
+                        isLoggedIn={loggedInState.isLoggedIn}
+                        isTrainer={loggedInState.isTrainer}
+                    />
+
+                    <ClientProtectedRoutes
+                        path="/clientcalendar"
+                        component={ClientCalendar}
+                        errorComponent={Unauthorized}
+                        isLoggedIn={loggedInState.isLoggedIn}
+                        isTrainer={loggedInState.isTrainer}
+                    />
+
+                    <ClientProtectedRoutes
+                        path="/clientprofile"
+                        component={ClientProfile}
+                        errorComponent={Unauthorized}
+                        isLoggedIn={loggedInState.isLoggedIn}
+                        isTrainer={loggedInState.isTrainer}
+                    />
+
+                    <ClientProtectedRoutes
+                        path="/trainersearch"
+                        component={TrainerSearch}
+                        errorComponent={Unauthorized}
+                        isLoggedIn={loggedInState.isLoggedIn}
+                        isTrainer={loggedInState.isTrainer}
+                    />
+
+                    <TrainerProtectedRoutes
+                        path="/workouts"
+                        component={Workout}
+                        errorComponent={Unauthorized}
+                        isLoggedIn={loggedInState.isLoggedIn}
+                        isTrainer={loggedInState.isTrainer}
+                    />
+
+                    <TrainerProtectedRoutes
+                        path="/trainer"
+                        component={Trainer}
+                        errorComponent={Unauthorized}
+                        isLoggedIn={loggedInState.isLoggedIn}
+                        isTrainer={loggedInState.isTrainer}
+                    />
+
+                    <TrainerProtectedRoutes
+                        path="/trainercalendar"
+                        component={TrainerCalendar}
+                        errorComponent={Unauthorized}
+                        isLoggedIn={loggedInState.isLoggedIn}
+                        isTrainer={loggedInState.isTrainer}
+                    />
+
+                    <TrainerProtectedRoutes
+                        path="/trainerProfile"
+                        component={TrainerProfile}
+                        errorComponent={Unauthorized}
+                        isLoggedIn={loggedInState.isLoggedIn}
+                        isTrainer={loggedInState.isTrainer}
+                    />
+
+                    <Route path="/logout">
+                        <Logout />
+                     */}
+</>

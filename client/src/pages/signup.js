@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Header from "../components/Header"
 
 function Signup() {
     const [userName, setUserName] = useState("");
@@ -82,8 +83,8 @@ function Signup() {
     }
 
     return (
-        <div className="container" style={{ padding: "5%" }}>
-            <h1 style={{ fontSize: "100px" }}>Machli Fitness</h1>
+        <>
+            <Header />
             <h1>Signup</h1>
             <br />
 
@@ -162,7 +163,7 @@ function Signup() {
 
             <br />
             <h6><a href="/login">I have a login</a></h6>
-        </div>
+        </>
     );
 }
 

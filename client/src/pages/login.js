@@ -2,17 +2,13 @@ import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 import LoggedInContext from '../utils/loggedInContext'
+import Header from '../components/Header'
 
 function Login(props) {
-    const { id, username, firstName, lastName, isTrainer, isLoggedIn } = useContext(LoggedInContext);
+    const { isTrainer, isLoggedIn } = useContext(LoggedInContext);
 
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
-
-    async function handleChange(data) {
-        // Here, we invoke the callback with the new value
-        await props.handleChange(data);
-    }
 
     const handleSubmit = (evt) => {
         evt.preventDefault();
@@ -26,15 +22,16 @@ function Login(props) {
             password: password
         })
             .then(async function (response) {
-                // console.log(response.status)
+                console.log(response)
+
                 if (response.status === 200) {
-                    console.log(response);
+                    // console.log(response);
 
                     axios.get("/api/user")
                         .then((res) => {
                             // console.log(res);
-                            // console.log(res.data.isTrainer);
-                            handleChange({
+
+                            props.handleChange({
                                 id: res.data.id,
                                 username: res.data.username,
                                 firstName: res.data.firstName,
@@ -58,18 +55,13 @@ function Login(props) {
             });
     }
 
-    console.log(isLoggedIn);
-    console.log(isTrainer);
-
-
-
     return (
         <>
             {(isLoggedIn ?
                 (isTrainer ? <Redirect to="/trainer" /> : <Redirect to="/clienthome" />)
                 : (
-                    <div className="container" style={{ padding: "10%" }}>
-                        <h1 style={{ fontSize: "100px" }}>Machli Fitness</h1>
+                    <>
+                        <Header />
                         <h1>Login</h1>
 
                         <form onSubmit={handleSubmit}>
@@ -96,8 +88,7 @@ function Login(props) {
                         <h6>
                             <a href="/signup">I don't have a login</a>
                         </h6>
-
-                    </div>
+                    </>
                 )
             )}
         </>

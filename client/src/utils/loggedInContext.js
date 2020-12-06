@@ -7,7 +7,6 @@ const LoggedInContext = React.createContext({
     lastName: "",
     isTrainer: true,
     isLoggedIn: false,
-    handleChange: () => undefined
 });
 
 export default LoggedInContext;

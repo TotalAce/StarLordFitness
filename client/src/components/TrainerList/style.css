@@ -1,0 +1,10 @@
+#trainer-list img {
+    height: 200px;
+    width: 200px;
+    float: left;
+}
+
+#trainer-list h1, p {
+    text-align: left;
+    margin-left: 250px;
+}

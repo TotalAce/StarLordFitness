@@ -141,79 +141,88 @@
 
 
 import React from "react";
+import { Redirect } from "react-router-dom"
 import { TrainerNavBar } from "../../components/Navbar"
 
 function TrainerCalendar() {
+  const { isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user"))
 
 
   return (
     <>
-      <div className="container">
-        <TrainerNavBar />
-        <h1 className="row justify-content-center">Trainer Calendar</h1>
+      {(isLoggedIn === false ?
+        <Redirect to="/login" /> :
+        (isTrainer === false ? <Redirect to="/unauthorized" /> :
+
+          <div className="container">
+            <TrainerNavBar />
+            <h1 className="row justify-content-center">Trainer Calendar</h1>
 
 
-        <div className="row">
-          <div class="card" style={{ width: "18rem" }}>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">12/4/2020</li>
-              <li class="list-group-item">Exercise 1</li>
-              <li class="list-group-item">Exercise 2</li>
-            </ul>
+            <div className="row">
+              <div class="card" style={{ width: "18rem" }}>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">12/4/2020</li>
+                  <li class="list-group-item">Exercise 1</li>
+                  <li class="list-group-item">Exercise 2</li>
+                </ul>
+              </div>
+
+              <div class="card" style={{ width: "18rem" }}>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">12/5/2020</li>
+                  <li class="list-group-item">Exercise 1</li>
+                  <li class="list-group-item">Exercise 2</li>
+                </ul>
+              </div>
+
+              <div class="card" style={{ width: "18rem" }}>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">12/6/2020</li>
+                  <li class="list-group-item">Exercise 1</li>
+                  <li class="list-group-item">Exercise 2</li>
+                </ul>
+              </div>
+
+              <div class="card" style={{ width: "18rem" }}>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">12/7/2020</li>
+                  <li class="list-group-item">Exercise 1</li>
+                  <li class="list-group-item">Exercise 2</li>
+                </ul>
+              </div>
+            </div>
+
+            <br />
+            <div className="row">
+              <div class="card" style={{ width: "18rem" }}>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">12/8/2020</li>
+                  <li class="list-group-item">Exercise 1</li>
+                  <li class="list-group-item">Exercise 2</li>
+                </ul>
+              </div>
+
+              <div class="card" style={{ width: "18rem" }}>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">12/9/2020</li>
+                  <li class="list-group-item">Exercise 1</li>
+                  <li class="list-group-item">Exercise 2</li>
+                </ul>
+              </div>
+
+              <div class="card" style={{ width: "18rem" }}>
+                <ul class="list-group list-group-flush">
+                  <li class="list-group-item">12/10/2020</li>
+                  <li class="list-group-item">Exercise 1</li>
+                  <li class="list-group-item">Exercise 2</li>
+                </ul>
+              </div>
+            </div>
           </div>
 
-          <div class="card" style={{ width: "18rem" }}>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">12/5/2020</li>
-              <li class="list-group-item">Exercise 1</li>
-              <li class="list-group-item">Exercise 2</li>
-            </ul>
-          </div>
-
-          <div class="card" style={{ width: "18rem" }}>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">12/6/2020</li>
-              <li class="list-group-item">Exercise 1</li>
-              <li class="list-group-item">Exercise 2</li>
-            </ul>
-          </div>
-
-          <div class="card" style={{ width: "18rem" }}>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">12/7/2020</li>
-              <li class="list-group-item">Exercise 1</li>
-              <li class="list-group-item">Exercise 2</li>
-            </ul>
-          </div>
-        </div>
-
-        <br />
-        <div className="row">
-          <div class="card" style={{ width: "18rem" }}>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">12/8/2020</li>
-              <li class="list-group-item">Exercise 1</li>
-              <li class="list-group-item">Exercise 2</li>
-            </ul>
-          </div>
-
-          <div class="card" style={{ width: "18rem" }}>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">12/9/2020</li>
-              <li class="list-group-item">Exercise 1</li>
-              <li class="list-group-item">Exercise 2</li>
-            </ul>
-          </div>
-
-          <div class="card" style={{ width: "18rem" }}>
-            <ul class="list-group list-group-flush">
-              <li class="list-group-item">12/10/2020</li>
-              <li class="list-group-item">Exercise 1</li>
-              <li class="list-group-item">Exercise 2</li>
-            </ul>
-          </div>
-        </div>
-      </div>
+        )
+      )}
     </>
   )
 }

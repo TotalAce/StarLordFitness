@@ -15,4 +15,7 @@ router.route("/clients")
 router.route("/list")
     .get(trainersController.trainerList)
 
+router.route("/:id")
+    .get(trainersController.findTrainer)
+
 module.exports = router;

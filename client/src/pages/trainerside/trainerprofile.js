@@ -1,36 +1,57 @@
-import React, { useEffect } from "react";
-import axios from 'axios';
+import React, { useEffect, useState } from "react";
+import { Redirect } from "react-router-dom"
 import { TrainerNavBar } from "../../components/Navbar";
+import axios from 'axios'
 
 function TrainerProfile() {
 
+    const { isLoggedIn } = JSON.parse(localStorage.getItem("user"))
+
+    const [trainer, setTrainer] = useState({})
+
     useEffect(() => {
-        axios.get("/api/user")
-            .then((res) => {
+
+        let params = window.location.href
+        // console.log(params);
+        var result = /[^/]*$/.exec(params)[0];
+        // console.log(result);
+
+        axios.get("/api/trainer/" + result)
+            .then(res => {
                 console.log(res);
-                console.log(res.data);
-                if (res.data === "") {
-                    window.location.href = "/login"
-                }
+                setTrainer(res.data)
             })
             .catch(err => console.log(err));
     }, [])
 
     return (
-        <div className="container">
-            <br></br>
-            <TrainerNavBar />
-            <br></br>
-            <h2 className="d-flex justify-content-center"> Trainer Name</h2>
-            <br></br>
-            <div className="img-container d-flex justify-content-center">
-                <p>Insert Trainer Image</p>
-            </div>
-            <br></br>
-            <div className="d-flex justify-content-center">
-                <p>Trainer Summary</p>
-            </div>
-        </div>
+        <>
+            {(isLoggedIn === false ?
+                <Redirect to="/login" /> :
+
+
+                <div className="container">
+
+                    <TrainerNavBar />
+                    <h1 className="justify-content-center">{trainer.firstName} {trainer.lastName}</h1>
+                    <div className="img-container justify-content-center">
+                        <img src="https://via.placeholder.com/300?text=Trainer Img" alt="Trainer Img" />
+                    </div>
+                    <br/>
+                    <div>
+                        <div className="row justify-content-center">
+                            <h3>Credentials: {trainer.credentials}</h3>
+                        </div>
+                        <div className="row justify-content-center">
+                            <h5>About:{trainer.about}</h5>
+                        </div>
+                    </div>
+
+                </div>
+
+
+            )}
+        </>
     )
 }
 
