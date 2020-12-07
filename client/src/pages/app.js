@@ -18,7 +18,7 @@ import LoggedInContext from '../utils/loggedInContext'
 
 function App() {
 
-    console.log("version2");
+    console.log("version3");
 
     const [loggedInState, setLoggedInState] = useState({
         id: 0,
