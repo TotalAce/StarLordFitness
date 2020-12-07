@@ -7,7 +7,7 @@ router.route("/signup")
     .post(trainersController.create)
 
 // ---------------GET INFORMATION ABOUT ALL THEIR CLIENTS---------------
-router.route("/clients")
+router.route("/clients/:id")
     .get(trainersController.clientList)
 
     

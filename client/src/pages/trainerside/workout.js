@@ -2,12 +2,12 @@ import React from "react";
 import { Redirect } from "react-router-dom"
 
 function ClientWorkout() {
-    const { isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user"))
+    const { isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user")) || ""
 
 
     return (
         <>
-            {(isLoggedIn === false ?
+            {(isLoggedIn === false || !isLoggedIn ?
                 <Redirect to="/login" /> :
                 (isTrainer === false ? <Redirect to="/unauthorized" /> :
 

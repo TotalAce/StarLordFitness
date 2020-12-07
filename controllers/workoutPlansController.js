@@ -23,7 +23,7 @@ module.exports = {
                 exercise: req.body.exercise,
                 sets: req.body.sets,
                 reps: req.body.reps,
-                UserId: req.body.UserId
+                UserId: req.params.id
             })
             .then((data) => res.json(data))
             .catch((err) => console.log(err))

@@ -21,4 +21,7 @@ router.route("/notes")
     .post(notesController.createNote)
     .put(notesController.editNote)
 
+router.route("/:id")
+    .get(clientsController.findClient)
+
 module.exports = router;

@@ -5,15 +5,15 @@ import API from "../../utils/API"
 import moment from "moment"
 import axios from 'axios'
 
-function ClientHome() {    
+function ClientHome() {
     const [note, setNote] = useState("")
     const [completed, setCompleted] = useState(false)
     const [workout, setWorkout] = useState([])
     const [submitted, setSubmitted] = useState(false)
-    
-    const { id, username, isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user"))
+
+    const { id, username, isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user")) || ""
     const date = moment().format('YYYY-MM-DD')
-    
+
     useEffect(() => {
         axios.get("/api/workoutPlan/" + id)
             .then(res => {
@@ -57,7 +57,7 @@ function ClientHome() {
 
     return (
         <>
-            {(isLoggedIn === false ?
+            {(!isLoggedIn || isLoggedIn === false ?
                 <Redirect to="/login" /> :
                 (isTrainer ? <Redirect to="/unauthorized" /> :
 

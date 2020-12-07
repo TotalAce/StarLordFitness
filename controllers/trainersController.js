@@ -11,8 +11,8 @@ module.exports = {
 
     clientList: (req, res) => {
         db.Trainer.findAll({
-            hierarchy: true,
-            where: { id: req.body.id },
+            // hierarchy: true,
+            where: { UserId: req.params.id },
             include: [
                 {
                     model: db.Client,

@@ -145,12 +145,12 @@ import { Redirect } from "react-router-dom"
 import { TrainerNavBar } from "../../components/Navbar"
 
 function TrainerCalendar() {
-  const { isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user"))
+  const { isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user")) || ""
 
 
   return (
     <>
-      {(isLoggedIn === false ?
+      {(isLoggedIn === false || !isLoggedIn ?
         <Redirect to="/login" /> :
         (isTrainer === false ? <Redirect to="/unauthorized" /> :
 

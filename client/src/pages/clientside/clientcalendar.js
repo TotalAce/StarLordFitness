@@ -5,7 +5,7 @@ import { ClientNavBar } from "../../components/Navbar"
 
 function ClientCalendar() {
 
-    const { isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user"))
+    const { isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user")) || ""
 
     useEffect(() => {
         API.checkLoggedIn()
@@ -13,7 +13,7 @@ function ClientCalendar() {
 
     return (
         <>
-            {(isLoggedIn === false ?
+            {(isLoggedIn === false || !isLoggedIn ?
                 <Redirect to="/login" /> :
                 (isTrainer ? <Redirect to="/unauthorized" /> :
 

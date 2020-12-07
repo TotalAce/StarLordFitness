@@ -49,7 +49,7 @@ function TrainerNavBar() {
                         <Link className="nav-link" to="/workout" >Workouts</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/clients" >Clients</Link>
+                        <Link className="nav-link" to="/clientlist" >Clients</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/logout" ><img className="logout" src={Logout} alt="logout" /></Link>

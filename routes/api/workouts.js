@@ -6,12 +6,12 @@ const workoutPlansController = require("../../controllers/workoutPlansController
 
 // ---------------GET ALL WORKOUTS/CREATE NEW WORKOUT---------------
 router.route("/workouts")
-    .get(workoutsController.allWorkouts)
+    .get(workoutsController.allMuscleGroups)
     .post(workoutsController.createWorkout)
 
 // ---------------GET WORKOUTS BY MUSCLEGROUP CHOSEN---------------
 router.route("/workouts/muscle")
-    .get(workoutsController.workoutsByMuscle)
+    .post(workoutsController.workoutsByMuscle)
 
 // ---------------POST AN EXERCISE TO A CLIENT'S WORKOUT, CLIENT CAN GET THEIR WORKOUT---------------
 // router.route("/workoutPlan/:id")

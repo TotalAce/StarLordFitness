@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom"
 import { ClientNavBar } from '../../components/Navbar'
-import TrainerList from "../../components/TrainerList"
+import { TrainerList } from "../../components/TrainerList"
 import axios from 'axios'
 // import TrainerProfile from "../trainerside/trainerprofile"
 
 function TrainerSearch() {
-    const { isLoggedIn } = JSON.parse(localStorage.getItem("user"))
+    const { isLoggedIn } = JSON.parse(localStorage.getItem("user")) || ""
 
     const [trainerList, setTrainerList] = useState({})
     const [pageLoad, setPageLoad] = useState(false)
@@ -23,7 +23,7 @@ function TrainerSearch() {
 
     return (
         <>
-            {(isLoggedIn === false ?
+            {(isLoggedIn === false || !isLoggedIn ?
                 <Redirect to="/login" /> :
 
                 <>

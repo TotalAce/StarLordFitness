@@ -5,7 +5,7 @@ import axios from 'axios'
 
 function TrainerProfile() {
 
-    const { isLoggedIn } = JSON.parse(localStorage.getItem("user"))
+    const { isLoggedIn } = JSON.parse(localStorage.getItem("user")) || ""
 
     const [trainer, setTrainer] = useState({})
 
@@ -26,7 +26,7 @@ function TrainerProfile() {
 
     return (
         <>
-            {(isLoggedIn === false ?
+            {(isLoggedIn === false || !isLoggedIn ?
                 <Redirect to="/login" /> :
 
 
