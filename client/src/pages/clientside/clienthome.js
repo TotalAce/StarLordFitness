@@ -11,7 +11,7 @@ function ClientHome() {
     const [workout, setWorkout] = useState([])
     const [submitted, setSubmitted] = useState(false)
 
-    const { id, username, isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user")) || ""
+    const { id, username, isLoggedIn, isTrainer, Trainerid } = JSON.parse(localStorage.getItem("user")) || ""
     const date = moment().format('YYYY-MM-DD')
 
     useEffect(() => {

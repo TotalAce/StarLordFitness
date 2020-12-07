@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-import Delete from '../../assets/images/delete.png'
+// import Delete from '../../assets/images/delete.png'
 
 function ClientWorkouts(props) {
     return (
@@ -18,7 +18,12 @@ function ClientWorkouts(props) {
                                         <strong>Sets: </strong>{exercise.sets}
                                         <strong>Reps: </strong>{exercise.reps}
                                         <span>
-                                            <button>X</button>
+                                            <button
+                                                value={exercise.id}
+                                                onClick={props.onClick}
+                                                hidden={props.trainer}
+                                            >X
+                                            </button>
                                             {/* <input type="image" src={Delete} alt="Delete" className="delete-button" /> */}
                                         </span>
                                     </li>

@@ -22,31 +22,53 @@ function Login(props) {
             password: password
         })
             .then(async function (response) {
-                console.log(response)
+                // console.log(response)
 
-                if (response.status === 200) {
+                if (response.statusText === "OK") {
                     // console.log(response);
 
                     axios.get("/api/user")
                         .then((res) => {
-                            // console.log(res);
+                            console.log(res);
 
-                            props.handleChange({
-                                id: res.data.id,
-                                username: res.data.username,
-                                firstName: res.data.firstName,
-                                lastName: res.data.lastName,
-                                isTrainer: res.data.isTrainer,
-                                isLoggedIn: true
-                            })
+                            (res.data.Clients.length === 0 ?
+                                props.handleChange({
+                                    id: res.data.id,
+                                    username: res.data.username,
+                                    firstName: res.data.firstName,
+                                    lastName: res.data.lastName,
+                                    isTrainer: res.data.isTrainer,
+                                    isLoggedIn: true,
+                                })
+                                :
+                                props.handleChange({
+                                    id: res.data.id,
+                                    username: res.data.username,
+                                    firstName: res.data.firstName,
+                                    lastName: res.data.lastName,
+                                    isTrainer: res.data.isTrainer,
+                                    isLoggedIn: true,
+                                    Trainerid: res.data.Clients[0].TrainerId
+                                })
+                            )
+
+                            // props.handleChange({
+                            //     id: res.data.id,
+                            //     username: res.data.username,
+                            //     firstName: res.data.firstName,
+                            //     lastName: res.data.lastName,
+                            //     isTrainer: res.data.isTrainer,
+                            //     isLoggedIn: true,
+                            //     Trainerid: res.data.Clients[0].TrainerId
+                            // })
 
                             // Each session only lasts 30 mins
                             setTimeout(() => {
                                 localStorage.clear()
                                 alert(`Your session has ended. Please login again`)
-                                    window.location.href = "/login"
+                                window.location.href = "/login"
                             }, 1000 * 60 * 30);
-                            
+
 
                             // (res.data.isTrainer === false ?
                             //     window.location.href = "/clienthome" :
