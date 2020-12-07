@@ -5,6 +5,9 @@ import Logout from "../../assets/images/logout.png"
 import "./style.css";
 
 function ClientNavBar() {
+
+    const { id, Trainerid } = JSON.parse(localStorage.getItem("user")) || ""
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
             <div className="navbar-brand">
@@ -18,10 +21,13 @@ function ClientNavBar() {
             <div className="collapse navbar-collapse fl" id="navbarNavDropdown">
                 <ul className="navbar-nav ml-auto ">
                     <li className="nav-item">
-                        <Link className="nav-link" to="/clientcalendar" >Calendar</Link>
+                        <Link className="nav-link" to={`/clientprofile/${id}`} >My Upcoming Workouts</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/trainerprofile" >Trainer</Link>
+                        <Link className="nav-link" to={`/trainerprofile/${Trainerid}`} >My Trainer</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to={`/trainersearch`}>Search for a Trainer</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/logout" ><img className="logout" src={Logout} alt="logout" /></Link>
@@ -33,6 +39,9 @@ function ClientNavBar() {
 }
 
 function TrainerNavBar() {
+
+    const { id } = JSON.parse(localStorage.getItem("user")) || ""
+
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
             <div className="navbar-brand">
@@ -46,10 +55,10 @@ function TrainerNavBar() {
             <div className="collapse navbar-collapse fl" id="navbarNavDropdown">
                 <ul className="navbar-nav ml-auto ">
                     <li className="nav-item">
-                        <Link className="nav-link" to="/workout" >Workouts</Link>
+                        <Link className="nav-link" to={`/trainerprofile/${id}`} >My Profile</Link>
                     </li>
                     <li className="nav-item">
-                        <Link className="nav-link" to="/clientlist" >Clients</Link>
+                        <Link className="nav-link" to="/clientlist" >My Clients</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/logout" ><img className="logout" src={Logout} alt="logout" /></Link>

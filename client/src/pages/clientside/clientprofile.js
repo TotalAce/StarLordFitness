@@ -1,13 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom"
 import axios from 'axios';
-import { TrainerNavBar } from "../../components/Navbar";
+import { TrainerNavBar, ClientNavBar } from "../../components/Navbar";
 import ClientWorkouts from '../../components/ClientWorkouts'
 import moment from 'moment'
 import WorkoutForm from '../../components/WorkoutForm'
 
 function ClientProfile() {
-    const { isLoggedIn, firstName } = JSON.parse(localStorage.getItem("user")) || ""
+    const { isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user")) || ""
 
     const [client, setClient] = useState({})
     const [workouts, setWorkouts] = useState([])
@@ -79,6 +79,12 @@ function ClientProfile() {
     // console.log(formObject);
     // console.log(formObject.date);
 
+    function handleDelete(event) {
+        event.preventDefault();
+        event.stopPropagation();
+        console.log("clicked");
+        console.log(event.target.value);
+    }
 
     function handleFormSubmit(event) {
         event.preventDefault();
@@ -105,6 +111,8 @@ function ClientProfile() {
         }
     };
 
+console.log(isTrainer);
+
     return (
         <>
             {(isLoggedIn === false || !isLoggedIn ?
@@ -112,7 +120,8 @@ function ClientProfile() {
 
                 <div className="container">
 
-                    <TrainerNavBar />
+                    {(isTrainer === true ? <TrainerNavBar /> : <ClientNavBar />)}
+
                     <h1 className="justify-content-center">{client.firstName} {client.lastName}</h1>
                     <div className="img-container justify-content-center">
                         <img src="https://via.placeholder.com/300?text=Client Img" alt="Trainer Img" />
@@ -120,31 +129,68 @@ function ClientProfile() {
 
                     <br />
 
-                    <WorkoutForm
-                        muscle={muscleGroups}
-                        handleinputchange={handleInputChange}
-                        onSubmit={handleFormSubmit}
-                        exercise={(exercises.length > 0 ? exercises : [])}
-                    />
+                    {(isTrainer === false ? null :
+                        <WorkoutForm
+                            muscle={muscleGroups}
+                            handleinputchange={handleInputChange}
+                            onSubmit={handleFormSubmit}
+                            exercise={(exercises.length > 0 ? exercises : [])}
+                        />
+                    )}
 
                     <br />
 
                     {workouts.length > 0 ?
                         <div className="week-workouts">
                             <div className="row">
-                                <ClientWorkouts date={date} array={todaysWorkout} />
-                                <ClientWorkouts date={dateAddOne} array={todaysWorkoutAddOne} />
-                                <ClientWorkouts date={dateAddTwo} array={todaysWorkoutAddTwo} />
+                                <ClientWorkouts
+                                    date={date}
+                                    array={todaysWorkout}
+                                    onClick={handleDelete}
+                                    trainer={!isTrainer}
+                                />
+                                <ClientWorkouts
+                                    date={dateAddOne}
+                                    array={todaysWorkoutAddOne}
+                                    onClick={handleDelete}
+                                    trainer={!isTrainer}
+                                />
+                                <ClientWorkouts
+                                    date={dateAddTwo}
+                                    array={todaysWorkoutAddTwo}
+                                    onClick={handleDelete}
+                                    trainer={!isTrainer}
+                                />
                             </div>
                             <br />
                             <div className="row">
-                                <ClientWorkouts date={dateAddThree} array={todaysWorkoutAddThree} />
-                                <ClientWorkouts date={dateAddFour} array={todaysWorkoutAddFour} />
-                                <ClientWorkouts date={dateAddFive} array={todaysWorkoutAddFive} />
+                                <ClientWorkouts
+                                    date={dateAddThree}
+                                    array={todaysWorkoutAddThree}
+                                    onClick={handleDelete}
+                                    trainer={!isTrainer}
+                                />
+                                <ClientWorkouts
+                                    date={dateAddFour}
+                                    array={todaysWorkoutAddFour}
+                                    onClick={handleDelete}
+                                    trainer={!isTrainer}
+                                />
+                                <ClientWorkouts
+                                    date={dateAddFive}
+                                    array={todaysWorkoutAddFive}
+                                    onClick={handleDelete}
+                                    trainer={!isTrainer}
+                                />
                             </div>
                             <br />
                             <div className="row">
-                                <ClientWorkouts date={dateAddSix} array={todaysWorkoutAddSix} />
+                                <ClientWorkouts
+                                    date={dateAddSix}
+                                    array={todaysWorkoutAddSix}
+                                    onClick={handleDelete}
+                                    trainer={!isTrainer}
+                                />
                             </div>
                         </div>
                         : ""}

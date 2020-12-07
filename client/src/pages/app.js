@@ -45,7 +45,7 @@ function App() {
         setLoggedInState(JSON.parse(localStorage.getItem("user")))
     }
 
-    console.log("State", loggedInState);
+    // console.log("State", loggedInState);
 
     return (
         <LoggedInContext.Provider value={loggedInState}>

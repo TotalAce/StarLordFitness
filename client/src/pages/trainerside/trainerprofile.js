@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom"
-import { TrainerNavBar } from "../../components/Navbar";
+import { TrainerNavBar, ClientNavBar } from "../../components/Navbar";
 import axios from 'axios'
 
 function TrainerProfile() {
 
-    const { isLoggedIn } = JSON.parse(localStorage.getItem("user")) || ""
+    const { isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user")) || ""
 
     const [trainer, setTrainer] = useState({})
 
@@ -32,12 +32,13 @@ function TrainerProfile() {
 
                 <div className="container">
 
-                    <TrainerNavBar />
+                    {(isTrainer === true ? <TrainerNavBar /> : <ClientNavBar />)}
+
                     <h1 className="justify-content-center">{trainer.firstName} {trainer.lastName}</h1>
                     <div className="img-container justify-content-center">
                         <img src="https://via.placeholder.com/300?text=Trainer Img" alt="Trainer Img" />
                     </div>
-                    <br/>
+                    <br />
                     <div>
                         <div className="row justify-content-center">
                             <h3>Credentials: {trainer.credentials}</h3>
