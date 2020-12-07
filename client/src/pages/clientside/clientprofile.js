@@ -111,12 +111,10 @@ function ClientProfile() {
         }
     };
 
-console.log(isTrainer);
-
     return (
         <>
             {(isLoggedIn === false || !isLoggedIn ?
-                <Redirect to="/login" /> :
+                <Redirect to="/login" /> : 
 
                 <div className="container">
 

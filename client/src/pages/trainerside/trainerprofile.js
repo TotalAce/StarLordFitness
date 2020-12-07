@@ -18,14 +18,14 @@ function TrainerProfile() {
 
         axios.get("/api/trainer/" + result)
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 setTrainer(res.data)
             })
             .catch(err => console.log(err));
-    }, [])
+    }, [result])
 
-    console.log(result);
-    console.log(id);
+    // console.log(result);
+    // console.log(id);
 
     function handleTrainer(e) {
         e.preventDefault()
@@ -37,7 +37,8 @@ function TrainerProfile() {
                 TrainerId: trainer.id
             }).then(res => {
                 console.log(res);
-                alert('Updated trainer')
+                alert('Updated trainer. Please login again for changes to take effect')
+                window.location.href = "/logout"
             }).catch(err => console.log(err))
         }
     }
