@@ -7,7 +7,7 @@ import moment from 'moment'
 import WorkoutForm from '../../components/WorkoutForm'
 
 function ClientProfile() {
-    const { isLoggedIn, firstName } = JSON.parse(localStorage.getItem("user")) || ""
+    const { isLoggedIn } = JSON.parse(localStorage.getItem("user")) || ""
 
     const [client, setClient] = useState({})
     const [workouts, setWorkouts] = useState([])
