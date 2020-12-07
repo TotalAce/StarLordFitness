@@ -38,7 +38,7 @@ function Signup() {
                 firstName: firstName,
                 lastName: lastName
             })
-            .then(function (res) {
+            .then(async function (res) {
                 console.log(res);
                 console.log(res.data.hasOwnProperty('errors'));
                 console.log("is trainer?", res.data.isTrainer);
@@ -47,7 +47,7 @@ function Signup() {
                     alert(`Field ${res.data.errors[0].message}`)
                 }
 
-                (res.data.isTrainer === true ? signupTrainer() : signupClient())
+                await (res.data.isTrainer === true ? signupTrainer() : signupClient())
 
                 async function signupTrainer() {
                     await axios.post("/api/trainer/signup", {
