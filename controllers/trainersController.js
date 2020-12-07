@@ -2,10 +2,17 @@ const db = require("../models");
 
 module.exports = {
 
+    findTrainer: (req, res) => {
+        db.Trainer.findOne(
+            { where: { UserId: req.params.id } })
+            .then((data) => res.send(data))
+            .catch((err) => console.log(err))
+    },
+
     clientList: (req, res) => {
         db.Trainer.findAll({
-            hierarchy: true,
-            where: { id: req.body.id },
+            // hierarchy: true,
+            where: { UserId: req.params.id },
             include: [
                 {
                     model: db.Client,

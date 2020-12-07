@@ -12,7 +12,15 @@ module.exports = function (sequelize, DataTypes) {
       },
       completed: {
         type: DataTypes.BOOLEAN,
-      }
+      },
+      UserId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
+      ClientId: {
+        type: DataTypes.INTEGER,
+        allowNull: false,
+      },
     },
     {
       freezeTableName: true,
@@ -23,6 +31,10 @@ module.exports = function (sequelize, DataTypes) {
   Note.associate = function (models) {
 
     Note.belongsTo(models.User);
+
+    Note.belongsTo(models.Client, {
+      foreignkey: "ClientId"
+    })
 
   };
 

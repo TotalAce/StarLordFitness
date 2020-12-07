@@ -1,7 +1,27 @@
 const db = require("../models");
 
 module.exports = {
-    
+
+    findClient: (req, res) => {
+        db.User.findAll({
+            where: { id: req.params.id },
+            include: [db.Note,
+            {
+                model: db.WorkoutPlan,
+                group: ['date']
+            }],
+
+            // include: [db.Note, db.WorkoutPlan],
+            attributes: {
+                exclude: ['password']
+            },
+            order: [[db.WorkoutPlan, 'date', 'DESC']],
+            // group: ['date']
+        })
+            .then((data) => res.send(data))
+            .catch((err) => console.log(err))
+    },
+
     updateTrainer: (req, res) => {
         db.Client.update(
             { TrainerId: req.body.TrainerId },

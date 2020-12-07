@@ -1,0 +1,38 @@
+.workout-list li {
+    text-align: left;
+    padding: 5px;
+}
+
+.workout-list strong {
+    margin-left: 3px;
+}
+
+.client-workout-card {
+    width: 30%;
+    margin: auto;
+}
+
+.workout-list {
+    padding: 0;
+}
+
+.workout-card-body {
+    padding: 5px !important;
+}
+
+.client-workout-card {
+    margin: auto;
+}
+
+.delete-button {
+    width: 30px;
+    height: 30px;
+}
+
+.list-group-item span {
+    float: right;
+}
+
+.list-group-item {
+    padding: 20px
+}

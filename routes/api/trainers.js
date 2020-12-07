@@ -7,12 +7,15 @@ router.route("/signup")
     .post(trainersController.create)
 
 // ---------------GET INFORMATION ABOUT ALL THEIR CLIENTS---------------
-router.route("/clients")
+router.route("/clients/:id")
     .get(trainersController.clientList)
 
     
 // ---------------GET LIST OF ALL TRAINERS---------------
 router.route("/list")
     .get(trainersController.trainerList)
+
+router.route("/:id")
+    .get(trainersController.findTrainer)
 
 module.exports = router;

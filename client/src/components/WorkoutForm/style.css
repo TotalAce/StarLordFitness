@@ -1,0 +1,13 @@
+.form-group {
+    width: 20%;
+    margin: 10px
+}
+
+.add-workout-button {
+    height: 50px;
+    margin: auto;
+}
+
+.numbers {
+    width: 10%;
+}

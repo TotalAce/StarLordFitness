@@ -35,6 +35,10 @@ module.exports = function (sequelize, DataTypes) {
 
     Client.belongsTo(models.Trainer);
 
+    Client.hasMany(models.Note, {
+      foreignkey: "ClientId"
+    })
+
   };
 
   return Client;

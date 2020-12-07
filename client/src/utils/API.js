@@ -1,3 +1,4 @@
+/* eslint-disable import/no-anonymous-default-export */
 import axios from "axios";
 
 export default {
@@ -8,6 +9,10 @@ export default {
 
     addNotes: function (noteObject) {
         return axios.post("/api/client/notes", noteObject)
+    },
+
+    checkLoggedIn: () => {
+        return (axios.get("/api/user"))
     }
 
 }

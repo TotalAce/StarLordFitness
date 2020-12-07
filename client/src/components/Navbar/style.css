@@ -1,4 +1,4 @@
-img {
+.navbar-brand img {
     height: 50px;
     width: 50px;
 }
@@ -9,6 +9,7 @@ img {
 
 .navbar {
     font-weight: bolder;
+    margin: 2%;
 }
 
 .logout {

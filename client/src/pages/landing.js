@@ -1,10 +1,11 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import Header from '../components/Header'
 
 function Landing() {
     return (
-        <div className="container" style={{ padding: "10%" }}>
-            <h1 style={{ fontSize: "100px" }}>Machli Fitness</h1>
+        <div style={{overflowX: "hidden"}}>
+            <Header />
             <h3>Earn Your Stripes!</h3>
 
             <div className="row justify-content-center">
