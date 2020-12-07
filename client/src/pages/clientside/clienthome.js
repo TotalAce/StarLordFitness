@@ -73,11 +73,11 @@ function ClientHome() {
 
                                 <ul className="container list-group col-6 text-center">
                                     {todaysWorkout.map((workout, index) => {
-                                        return <li className="list-group-item" key={index}>{workout.exercise}, {workout.sets} sets of {workout.reps} reps</li>
+                                        return <li className="list-group-item list-group-item-action" key={index}>{workout.exercise}, {workout.sets} sets of {workout.reps} reps</li>
                                     })}
                                 </ul>
 
-                                <textarea rows="4" cols="50" placeholder="Notes for the workout" name="note" onChange={handleInputChange} />
+                                <textarea rows="4" cols="50" placeholder="Notes for the workout" name="note" onChange={handleInputChange} style={{margin: "2%"}}/>
 
                                 <div className="container">
                                     <input className="form-check-input" type="checkbox" id="completed" onClick={handleButtonClick} />

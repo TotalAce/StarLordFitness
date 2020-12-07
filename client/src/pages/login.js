@@ -10,14 +10,14 @@ function Login(props) {
     const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
 
-    const handleSubmit = (evt) => {
+    async function handleSubmit(evt) {
         evt.preventDefault();
 
         if (userName === "" || password === "") {
             return alert("Please fill out all fields before submitting.")
         }
 
-        axios.post("/api/login", {
+        await axios.post("/api/login", {
             username: userName,
             password: password
         })
@@ -27,7 +27,7 @@ function Login(props) {
                 if (response.statusText === "OK") {
                     // console.log(response);
 
-                    axios.get("/api/user")
+                    await axios.get("/api/user")
                         .then((res) => {
                             console.log(res);
 
