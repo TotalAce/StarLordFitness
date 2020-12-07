@@ -1,6 +1,6 @@
 import React from "react";
 import "./style.css";
-// import Delete from '../../assets/images/delete.png'
+import Delete from '../../assets/images/delete.png'
 
 function ClientWorkouts(props) {
     return (
@@ -13,18 +13,26 @@ function ClientWorkouts(props) {
                         <ul className="workout-list">
                             {props.array.map((exercise, index) => {
                                 return (
-                                    <li className="list-group-item" key={index}>
-                                        <strong>Exercise: </strong>{exercise.exercise}
+                                    <li className="list-group-item list-group-item-action" key={index}>
+                                        {exercise.exercise}
                                         <strong>Sets: </strong>{exercise.sets}
                                         <strong>Reps: </strong>{exercise.reps}
                                         <span>
-                                            <button
+                                            {/* <button
                                                 value={exercise.id}
-                                                onClick={props.onClick}
+                                                onClick={props.delete}
                                                 hidden={props.trainer}
                                             >X
-                                            </button>
-                                            {/* <input type="image" src={Delete} alt="Delete" className="delete-button" /> */}
+                                            </button> */}
+                                            <input
+                                                type="image"
+                                                src={Delete}
+                                                alt="Delete"
+                                                className="delete-button"
+                                                value={exercise.id}
+                                                onClick={props.delete}
+                                                hidden={props.trainer}
+                                            />
                                         </span>
                                     </li>
                                 )

@@ -14,6 +14,7 @@ function ClientProfile() {
     const [muscleGroups, setMuscleGroups] = useState([])
     const [exercises, setExercises] = useState([])
     const [formObject, setFormObject] = useState({})
+    const [submitted, setSubmitted] = useState(0)
 
     const params = window.location.href
     // console.log(params);
@@ -50,7 +51,7 @@ function ClientProfile() {
             })
             .catch(err => console.log(err));
 
-    }, [formObject.muscleGroup, ClientId, formObject.submitted])
+    }, [formObject.muscleGroup, ClientId, submitted])
 
     const date = moment().format('YYYY-MM-DD')
     const dateAddOne = moment().add(1, 'days').format("YYYY-MM-DD")
@@ -72,7 +73,7 @@ function ClientProfile() {
     // console.log(workouts);
 
     function handleInputChange(event) {
-        const { name, value } = event.target;
+        let { name, value } = event.target;
         setFormObject({ ...formObject, [name]: value })
     };
 
@@ -82,8 +83,18 @@ function ClientProfile() {
     function handleDelete(event) {
         event.preventDefault();
         event.stopPropagation();
-        console.log("clicked");
-        console.log(event.target.value);
+        let { value } = event.target;
+        let confirmDelete = window.confirm("Are you sure you want to delete this exercise?")
+
+        if (confirmDelete === true) {
+            axios.delete("/api/workoutplan/" + value)
+                .then(res => {
+                    // console.log(res)
+                    setSubmitted(submitted + 1)
+                })
+                .catch(err => console.log(err))
+        }
+
     }
 
     function handleFormSubmit(event) {
@@ -105,7 +116,7 @@ function ClientProfile() {
                 .then(res => {
                     // console.log(res)
                     alert(`Workout added to client ${client.firstName}'s plan`)
-                    setFormObject({ ...formObject, submitted: (formObject.submitted + 1) })
+                    setSubmitted(submitted + 1)
                 })
                 .catch(err => console.log(err));
         }
@@ -114,7 +125,7 @@ function ClientProfile() {
     return (
         <>
             {(isLoggedIn === false || !isLoggedIn ?
-                <Redirect to="/login" /> : 
+                <Redirect to="/login" /> :
 
                 <div className="container">
 
@@ -122,7 +133,7 @@ function ClientProfile() {
 
                     <h1 className="justify-content-center">{client.firstName} {client.lastName}</h1>
                     <div className="img-container justify-content-center">
-                        <img src="https://via.placeholder.com/300?text=Client Img" alt="Trainer Img" />
+                        <img src="https://i.pravatar.cc/300" alt="Trainer Img" style={{borderRadius: "50%"}}/>
                     </div>
 
                     <br />
@@ -144,19 +155,19 @@ function ClientProfile() {
                                 <ClientWorkouts
                                     date={date}
                                     array={todaysWorkout}
-                                    onClick={handleDelete}
+                                    delete={handleDelete}
                                     trainer={!isTrainer}
                                 />
                                 <ClientWorkouts
                                     date={dateAddOne}
                                     array={todaysWorkoutAddOne}
-                                    onClick={handleDelete}
+                                    delete={handleDelete}
                                     trainer={!isTrainer}
                                 />
                                 <ClientWorkouts
                                     date={dateAddTwo}
                                     array={todaysWorkoutAddTwo}
-                                    onClick={handleDelete}
+                                    delete={handleDelete}
                                     trainer={!isTrainer}
                                 />
                             </div>
@@ -165,19 +176,19 @@ function ClientProfile() {
                                 <ClientWorkouts
                                     date={dateAddThree}
                                     array={todaysWorkoutAddThree}
-                                    onClick={handleDelete}
+                                    delete={handleDelete}
                                     trainer={!isTrainer}
                                 />
                                 <ClientWorkouts
                                     date={dateAddFour}
                                     array={todaysWorkoutAddFour}
-                                    onClick={handleDelete}
+                                    delete={handleDelete}
                                     trainer={!isTrainer}
                                 />
                                 <ClientWorkouts
                                     date={dateAddFive}
                                     array={todaysWorkoutAddFive}
-                                    onClick={handleDelete}
+                                    delete={handleDelete}
                                     trainer={!isTrainer}
                                 />
                             </div>
@@ -186,7 +197,7 @@ function ClientProfile() {
                                 <ClientWorkouts
                                     date={dateAddSix}
                                     array={todaysWorkoutAddSix}
-                                    onClick={handleDelete}
+                                    delete={handleDelete}
                                     trainer={!isTrainer}
                                 />
                             </div>

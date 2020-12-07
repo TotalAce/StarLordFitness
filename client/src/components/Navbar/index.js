@@ -10,10 +10,14 @@ function ClientNavBar() {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-            <div className="navbar-brand">
+            {/* <div className="navbar-brand">
                 <img src={Logo} className="d-inline-block align-top" alt="" loading="lazy" />
                 <span id="machli">Machli Fitness</span>
-            </div>
+            </div> */}
+            <a class="navbar-brand" href="/clienthome">
+                <img src={Logo} alt="" width="30" height="24" class="d-inline-block align-top" />
+                <span>Machli Fitness</span>
+            </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
@@ -48,10 +52,14 @@ function TrainerNavBar() {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-            <div className="navbar-brand">
+            {/* <div className="navbar-brand">
                 <img src={Logo} className="d-inline-block align-top" alt="" loading="lazy" />
                 <span id="machli">Machli Fitness</span>
-            </div>
+            </div> */}
+            <a class="navbar-brand" href="/trainer">
+                <img src={Logo} alt="" width="30" height="24" class="d-inline-block align-top" />
+                <span>Machli Fitness</span>
+            </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>

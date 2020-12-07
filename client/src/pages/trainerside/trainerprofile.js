@@ -55,15 +55,17 @@ function TrainerProfile() {
 
                     <h1 className="justify-content-center">{trainer.firstName} {trainer.lastName}</h1>
                     <div className="img-container justify-content-center">
-                        <img src="https://via.placeholder.com/300?text=Trainer Img" alt="Trainer Img" />
+                        <img src="https://i.pravatar.cc/300" alt="Trainer Img" style={{ borderRadius: "50%" }} />
                     </div>
                     <br />
                     <div>
                         <div className="row justify-content-center">
-                            <h3>Credentials: {trainer.credentials}</h3>
+                            {/* <h3>Credentials: {trainer.credentials}</h3> */}
+                            <h3>Certifications: ISSA, ACE, NASM </h3>
                         </div>
                         <div className="row justify-content-center">
-                            <h5>About:{trainer.about}</h5>
+                            {/* <h5>About:{trainer.about}</h5> */}
+                            <h5>About: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt eget nullam non nisi est sit amet facilisis magna. Varius quam quisque id diam vel quam elementum. Praesent elementum facilisis leo vel fringilla est ullamcorper. Odio morbi quis commodo odio aenean sed adipiscing diam donec. Nam at lectus urna duis. Adipiscing at in tellus integer feugiat. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Ornare suspendisse sed nisi lacus. Dapibus ultrices in iaculis nunc sed augue. Sem integer vitae justo eget magna fermentum iaculis eu. Amet nulla facilisi morbi tempus iaculis urna id volutpat. Ultrices eros in cursus turpis. Porttitor lacus luctus accumsan tortor.</h5>
                         </div>
                     </div>
 
