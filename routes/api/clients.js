@@ -8,7 +8,7 @@ router.route("/signup")
     .post(clientsController.create)
 
 // ---------------CHOOSE A TRAINER TO WORK WITH---------------
-router.route("/chooseTrainer")
+router.route("/chooseTrainer/:id")
     .put(clientsController.updateTrainer)
 
 // ---------------GET THEIR TRAINERS INFO---------------

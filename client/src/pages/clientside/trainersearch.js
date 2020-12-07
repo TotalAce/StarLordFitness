@@ -2,11 +2,12 @@ import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom"
 import { ClientNavBar } from '../../components/Navbar'
 import { TrainerList } from "../../components/TrainerList"
+import { Unauthorized } from '../misc'
 import axios from 'axios'
 // import TrainerProfile from "../trainerside/trainerprofile"
 
 function TrainerSearch() {
-    const { isLoggedIn } = JSON.parse(localStorage.getItem("user")) || ""
+    const { isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user")) || ""
 
     const [trainerList, setTrainerList] = useState({})
     const [pageLoad, setPageLoad] = useState(false)
@@ -24,24 +25,27 @@ function TrainerSearch() {
     return (
         <>
             {(isLoggedIn === false || !isLoggedIn ?
-                <Redirect to="/login" /> :
+                <Redirect to="/login" />
+                :
+                (isTrainer === true ? <Unauthorized />
+                    :
 
-                <>
-                    <div className="container">
-                        <ClientNavBar />
-                        <h1>Choose a Personal Trainer to Work With:</h1>
+                    <>
+                        <div className="container">
+                            <ClientNavBar />
+                            <h1>Choose a Personal Trainer to Work With:</h1>
 
-                        {(pageLoad ?
-                            <TrainerList
-                                array={trainerList}
+                            {(pageLoad ?
+                                <TrainerList
+                                    array={trainerList}
 
-                            />
-                            : null)}
+                                />
+                                : null)}
 
-                    </div>
+                        </div>
 
-                </>
-
+                    </>
+                )
             )}
         </>
     )

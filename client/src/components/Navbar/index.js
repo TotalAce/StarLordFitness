@@ -23,9 +23,13 @@ function ClientNavBar() {
                     <li className="nav-item">
                         <Link className="nav-link" to={`/clientprofile/${id}`} >My Upcoming Workouts</Link>
                     </li>
-                    <li className="nav-item">
-                        <Link className="nav-link" to={`/trainerprofile/${Trainerid}`} >My Trainer</Link>
-                    </li>
+                    {(Trainerid === null ?
+                        null
+                        :
+                        < li className="nav-item">
+                            <Link className="nav-link" to={`/trainerprofile/${Trainerid}`} >My Trainer</Link>
+                        </li>
+                    )}
                     <li className="nav-item">
                         <Link className="nav-link" to={`/trainersearch`}>Search for a Trainer</Link>
                     </li>
@@ -34,7 +38,7 @@ function ClientNavBar() {
                     </li>
                 </ul>
             </div>
-        </nav>
+        </nav >
     );
 }
 

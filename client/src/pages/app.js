@@ -7,12 +7,9 @@ import Login from "./login.js";
 import Signup from "./signup.js";
 import ClientHome from "./clientside/clienthome";
 import Landing from "./landing.js";
-import ClientCalendar from "./clientside/clientcalendar";
 import ClientProfile from "./clientside/clientprofile";
 import ClientList from "./trainerside/clientlist";
-import Workout from "./trainerside/workout";
 import Trainer from "./trainerside/trainer";
-import TrainerCalendar from "./trainerside/trainercalendar";
 import TrainerProfile from "./trainerside/trainerprofile";
 import TrainerSearch from "./clientside/trainersearch";
 import LoggedInContext from '../utils/loggedInContext'
@@ -61,19 +58,13 @@ function App() {
 
                     <Route exact path="/unauthorized" component={Unauthorized} />
 
-                    <Route exact path="/clientcalendar" component={ClientCalendar} />
-
                     <Route exact path="/clienthome" component={ClientHome} />
 
                     <Route exact path="/clientprofile/:id" component={ClientProfile} />
 
-                    <Route exact path="/workouts" component={Workout} />
-
                     <Route exact path="/clientlist" component={ClientList} />
 
                     <Route exact path="/trainer" component={Trainer} />
-
-                    <Route exact path="/trainercalendar" component={TrainerCalendar} />
 
                     {/* <Route exact path="/trainerProfile/" component={TrainerProfile} /> */}
                     <Route path="/trainerProfile/:id" component={TrainerProfile} />

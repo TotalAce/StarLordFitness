@@ -5,24 +5,43 @@ import axios from 'axios'
 
 function TrainerProfile() {
 
-    const { isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user")) || ""
+    const { isLoggedIn, isTrainer, id } = JSON.parse(localStorage.getItem("user")) || ""
 
     const [trainer, setTrainer] = useState({})
 
-    useEffect(() => {
+    let params = window.location.href
+    // console.log(params);
+    var result = /[^/]*$/.exec(params)[0];
+    // console.log(result);
 
-        let params = window.location.href
-        // console.log(params);
-        var result = /[^/]*$/.exec(params)[0];
-        // console.log(result);
+    useEffect(() => {
 
         axios.get("/api/trainer/" + result)
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 setTrainer(res.data)
             })
             .catch(err => console.log(err));
-    }, [])
+    }, [result])
+
+    // console.log(result);
+    // console.log(id);
+
+    function handleTrainer(e) {
+        e.preventDefault()
+        // console.log("clicked");
+        const ask = window.confirm("Are you sure you want to switch trainers?")
+
+        if (ask === true) {
+            axios.put("/api/client/chooseTrainer/" + id, {
+                TrainerId: trainer.id
+            }).then(res => {
+                console.log(res);
+                alert('Updated trainer. Please login again for changes to take effect')
+                window.location.href = "/logout"
+            }).catch(err => console.log(err))
+        }
+    }
 
     return (
         <>
@@ -47,6 +66,18 @@ function TrainerProfile() {
                             <h5>About:{trainer.about}</h5>
                         </div>
                     </div>
+
+                    {(isTrainer === true ?
+                        null
+                        :
+                        <button
+                            type="button"
+                            className="btn btn-primary"
+                            onClick={handleTrainer}
+                        >
+                            Sign Up with this Trainer
+                        </button>
+                    )}
 
                 </div>
 

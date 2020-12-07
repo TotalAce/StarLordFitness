@@ -25,7 +25,7 @@ module.exports = {
     updateTrainer: (req, res) => {
         db.Client.update(
             { TrainerId: req.body.TrainerId },
-            { where: { id: req.body.id } }
+            { where: { UserId: req.params.id } }
         )
             .then(function (data) {
                 res.json(data);
