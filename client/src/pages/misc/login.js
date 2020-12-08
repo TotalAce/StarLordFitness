@@ -1,10 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
-import LoggedInContext from '../utils/loggedInContext'
-import Header from '../components/Header'
-import Background from "../assets/images/backgroundImg.jpg"
 import LoggedInContext from '../../utils/loggedInContext'
+import Background from "../../assets/images/backgroundImg.jpg"
 import Header from '../../components/Header'
 
 function Login(props) {
