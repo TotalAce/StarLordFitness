@@ -55,7 +55,7 @@ function TrainerProfile() {
 
                     <h1 className="justify-content-center">{trainer.firstName} {trainer.lastName}</h1>
                     <div className="img-container justify-content-center">
-                    <img src={`https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 50)}.jpg`} alt="Trainer Img" style={{borderRadius: "50%", width: "200px", height: "200px"}}/>
+                    <img src={`https://randomuser.me/api/portraits/men/${id}.jpg`} alt="Trainer Img" style={{borderRadius: "50%", width: "200px", height: "200px"}}/>
                     </div>
                     <br />
                     <div>
