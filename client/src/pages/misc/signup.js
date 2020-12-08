@@ -44,45 +44,47 @@ function Signup() {
             })
             .then(function (res) {
                 console.log(res);
-                console.log(res.data.hasOwnProperty('errors'));
-                console.log("is trainer?", res.data.isTrainer);
+                // console.log(res.data.hasOwnProperty('errors'));
+                // console.log("is trainer?", res.data.isTrainer);
 
-                if (res.data.hasOwnProperty('errors') === true) {
-                    alert(`Field ${res.data.errors[0].message}`)
-                }
+                alert(`Profile ${userName} has been created. Please login with this information`)
+                window.location.href = "/login"
+                // if (res.data.hasOwnProperty('errors') === true) {
+                //     alert(`Field ${res.data.errors[0].message}`)
+                // }
 
-                (res.data.isTrainer === true ?
+                // (res.data.isTrainer === true ?
 
-                    axios.post("/api/trainer/signup", {
-                        username: userName,
-                        firstName: firstName,
-                        lastName: lastName,
-                        UserId: res.data.id
-                    })
-                        .then(res => {
-                            console.log(res)
-                            alert(`Trainer profile ${userName} has been created. Please login with this information`)
-                            window.location.href = "/login"
-                        })
-                        .catch(err => console.log(err))
+                //     axios.post("/api/trainer/signup", {
+                //         username: userName,
+                //         firstName: firstName,
+                //         lastName: lastName,
+                //         UserId: res.data.id
+                //     })
+                //         .then(res => {
+                //             console.log(res)
+                //             alert(`Trainer profile ${userName} has been created. Please login with this information`)
+                //             window.location.href = "/login"
+                //         })
+                //         .catch(err => console.log(err))
 
 
-                    :
+                //     :
 
-                    axios.post("/api/client/signup", {
-                        username: userName,
-                        firstName: firstName,
-                        lastName: lastName,
-                        UserId: res.data.id
-                    })
-                        .then(res => {
-                            console.log(res)
-                            alert(`Client profile ${userName} has been created. Please login with this information`)
-                            window.location.href = "/login"
-                        })
-                        .catch(err => console.log(err))
+                //     axios.post("/api/client/signup", {
+                //         username: userName,
+                //         firstName: firstName,
+                //         lastName: lastName,
+                //         UserId: res.data.id
+                //     })
+                //         .then(res => {
+                //             console.log(res)
+                //             alert(`Client profile ${userName} has been created. Please login with this information`)
+                //             window.location.href = "/login"
+                //         })
+                //         .catch(err => console.log(err))
 
-                ).catch(err => console.log(err))
+                // ).catch(err => console.log(err))
             })
 
             .catch(err => console.log(err))
