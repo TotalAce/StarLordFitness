@@ -24,7 +24,7 @@ function TrainerList(props) {
 
 function ClientList(props) {
     return (
-        <div id="client-list" className="list-group" {...props}>
+        <div id="trainer-list" className="list-group" {...props}>
 
             {props.array.map((client, index) => {
                 return (
