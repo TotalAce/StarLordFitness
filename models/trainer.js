@@ -34,7 +34,7 @@ module.exports = function (sequelize, DataTypes) {
 
   Trainer.associate = function (models) {
 
-    Trainer.belongsTo(models.User {
+    Trainer.belongsTo(models.User, {
       foreignkey: "UserId"
     });
 
