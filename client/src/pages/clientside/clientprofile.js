@@ -133,7 +133,7 @@ function ClientProfile() {
 
                     <h1 className="justify-content-center">{client.firstName} {client.lastName}</h1>
                     <div className="img-container justify-content-center">
-                        <img src="https://i.pravatar.cc/300" alt="Trainer Img" style={{borderRadius: "50%"}}/>
+                        <img src={`https://randomuser.me/api/portraits/men/${Math.floor(Math.random() * 50)}.jpg`} alt="Client Img" style={{borderRadius: "50%", width: "200px", height: "200px"}}/>
                     </div>
 
                     <br />
