@@ -15,7 +15,7 @@ module.exports = {
                 res.json(data);
             })
             .catch(function (err) {
-                console.log(err);
+                res.send(err);
             })
     },
 
@@ -29,7 +29,7 @@ module.exports = {
                 res.json(data);
             })
             .catch(function (err) {
-                console.log(err);
+                res.send(err);
             })
     }
 
