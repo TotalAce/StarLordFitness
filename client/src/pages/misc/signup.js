@@ -44,8 +44,6 @@ function Signup() {
             })
             .then(function (res) {
                 console.log(res);
-                // console.log(res.data.hasOwnProperty('errors'));
-                // console.log("is trainer?", res.data.isTrainer);
 
                 alert(`Profile ${userName} has been created. Please login with this information`)
                 window.location.href = "/login"
