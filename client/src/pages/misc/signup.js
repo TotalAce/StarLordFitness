@@ -25,8 +25,6 @@ function Signup() {
         return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
-    // console.log(validateEmail(email))
-
     function handleSubmit(evt) {
         evt.preventDefault();
 
@@ -52,9 +50,7 @@ function Signup() {
 
                 alert(`Profile ${userName} has been created. Please login with this information`)
                 window.location.href = "/login"
-
             })
-
             .catch(err => console.log(err))
     }
 
@@ -163,40 +159,3 @@ function Signup() {
 }
 
 export default Signup;
-
- // if (res.data.hasOwnProperty('errors') === true) {
-                //     alert(`Field ${res.data.errors[0].message}`)
-                // }
-
-                // (res.data.isTrainer === true ?
-
-                //     axios.post("/api/trainer/signup", {
-                //         username: userName,
-                //         firstName: firstName,
-                //         lastName: lastName,
-                //         UserId: res.data.id
-                //     })
-                //         .then(res => {
-                //             console.log(res)
-                //             alert(`Trainer profile ${userName} has been created. Please login with this information`)
-                //             window.location.href = "/login"
-                //         })
-                //         .catch(err => console.log(err))
-
-
-                //     :
-
-                //     axios.post("/api/client/signup", {
-                //         username: userName,
-                //         firstName: firstName,
-                //         lastName: lastName,
-                //         UserId: res.data.id
-                //     })
-                //         .then(res => {
-                //             console.log(res)
-                //             alert(`Client profile ${userName} has been created. Please login with this information`)
-                //             window.location.href = "/login"
-                //         })
-                //         .catch(err => console.log(err))
-
-                // ).catch(err => console.log(err))

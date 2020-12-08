@@ -26,10 +26,8 @@ function ClientProfile() {
         axios.get("/api/client/" + ClientId)
             .then(res => {
                 // console.log(res);
-                // console.log(res.data[0]);
                 setClient(res.data[0])
                 setWorkouts(res.data[0].WorkoutPlans)
-                // setFormObject({ ...formObject, UserId: ClientId })
             })
             .catch(err => console.log(err));
 
@@ -69,16 +67,10 @@ function ClientProfile() {
     const todaysWorkoutAddFive = workouts.filter(workout => workout.date === dateAddFive)
     const todaysWorkoutAddSix = workouts.filter(workout => workout.date === dateAddSix)
 
-    // console.log(todaysWorkout);
-    // console.log(workouts);
-
     function handleInputChange(event) {
         let { name, value } = event.target;
         setFormObject({ ...formObject, [name]: value })
     };
-
-    // console.log(formObject);
-    // console.log(formObject.date);
 
     function handleDelete(event) {
         event.preventDefault();
@@ -94,7 +86,6 @@ function ClientProfile() {
                 })
                 .catch(err => console.log(err))
         }
-
     }
 
     function handleFormSubmit(event) {

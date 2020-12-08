@@ -24,9 +24,6 @@ function TrainerProfile() {
             .catch(err => console.log(err));
     }, [result])
 
-    // console.log(result);
-    // console.log(id);
-
     function handleTrainer(e) {
         e.preventDefault()
         // console.log("clicked");
@@ -47,7 +44,6 @@ function TrainerProfile() {
         <>
             {(isLoggedIn === false || !isLoggedIn ?
                 <Redirect to="/login" /> :
-
 
                 <div className="container">
 
@@ -82,8 +78,6 @@ function TrainerProfile() {
                     )}
 
                 </div>
-
-
             )}
         </>
     )

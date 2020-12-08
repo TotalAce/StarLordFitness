@@ -13,7 +13,7 @@ function Trainer() {
     useEffect(() => {
         axios.get("api/trainer/clients/" + id)
             .then(res => {
-                console.log(res.data[0].Clients);
+                // console.log(res.data[0].Clients);
                 setClientList(res.data[0].Clients)
                 setPageLoad(true)
             })
@@ -34,12 +34,9 @@ function Trainer() {
                         {(pageLoad ?
                             <ClientList
                                 array={clientList}
-
                             />
                             : null)}
-
                     </div>
-
                 )
             )}
         </>

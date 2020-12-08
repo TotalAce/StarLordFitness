@@ -14,7 +14,7 @@ function TrainerSearch() {
     useEffect(() => {
         axios.get("api/trainer/list")
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 setTrainerList(res.data)
                 setPageLoad(true)
             })

@@ -10,13 +10,10 @@ module.exports = {
                 model: db.WorkoutPlan,
                 group: ['date']
             }],
-
-            // include: [db.Note, db.WorkoutPlan],
             attributes: {
                 exclude: ['password']
             },
             order: [[db.WorkoutPlan, 'date', 'DESC']],
-            // group: ['date']
         })
             .then((data) => res.send(data))
             .catch((err) => console.log(err))
