@@ -51,10 +51,11 @@ function Signup() {
                     alert(`Field ${res.data.errors[0].message}`)
                 }
 
-                await (res.data.isTrainer === true ? signupTrainer() : signupClient())
+                await (res.data.isTrainer === true ? await signupTrainer() : await signupClient())
 
-                async function signupTrainer() {
-                    await axios.post("/api/trainer/signup", {
+
+                function signupTrainer() {
+                    axios.post("/api/trainer/signup", {
                         username: userName,
                         firstName: firstName,
                         lastName: lastName,
@@ -63,12 +64,12 @@ function Signup() {
                         .then(res => {
                             console.log(res);
                             alert(`Trainer profile ${userName} has been created. Please login with this information`)
-                            window.location.href = "/login"
+                            // window.location.href = "/login"
                         })
                         .catch(err => console.log(err))
                 }
-                async function signupClient() {
-                    await axios.post("/api/client/signup", {
+                function signupClient() {
+                    axios.post("/api/client/signup", {
                         username: userName,
                         firstName: firstName,
                         lastName: lastName,
@@ -77,7 +78,7 @@ function Signup() {
                         .then(res => {
                             console.log(res);
                             alert(`Client profile ${userName} has been created. Please login with this information`)
-                            window.location.href = "/login"
+                            // window.location.href = "/login"
                         })
                         .catch(err => console.log(err))
                 }
