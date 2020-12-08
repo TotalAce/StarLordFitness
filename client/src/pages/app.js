@@ -16,6 +16,7 @@ import LoggedInContext from '../utils/loggedInContext'
 import Chat from "./misc/chat"
 // import API from '../utils/API'
 
+console.log("v4");
 
 function App() {
 
