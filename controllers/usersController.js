@@ -21,7 +21,7 @@ function create(req, res) {
                 username: req.body.username,
                 firstName: req.body.firstName,
                 lastName: req.body.lastName,
-                // UserId: id,
+                UserId: id,
             }).then((data2) => {
                 res.send(data2)
             }).catch(function (err) {
