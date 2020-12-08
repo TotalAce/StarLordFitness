@@ -8,7 +8,8 @@ module.exports = {
                 date: req.body.date,
                 note: req.body.note,
                 completed: req.body.completed,
-                UserId: req.body.UserId
+                UserId: req.body.UserId,
+                ClientId: req.body.ClientId
             })
             .then(function (data) {
                 res.json(data);

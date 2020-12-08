@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Redirect } from "react-router-dom"
 import { ClientNavBar } from '../../components/Navbar'
 import { TrainerList } from "../../components/TrainerList"
-import { Unauthorized } from '../misc'
+import { Unauthorized } from '../misc/misc'
 import axios from 'axios'
 // import TrainerProfile from "../trainerside/trainerprofile"
 

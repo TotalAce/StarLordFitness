@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import Header from "../components/Header"
 import Background from "../assets/images/backgroundImg.jpg"
+import Header from "../../components/Header"
 
 function Signup() {
     const [userName, setUserName] = useState("");
@@ -15,6 +16,10 @@ function Signup() {
     function validateEmail(email) {
         var re = /\S+@\S+\.\S+/;
         return re.test(email);
+    }
+
+    function capitalizeFirstLetter(string) {
+        return string.charAt(0).toUpperCase() + string.slice(1);
     }
 
     // console.log(validateEmail(email))
@@ -36,8 +41,8 @@ function Signup() {
                 email: email,
                 password: password,
                 isTrainer: isTrainer,
-                firstName: firstName,
-                lastName: lastName
+                firstName: capitalizeFirstLetter(firstName),
+                lastName: capitalizeFirstLetter(lastName)
             })
             .then(async function (res) {
                 console.log(res);

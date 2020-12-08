@@ -14,8 +14,8 @@ function ClientNavBar() {
                 <img src={Logo} className="d-inline-block align-top" alt="" loading="lazy" />
                 <span id="machli">Machli Fitness</span>
             </div> */}
-            <a class="navbar-brand" href="/clienthome">
-                <img src={Logo} alt="" width="30" height="24" class="d-inline-block align-top" />
+            <a className="navbar-brand" href="/clienthome">
+                <img src={Logo} alt="" width="30" height="24" className="d-inline-block align-top" />
                 <span>Machli Fitness</span>
             </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -38,6 +38,9 @@ function ClientNavBar() {
                         <Link className="nav-link" to={`/trainersearch`}>Search for a Trainer</Link>
                     </li>
                     <li className="nav-item">
+                        <Link className="nav-link" to={`/chat`}>Chat</Link>
+                    </li>
+                    <li className="nav-item">
                         <Link className="nav-link" to="/logout" ><img className="logout" src={Logout} alt="logout" /></Link>
                     </li>
                 </ul>
@@ -56,8 +59,8 @@ function TrainerNavBar() {
                 <img src={Logo} className="d-inline-block align-top" alt="" loading="lazy" />
                 <span id="machli">Machli Fitness</span>
             </div> */}
-            <a class="navbar-brand" href="/trainer">
-                <img src={Logo} alt="" width="30" height="24" class="d-inline-block align-top" />
+            <a className="navbar-brand" href="/trainer">
+                <img src={Logo} alt="" width="30" height="24" className="d-inline-block align-top" />
                 <span>Machli Fitness</span>
             </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
@@ -71,6 +74,9 @@ function TrainerNavBar() {
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/clientlist" >My Clients</Link>
+                    </li>
+                    <li className="nav-item">
+                        <Link className="nav-link" to={`/chat`}>Chat</Link>
                     </li>
                     <li className="nav-item">
                         <Link className="nav-link" to="/logout" ><img className="logout" src={Logout} alt="logout" /></Link>
