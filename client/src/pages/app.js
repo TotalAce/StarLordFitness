@@ -2,17 +2,18 @@ import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./style.css";
 // import { TrainerProtectedRoutes, ClientProtectedRoutes } from "./ProtectedRoutes"
-import { Unauthorized, NoMatch, Logout } from './misc'
-import Login from "./login.js";
-import Signup from "./signup.js";
+import { Unauthorized, NoMatch, Logout } from './misc/misc'
+import Login from "./misc/login.js";
+import Signup from "./misc/signup.js";
 import ClientHome from "./clientside/clienthome";
-import Landing from "./landing.js";
+import Landing from "./misc/landing.js";
 import ClientProfile from "./clientside/clientprofile";
 import ClientList from "./trainerside/clientlist";
 import Trainer from "./trainerside/trainer";
 import TrainerProfile from "./trainerside/trainerprofile";
 import TrainerSearch from "./clientside/trainersearch";
 import LoggedInContext from '../utils/loggedInContext'
+import Chat from "./misc/chat"
 // import API from '../utils/API'
 
 
@@ -70,6 +71,8 @@ function App() {
                     <Route path="/trainerProfile/:id" component={TrainerProfile} />
 
                     <Route exact path="/trainersearch" component={TrainerSearch} />
+
+                    <Route exact path="/chat" component={Chat} />
 
                     <Route exact path="/" component={Landing} />
 

@@ -7,6 +7,19 @@ const PORT = process.env.PORT || 3001;
 const db = require("./models");
 require("dotenv").config();
 
+const http = require("http")
+const server = http.createServer(app)
+const socket = require("socket.io")
+const io = socket(server)
+
+// io.on("connection")
+
+io.on('connection', socket => {
+  socket.on('message', ({ name, message }) => {
+    io.emit('message', { name, message })
+  })
+})
+
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -25,7 +38,7 @@ app.use(routes);
 
 // Start the API server
 db.sequelize.sync({}).then(function () {
-  app.listen(PORT, function () {
+  server.listen(PORT, function () {
     console.log(`🌎  ==> API Server now listening on http://localhost:${PORT}`);
   });
 });
