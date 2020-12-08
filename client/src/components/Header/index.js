@@ -6,7 +6,7 @@ function Header() {
     return (
         <div id="machli-header">
             <img alt="tiger" src={logo} width="65" height="65" />
-            <h1 style={{color: "orange"}}>Machli
+            <h1 style={{color: "orange", fontFamily: "serif", fontSize: "30px"}}>Machli
             <br></br> &nbsp; <span style={{color: "blue"}}>Fitness</span></h1>
         </div>
     );
