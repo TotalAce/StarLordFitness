@@ -34,9 +34,7 @@ module.exports = function (sequelize, DataTypes) {
 
   Trainer.associate = function (models) {
 
-    Trainer.belongsTo(models.User, {
-      foreignkey: "UserId"
-    });
+    Trainer.belongsTo(models.User);
 
     Trainer.hasMany(models.Client);
 
