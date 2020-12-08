@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
+import Header from "../components/Header"
+import Background from "../assets/images/backgroundImg.jpg"
 import Header from "../../components/Header"
 
 function Signup() {
@@ -88,85 +90,95 @@ function Signup() {
 
     return (
         <>
-            <Header />
-            <h1>Signup</h1>
-            <br />
-
-            <form onSubmit={handleSubmit}>
-                <label htmlFor="firstName">First Name:</label><br />
-                <input
-                    autoFocus
-                    type="text"
-                    value={firstName}
-                    onChange={event => setFirstName(event.target.value)}
-                />
+            <div style={{
+                backgroundImage: `url(${Background})`,
+                backgroundRepeat: 'no-repeat', width: '100%', height: '100%'
+            }}>
+                <Header />
+                <h1 style={{ color: "white", fontFamily: "serif" }}>Signup</h1>
                 <br />
-                <label htmlFor="lastName">Last Name:</label><br />
-                <input
-                    type="text"
-                    value={lastName}
-                    onChange={event => setLastName(event.target.value)}
-                />
-                <br />
-                <label htmlFor="email">Email:</label><br />
-                <input
-                    type="text"
-                    value={email}
-                    onChange={event => setEmail(event.target.value)}
-                />
-                <br />
-                <label htmlFor="username">Username:</label><br />
-                <input
-                    type="text"
-                    value={userName}
-                    onChange={event => setUserName(event.target.value)}
-                />
-                <br />
-                <label htmlFor="password">Password:</label><br />
-                <input
-                    type="password"
-                    value={password}
-                    onChange={event => setPassword(event.target.value)}
-                />
-                <br />
-                <label htmlFor="password">Confirm Password:</label><br />
-                <input
-                    type="password"
-                    value={passwordConfirm}
-                    onChange={event => setPasswordConfirm(event.target.value)}
-                />
-                <br />
-                <br />
-                <div className="custom-control custom-radio">
-                    <input type="radio"
-                        id="customRadio1"
-                        name="customRadio"
-                        className="custom-control-input"
-                        value={false}
-                        onChange={event => setTrainer(event.target.value)}
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="firstName" style={{ color: "white", fontFamily: "serif", fontSize: "20px" }}>First Name:</label><br />
+                    <input
+                        autoFocus
+                        style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
+                        type="text"
+                        value={firstName}
+                        onChange={event => setFirstName(event.target.value)}
                     />
-                    <label className="custom-control-label" htmlFor="customRadio1">
-                        I am a Client
+                    <br />
+                    <label htmlFor="lastName" style={{ color: "white", fontFamily: "serif", fontSize: "20px" }}>Last Name:</label><br />
+                    <input
+                        style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
+                        type="text"
+                        value={lastName}
+                        onChange={event => setLastName(event.target.value)}
+                    />
+                    <br />
+                    <label htmlFor="email" style={{ color: "white", fontFamily: "serif", fontSize: "20px" }}>Email:</label><br />
+                    <input
+                        type="text"
+                        style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
+                        value={email}
+                        onChange={event => setEmail(event.target.value)}
+                    />
+                    <br />
+                    <label htmlFor="username" style={{ color: "white", fontFamily: "serif", fontSize: "20px" }}>Username:</label><br />
+                    <input
+                        type="text"
+                        style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
+                        value={userName}
+                        onChange={event => setUserName(event.target.value)}
+                    />
+                    <br />
+                    <label htmlFor="password" style={{ color: "white", fontFamily: "serif", fontSize: "20px" }}>Password:</label><br />
+                    <input
+                        type="password"
+                        style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
+                        value={password}
+                        onChange={event => setPassword(event.target.value)}
+                    />
+                    <br />
+                    <label htmlFor="password" style={{ color: "white", fontFamily: "serif", fontSize: "20px" }}>Confirm Password:</label><br />
+                    <input
+                        type="password"
+                        style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
+                        value={passwordConfirm}
+                        onChange={event => setPasswordConfirm(event.target.value)}
+                    />
+                    <br />
+                    <br />
+                    <div className="custom-control custom-radio">
+                        <input type="radio"
+                            id="customRadio1"
+                            name="customRadio"
+                            className="custom-control-input"
+                            value={false}
+                            onChange={event => setTrainer(event.target.value)}
+                        />
+                        <label className="custom-control-label" htmlFor="customRadio1" style={{ color: "white", fontFamily: "serif", fontSize: "15px", paddingRight: "6px" }}>
+                            I am a Client
                     </label>
-                </div>
-                <div className="custom-control custom-radio">
-                    <input type="radio"
-                        id="customRadio2"
-                        name="customRadio"
-                        className="custom-control-input"
-                        value={true}
-                        onChange={event => setTrainer(event.target.value)} />
-                    <label className="custom-control-label" htmlFor="customRadio2">
-                        I am a Trainer
+                    </div>
+                    <div className="custom-control custom-radio">
+                        <input type="radio"
+                            id="customRadio2"
+                            name="customRadio"
+                            className="custom-control-input"
+                            value={true}
+                            onChange={event => setTrainer(event.target.value)} />
+                        <label className="custom-control-label" htmlFor="customRadio2" style={{ color: "white", fontFamily: "serif", fontSize: "15px" }}>
+                            I am a Trainer
                     </label>
-                </div>
+                    </div>
+                    <br />
+
+                    <input type="submit" value="Signup" />
+                </form>
+
                 <br />
-
-                <input type="submit" value="Signup" />
-            </form>
-
-            <br />
-            <h6><a href="/login">I have a login</a></h6>
+                <h6 style={{ color: "white", fontFamily: "serif", fontSize: "18px" }}><a href="/login">I have a login</a></h6>
+            </div>
         </>
     );
 }

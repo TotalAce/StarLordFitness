@@ -1,10 +1,13 @@
 import React from "react";
 import "./style.css";
+import logo from "../../assets/images/logo.png";
 
 function Header() {
     return (
-        <div className="container" id="machli-header">
-            <h1>Machli Fitness</h1>
+        <div id="machli-header">
+            <img alt="tiger" src={logo} width="65" height="65" />
+            <h1 style={{color: "orange"}}>Machli
+            <br></br> &nbsp; <span style={{color: "blue"}}>Fitness</span></h1>
         </div>
     );
 }
