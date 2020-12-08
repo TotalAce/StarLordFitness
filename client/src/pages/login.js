@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom";
 import axios from "axios";
 import LoggedInContext from '../utils/loggedInContext'
 import Header from '../components/Header'
+import Background from "../assets/images/backgroundImg.jpg"
 
 function Login(props) {
     const { isTrainer, isLoggedIn } = useContext(LoggedInContext);
@@ -88,40 +89,45 @@ function Login(props) {
 
     return (
         <>
-            {(isLoggedIn ?
-                (isTrainer ? <Redirect to="/trainer" /> : <Redirect to="/clienthome" />)
-                : (
-                    <>
-                        <Header />
-                        <h1>Login</h1>
+            <div style={{
+                backgroundImage: `url(${Background})`,
+                backgroundRepeat: 'no-repeat', width: '100%', height: '100%'
+            }}>
+                {(isLoggedIn ?
+                    (isTrainer ? <Redirect to="/trainer" /> : <Redirect to="/clienthome" />)
+                    : (
+                        <>
+                            <Header />
+                            <h1 style={{ color: "white", fontFamily: "serif"}}>Login</h1>
 
-                        <form onSubmit={handleSubmit}>
-                            <input
-                                autoFocus
-                                style={{ margin: "5px 5px 0 5px" }}
-                                type="text"
-                                value={userName}
-                                placeholder="Username"
-                                onChange={event => setUserName(event.target.value)}
-                            />
+                            <form onSubmit={handleSubmit}>
+                                <input
+                                    autoFocus
+                                    style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
+                                    type="text"
+                                    value={userName}
+                                    placeholder="Username"
+                                    onChange={event => setUserName(event.target.value)}
+                                />
+                                <br />
+                                <input
+                                    style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
+                                    type="password"
+                                    value={password}
+                                    placeholder="Password"
+                                    onChange={event => setPassword(event.target.value)}
+                                /><br />
+                                <input type="submit" className="btn btn-primary" value="Log In" style={{ marginTop: "5px", border: "2px solid white"}} />
+                            </form>
+
                             <br />
-                            <input
-                                style={{ margin: "5px" }}
-                                type="password"
-                                value={password}
-                                placeholder="Password"
-                                onChange={event => setPassword(event.target.value)}
-                            /><br />
-                            <input type="submit" value="Log In" />
-                        </form>
-
-                        <br />
-                        <h6>
-                            <a href="/signup">I don't have a login</a>
-                        </h6>
-                    </>
-                )
-            )}
+                            <h6>
+                                <a href="/signup" style={{fontFamily: "serif", fontSize: "15px"}}>I don't have a login</a>
+                            </h6>
+                        </>
+                    )
+                )}
+            </div>
         </>
     );
 }
