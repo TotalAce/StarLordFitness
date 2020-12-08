@@ -22,7 +22,7 @@ function Signup() {
 
     // console.log(validateEmail(email))
 
-    async function handleSubmit(evt) {
+    function handleSubmit(evt) {
         evt.preventDefault();
 
         if (!userName || !password || !firstName || !lastName || !email || isTrainer === undefined) {
@@ -33,7 +33,7 @@ function Signup() {
             return alert("Password does not match password confirmation.")
         }
 
-        await axios.post("/api/signup",
+        axios.post("/api/signup",
             {
                 username: userName,
                 email: email,
@@ -42,7 +42,7 @@ function Signup() {
                 firstName: capitalizeFirstLetter(firstName),
                 lastName: capitalizeFirstLetter(lastName)
             })
-            .then(async function (res) {
+            .then(function (res) {
                 console.log(res);
                 console.log(res.data.hasOwnProperty('errors'));
                 console.log("is trainer?", res.data.isTrainer);
@@ -51,7 +51,7 @@ function Signup() {
                     alert(`Field ${res.data.errors[0].message}`)
                 }
 
-                await (res.data.isTrainer === true ?
+                (res.data.isTrainer === true ?
 
                     axios.post("/api/trainer/signup", {
                         username: userName,
@@ -59,11 +59,11 @@ function Signup() {
                         lastName: lastName,
                         UserId: res.data.id
                     })
-                    .then(res =>{
-                        console.log(res)
-                        alert(`Trainer profile ${userName} has been created. Please login with this information`)
-                        window.location.href = "/login"
-                    } )
+                        .then(res => {
+                            console.log(res)
+                            alert(`Trainer profile ${userName} has been created. Please login with this information`)
+                            window.location.href = "/login"
+                        })
                         .catch(err => console.log(err))
 
 
@@ -75,11 +75,11 @@ function Signup() {
                         lastName: lastName,
                         UserId: res.data.id
                     })
-                        .then(res =>{
+                        .then(res => {
                             console.log(res)
                             alert(`Client profile ${userName} has been created. Please login with this information`)
                             window.location.href = "/login"
-                        } )
+                        })
                         .catch(err => console.log(err))
 
                 ).catch(err => console.log(err))
