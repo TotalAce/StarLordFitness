@@ -51,39 +51,40 @@ function Signup() {
                     alert(`Field ${res.data.errors[0].message}`)
                 }
 
-                await (res.data.isTrainer === true ? await signupTrainer() : await signupClient())
+                await (res.data.isTrainer === true ?
 
-
-                function signupTrainer() {
                     axios.post("/api/trainer/signup", {
                         username: userName,
                         firstName: firstName,
                         lastName: lastName,
                         UserId: res.data.id
                     })
-                        .then(res => {
-                            console.log(res);
-                            alert(`Trainer profile ${userName} has been created. Please login with this information`)
-                            // window.location.href = "/login"
-                        })
+                    .then(res =>{
+                        console.log(res)
+                        alert(`Trainer profile ${userName} has been created. Please login with this information`)
+                        window.location.href = "/login"
+                    } )
                         .catch(err => console.log(err))
-                }
-                function signupClient() {
+
+
+                    :
+
                     axios.post("/api/client/signup", {
                         username: userName,
                         firstName: firstName,
                         lastName: lastName,
                         UserId: res.data.id
                     })
-                        .then(res => {
-                            console.log(res);
+                        .then(res =>{
+                            console.log(res)
                             alert(`Client profile ${userName} has been created. Please login with this information`)
-                            // window.location.href = "/login"
-                        })
+                            window.location.href = "/login"
+                        } )
                         .catch(err => console.log(err))
-                }
 
+                ).catch(err => console.log(err))
             })
+
             .catch(err => console.log(err))
     }
 
