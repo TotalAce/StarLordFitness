@@ -1,0 +1,37 @@
+// // change the theme
+// $theme-colors: (
+//   "primary": #000070,
+//   "secondary": #fc7242
+// );
+
+// body {
+//     background-color: #000070;
+// }
+
+// .container {
+//     background-color: #fff;
+// }
+
+// // Import Bootstrap and its default variables
+// @import '~bootstrap/scss/bootstrap.scss';
+
+/*! `Custom` Bootstrap 4 theme */
+@import url(https://use.fontawesome.com/releases/v5.0.10/css/all.css);
+@import url(https://fonts.googleapis.com/css?family=Open+Sans:200,300,400,700);
+$font-family-base:Open Sans;
+$headings-font-family:Open Sans;
+
+$enable-grid-classes:false;
+$primary:#000070;
+$secondary:#6f7f8c;
+$success:#3e4d59;
+$danger:#cc330d;
+$info:#5c8f94;
+$warning:#6e9fa5;
+$light:#eceeec;
+$dark:#1e2b37;
+$enable-gradients:false;
+$spacer:1.2rem;
+$border-width:0;
+$btn-border-radius:0;
+@import "bootstrap";
