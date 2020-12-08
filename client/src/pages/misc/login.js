@@ -99,7 +99,9 @@ function Login(props) {
                     : (
                         <>
                             <Header />
-                            <h1 style={{ color: "white", fontFamily: "serif"}}>Login</h1>
+                            <div style={{background: "rgba(255, 255, 255, 0.6)"}}>
+                            <br/>
+                            <h1>Login</h1>
 
                             <form onSubmit={handleSubmit}>
                                 <input
@@ -118,13 +120,15 @@ function Login(props) {
                                     placeholder="Password"
                                     onChange={event => setPassword(event.target.value)}
                                 /><br />
-                                <input type="submit" className="btn btn-primary" value="Log In" style={{ marginTop: "5px", border: "2px solid white"}} />
+                                <input type="submit" className="btn btn-primary" value="Log In" style={{ marginTop: "5px"}} />
                             </form>
 
                             <br />
                             <h6>
-                                <a href="/signup" style={{fontFamily: "serif", fontSize: "15px"}}>I don't have a login</a>
+                                <a href="/signup" style={{fontSize: "15px"}}>I don't have a login</a>
                             </h6>
+                            <br/>
+                            </div>
                         </>
                     )
                 )}
