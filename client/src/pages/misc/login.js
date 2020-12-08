@@ -1,8 +1,8 @@
 import React, { useState, useContext } from "react";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
-import LoggedInContext from '../utils/loggedInContext'
-import Header from '../components/Header'
+import LoggedInContext from '../../utils/loggedInContext'
+import Header from '../../components/Header'
 
 function Login(props) {
     const { isTrainer, isLoggedIn } = useContext(LoggedInContext);
@@ -48,7 +48,8 @@ function Login(props) {
                                     lastName: res.data.lastName,
                                     isTrainer: res.data.isTrainer,
                                     isLoggedIn: true,
-                                    Trainerid: res.data.Clients[0].TrainerId
+                                    Trainerid: res.data.Clients[0].TrainerId,
+                                    ClientId: res.data.Clients[0].id
                                 })
                             )
 

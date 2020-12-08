@@ -11,7 +11,7 @@ function ClientHome() {
     const [workout, setWorkout] = useState([])
     const [submitted, setSubmitted] = useState(false)
 
-    const { id, username, isLoggedIn, isTrainer, Trainerid } = JSON.parse(localStorage.getItem("user")) || ""
+    const { id, username, isLoggedIn, isTrainer, Trainerid, ClientId } = JSON.parse(localStorage.getItem("user")) || ""
     const date = moment().format('YYYY-MM-DD')
 
     useEffect(() => {
@@ -35,7 +35,8 @@ function ClientHome() {
             date: date,
             note: note,
             completed: completed,
-            UserId: id
+            UserId: id,
+            ClientId: ClientId
         })
             .then((res) => {
                 alert("Workout Submitted!")
@@ -77,7 +78,7 @@ function ClientHome() {
                                     })}
                                 </ul>
 
-                                <textarea rows="4" cols="50" placeholder="Notes for the workout" name="note" onChange={handleInputChange} style={{margin: "2%"}}/>
+                                <textarea rows="4" cols="50" placeholder="Notes for the workout" name="note" onChange={handleInputChange} style={{ margin: "2%" }} />
 
                                 <div className="container">
                                     <input className="form-check-input" type="checkbox" id="completed" onClick={handleButtonClick} />
