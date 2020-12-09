@@ -10,13 +10,10 @@ module.exports = {
                 model: db.WorkoutPlan,
                 group: ['date']
             }],
-
-            // include: [db.Note, db.WorkoutPlan],
             attributes: {
                 exclude: ['password']
             },
             order: [[db.WorkoutPlan, 'date', 'DESC']],
-            // group: ['date']
         })
             .then((data) => res.send(data))
             .catch((err) => console.log(err))
@@ -65,7 +62,6 @@ module.exports = {
             UserId: req.body.UserId,
         }).then((data) => {
             res.send(data)
-            console.log(data2);
         }).catch(function (err) {
             res.status(401).json(err);
         });

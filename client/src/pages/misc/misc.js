@@ -27,7 +27,7 @@ function Logout() {
         axios.get("/api/logout")
             .then((data) => {
                 localStorage.clear()
-                console.log(data);
+                // console.log(data);
             })
             .catch(err => console.log(err))
     })

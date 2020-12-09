@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./style.css";
-// import { TrainerProtectedRoutes, ClientProtectedRoutes } from "./ProtectedRoutes"
 import { Unauthorized, NoMatch, Logout } from './misc/misc'
 import Login from "./misc/login.js";
 import Signup from "./misc/signup.js";
@@ -14,8 +13,6 @@ import TrainerProfile from "./trainerside/trainerprofile";
 import TrainerSearch from "./clientside/trainersearch";
 import LoggedInContext from '../utils/loggedInContext'
 import Chat from "./misc/chat"
-// import API from '../utils/API'
-
 
 function App() {
 
@@ -43,8 +40,6 @@ function App() {
         setLoggedInState(JSON.parse(localStorage.getItem("user")))
     }
 
-    // console.log("State", loggedInState);
-
     return (
         <LoggedInContext.Provider value={loggedInState}>
             <Router>
@@ -67,7 +62,6 @@ function App() {
 
                     <Route exact path="/trainer" component={Trainer} />
 
-                    {/* <Route exact path="/trainerProfile/" component={TrainerProfile} /> */}
                     <Route path="/trainerProfile/:id" component={TrainerProfile} />
 
                     <Route exact path="/trainersearch" component={TrainerSearch} />
@@ -86,97 +80,3 @@ function App() {
 }
 
 export default App;
-
-
-
-// useEffect(() => {
-//     API.checkLoggedIn()
-//         .then(res => {
-//             // console.log(res);
-
-//             if (res.data === "") {
-//                 setLoggedInState({ isLoggedIn: false })
-//             }
-//             else {
-//                 setLoggedInState({
-//                     id: res.data.id,
-//                     username: res.data.username,
-//                     firstName: res.data.firstName,
-//                     lastName: res.data.lastName,
-//                     isTrainer: res.data.isTrainer,
-//                     isLoggedIn: true
-//                 })
-//             }
-//         })
-// }, [])
-
-// setLoggedInState({ handleChange: handleChange })
-<>
-    {/* <ClientProtectedRoutes
-                        path="/clienthome"
-                        component={ClientHome}
-                        errorComponent={Unauthorized}
-                        isLoggedIn={loggedInState.isLoggedIn}
-                        isTrainer={loggedInState.isTrainer}
-                    />
-
-                    <ClientProtectedRoutes
-                        path="/clientcalendar"
-                        component={ClientCalendar}
-                        errorComponent={Unauthorized}
-                        isLoggedIn={loggedInState.isLoggedIn}
-                        isTrainer={loggedInState.isTrainer}
-                    />
-
-                    <ClientProtectedRoutes
-                        path="/clientprofile"
-                        component={ClientProfile}
-                        errorComponent={Unauthorized}
-                        isLoggedIn={loggedInState.isLoggedIn}
-                        isTrainer={loggedInState.isTrainer}
-                    />
-
-                    <ClientProtectedRoutes
-                        path="/trainersearch"
-                        component={TrainerSearch}
-                        errorComponent={Unauthorized}
-                        isLoggedIn={loggedInState.isLoggedIn}
-                        isTrainer={loggedInState.isTrainer}
-                    />
-
-                    <TrainerProtectedRoutes
-                        path="/workouts"
-                        component={Workout}
-                        errorComponent={Unauthorized}
-                        isLoggedIn={loggedInState.isLoggedIn}
-                        isTrainer={loggedInState.isTrainer}
-                    />
-
-                    <TrainerProtectedRoutes
-                        path="/trainer"
-                        component={Trainer}
-                        errorComponent={Unauthorized}
-                        isLoggedIn={loggedInState.isLoggedIn}
-                        isTrainer={loggedInState.isTrainer}
-                    />
-
-                    <TrainerProtectedRoutes
-                        path="/trainercalendar"
-                        component={TrainerCalendar}
-                        errorComponent={Unauthorized}
-                        isLoggedIn={loggedInState.isLoggedIn}
-                        isTrainer={loggedInState.isTrainer}
-                    />
-
-                    <TrainerProtectedRoutes
-                        path="/trainerProfile"
-                        component={TrainerProfile}
-                        errorComponent={Unauthorized}
-                        isLoggedIn={loggedInState.isLoggedIn}
-                        isTrainer={loggedInState.isTrainer}
-                    />
-
-                    <Route path="/logout">
-                        <Logout />
-                     */}
-</>

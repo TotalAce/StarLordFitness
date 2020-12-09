@@ -3,7 +3,8 @@ import { Redirect } from "react-router-dom"
 import { TrainerNavBar, ClientNavBar } from "../../components/Navbar";
 import io from 'socket.io-client'
 
-const socket = io.connect('http://localhost:3000')
+const socket = io.connect('/')
+// const socket = io.connect('http://localhost:3000')
 
 function Chat() {
 

@@ -11,14 +11,14 @@ function Trainer() {
     useEffect(() => {
         axios.get("api/trainer/clients/" + id)
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 setClientList(res.data[0].Clients)
                 // setPageLoad(true)
             })
             .catch(err => console.log(err));
     }, [id])
 
-    console.log(clientList);
+    // console.log(clientList);
 
     let incompleteArray = []
     let completedArray = []
@@ -46,10 +46,10 @@ function Trainer() {
                             <div className="row">
                                 <div className="container col-6">
                                     <h2>Incomplete</h2>
-                                    <ul class="list-group">
+                                    <ul className="list-group">
                                         {incompleteArray.map((client, index) => {
                                             return (
-                                                <li key={index} class="list-group-item list-group-item-warning">{client}</li>
+                                                <li key={index} className="list-group-item list-group-item-warning">{client}</li>
                                             )
                                         })}
                                     </ul>
@@ -57,10 +57,10 @@ function Trainer() {
 
                                 <div className="container col-6" >
                                     <h2>Completed</h2>
-                                    <ul class="list-group">
+                                    <ul className="list-group">
                                         {completedArray.map((client, index) => {
                                             return (
-                                                <li key={index} class="list-group-item list-group-item-success">{client}</li>
+                                                <li key={index} className="list-group-item list-group-item-success">{client}</li>
                                             )
                                         })}
                                     </ul>
@@ -75,6 +75,5 @@ function Trainer() {
         </>
     )
 }
-
 
 export default Trainer;

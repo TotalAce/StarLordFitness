@@ -55,10 +55,6 @@ function TrainerNavBar() {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-            {/* <div className="navbar-brand">
-                <img src={Logo} className="d-inline-block align-top" alt="" loading="lazy" />
-                <span id="machli">Machli Fitness</span>
-            </div> */}
             <a className="navbar-brand" href="/trainer">
                 <img src={Logo} alt="" width="30" height="24" className="d-inline-block align-top" />
                 <span>Machli Fitness</span>
