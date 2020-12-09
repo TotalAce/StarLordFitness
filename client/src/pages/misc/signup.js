@@ -3,6 +3,7 @@ import { Redirect } from "react-router-dom"
 import axios from "axios";
 import Background from "../../assets/images/backgroundImg.jpg"
 import Header from "../../components/Header"
+import TextField from '@material-ui/core/TextField';
 
 function Signup() {
 
@@ -68,7 +69,51 @@ function Signup() {
                         <h1>Sign Up</h1>
                         <br />
                         <form onSubmit={handleSubmit}>
-                            <label htmlFor="firstName" style={{ fontSize: "20px", margin: "auto" }}>First Name:</label><br />
+                            <TextField id="outlined-basic" label="First Name" variant="outlined" autoFocus
+                                autoFocus
+                                style={{ margin: "5px"}}
+                                type="text"
+                                value={firstName}
+                                onChange={event => setFirstName(event.target.value)}
+                            />
+                            <br />
+                            <TextField id="outlined-basic" label="Last Name" variant="outlined" 
+                                style={{ margin: "5px" }}
+                                type="text"
+                                value={lastName}
+                                onChange={event => setLastName(event.target.value)}
+                            />
+                            <br />
+                            <TextField id="outlined-basic" label="Email" variant="outlined" 
+                                type="text"
+                                style={{ margin: "5px"}}
+                                value={email}
+                                onChange={event => setEmail(event.target.value)}
+                            />
+                            <br />
+                            <TextField id="outlined-basic" label="Username" variant="outlined" 
+                                type="text"
+                                style={{ margin: "5px"}}
+                                value={userName}
+                                onChange={event => setUserName(event.target.value)}
+                            />
+                            <br />
+                            <TextField id="outlined-basic" label="Password" variant="outlined" 
+                                 type="password"
+                                 style={{ margin: "5px"}}
+                                 value={password}
+                                 onChange={event => setPassword(event.target.value)}
+                            />
+                            <br />
+                            <TextField id="outlined-basic" label="Confirm Password" variant="outlined" 
+                                type="password"
+                                style={{ margin: "5px"}}
+                                value={passwordConfirm}
+                                onChange={event => setPasswordConfirm(event.target.value)}
+                            />
+                            <br />
+
+                            {/* <label htmlFor="firstName" style={{ fontSize: "20px", margin: "auto" }}>First Name:</label><br />
                             <input
                                 autoFocus
                                 style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
@@ -115,7 +160,7 @@ function Signup() {
                                 style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
                                 value={passwordConfirm}
                                 onChange={event => setPasswordConfirm(event.target.value)}
-                            />
+                            /> */}
                             <br />
                             <br />
                             <div className="custom-control custom-radio">
