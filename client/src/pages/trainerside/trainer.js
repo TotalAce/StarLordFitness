@@ -37,10 +37,11 @@ function Trainer() {
                 <Redirect to="/login" /> :
                 (isTrainer === false ? <Redirect to="/unauthorized" /> :
 
-                    <div className="container">
+                    <div>
                         <TrainerNavBar />
 
                         <div className="container">
+                            <br/>
                             <h1 className="row justify-content-center">Welcome back {firstName}!</h1>
                             <br />
                             <div className="row">
