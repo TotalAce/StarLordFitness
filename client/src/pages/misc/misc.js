@@ -1,5 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import axios from "axios"
+import { Redirect } from "react-router-dom";
+
 
 function Unauthorized() {
     return (
@@ -23,23 +25,20 @@ function NoMatch() {
 
 function Logout() {
 
+    const [loaded, setLoaded] = useState(false)
+
     useEffect((res, req) => {
         axios.get("/api/logout")
             .then((data) => {
                 localStorage.clear()
-                // console.log(data);
+                setLoaded(true)
             })
             .catch(err => console.log(err))
     })
 
     return (
-        <div className="container" style={{textAlign:"center"}}>
-            <h1>LOGGED OUT</h1>
-            <br />
-            <h1><a href="/login">Go to login page</a></h1>
-            
-        </div>
+        (loaded === true ? <Redirect to="/" /> : null)
     )
 }
 
-export { Unauthorized, NoMatch, Logout}
+export { Unauthorized, NoMatch, Logout }

@@ -81,14 +81,14 @@ function Login(props) {
                             <h1>Login</h1>
 
                             <form onSubmit={handleSubmit}>
-                                <TextField id="outlined-basic" label="Username" variant="outlined" autoFocus
+                                <TextField label="Username" variant="outlined" autoFocus
                                     style={{ margin: "5px" }}
                                     type="text"
                                     value={userName}
                                     placeholder="Username"
                                     onChange={event => setUserName(event.target.value)} />
                                 <br />
-                                <TextField id="outlined-basic" label="Password" variant="outlined"
+                                <TextField label="Password" variant="outlined"
                                     style={{ margin: "5px" }}
                                     type="password"
                                     value={password}

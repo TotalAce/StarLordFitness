@@ -69,7 +69,7 @@ function Signup() {
                         <h1>Sign Up</h1>
                         <br />
                         <form onSubmit={handleSubmit}>
-                            <TextField id="outlined-basic" label="First Name" variant="outlined" autoFocus
+                            <TextField label="First Name" variant="outlined" autoFocus
                                 autoFocus
                                 style={{ margin: "5px"}}
                                 type="text"
@@ -77,35 +77,35 @@ function Signup() {
                                 onChange={event => setFirstName(event.target.value)}
                             />
                             <br />
-                            <TextField id="outlined-basic" label="Last Name" variant="outlined" 
+                            <TextField label="Last Name" variant="outlined" 
                                 style={{ margin: "5px" }}
                                 type="text"
                                 value={lastName}
                                 onChange={event => setLastName(event.target.value)}
                             />
                             <br />
-                            <TextField id="outlined-basic" label="Email" variant="outlined" 
+                            <TextField label="Email" variant="outlined" 
                                 type="text"
                                 style={{ margin: "5px"}}
                                 value={email}
                                 onChange={event => setEmail(event.target.value)}
                             />
                             <br />
-                            <TextField id="outlined-basic" label="Username" variant="outlined" 
+                            <TextField label="Username" variant="outlined" 
                                 type="text"
                                 style={{ margin: "5px"}}
                                 value={userName}
                                 onChange={event => setUserName(event.target.value)}
                             />
                             <br />
-                            <TextField id="outlined-basic" label="Password" variant="outlined" 
+                            <TextField label="Password" variant="outlined" 
                                  type="password"
                                  style={{ margin: "5px"}}
                                  value={password}
                                  onChange={event => setPassword(event.target.value)}
                             />
                             <br />
-                            <TextField id="outlined-basic" label="Confirm Password" variant="outlined" 
+                            <TextField label="Confirm Password" variant="outlined" 
                                 type="password"
                                 style={{ margin: "5px"}}
                                 value={passwordConfirm}
