@@ -53,9 +53,9 @@ function Logout() {
                             <h4 style={{ padding: "2%" }}>Leave nothing to chance. <br/>Leave nothing to Luck. <br/>Own it. <br/>You're writing your own story. <br/>Why not make it awesome?</h4>
                             <h1 style={{ fontWeight: "bold" }}><span style={{color: "#000070"}}>#STRIVE</span><span style={{color: "#fc7245"}}>4</span><span style={{color: "#000070"}}>GREATNESS!</span></h1>
 
-                            <Link to="/login"><button type="button" className="btn btn-primary" style={{ margin: "5px" }}>Login</button></Link>
+                            <a href="/login"><button type="button" className="btn btn-primary" style={{ margin: "5px" }}>Login</button></a>
                            
-                            <Link to="/signup"><button type="button" className="btn btn-primary" style={{ margin: "5px" }}>Signup</button></Link>
+                            <a href="/signup"><button type="button" className="btn btn-primary" style={{ margin: "5px" }}>Signup</button></a>
                         </div>
                     </div>
                 </div>
