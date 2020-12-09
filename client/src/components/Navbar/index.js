@@ -9,10 +9,14 @@ function ClientNavBar() {
     const { id, Trainerid } = JSON.parse(localStorage.getItem("user")) || ""
 
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+        <nav className="navbar navbar-expand navbar-light bg-light sticky-top" style={{margin: "0px"}}>
+            {/* <div className="navbar-brand">
+                <img src={Logo} className="d-inline-block align-top" alt="" loading="lazy" />
+                <span id="machli">Machli Fitness</span>
+            </div> */}
             <a className="navbar-brand" href="/clienthome">
                 <img src={Logo} alt="" width="30" height="24" className="d-inline-block align-top" />
-                <span>Machli Fitness</span>
+                <span> Machli Fitness</span>
             </a>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">

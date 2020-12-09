@@ -1,13 +1,13 @@
-.workout-list li {
+/* .workout-list li {
     text-align: right;
-}
+} */
 
 .workout-list strong {
     margin-left: 3px;
 }
 
 .client-workout-card {
-    width: 33%;
+    width: 100%;
     margin: auto;
 }
 
