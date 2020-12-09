@@ -1,4 +1,3 @@
-const db = require("../../models");
 const express = require("express");
 const router = express.Router();
 const workoutsController = require("../../controllers/workoutsController")
@@ -13,12 +12,7 @@ router.route("/workouts")
 router.route("/workouts/muscle")
     .post(workoutsController.workoutsByMuscle)
 
-// ---------------POST AN EXERCISE TO A CLIENT'S WORKOUT, CLIENT CAN GET THEIR WORKOUT---------------
-// router.route("/workoutPlan/:id")
-//     .get(workoutPlansController.getWorkoutPlan)
-//     .post(workoutPlansController.createWorkoutPlan)
-
-// ---------------DELETE AN EXERCIES FROM A CLIENT'S WORKOUT---------------
+// ---------------DELETE/GET/POST AN EXERCIES FROM A CLIENT'S WORKOUT---------------
 router.route("/workoutPlan/:id")
     .delete(workoutPlansController.deleteWorkoutPlan)
     .get(workoutPlansController.getWorkoutPlan)

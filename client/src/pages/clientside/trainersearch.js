@@ -4,7 +4,6 @@ import { ClientNavBar } from '../../components/Navbar'
 import { TrainerList } from "../../components/TrainerList"
 import { Unauthorized } from '../misc/misc'
 import axios from 'axios'
-// import TrainerProfile from "../trainerside/trainerprofile"
 
 function TrainerSearch() {
     const { isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user")) || ""
@@ -15,7 +14,7 @@ function TrainerSearch() {
     useEffect(() => {
         axios.get("api/trainer/list")
             .then(res => {
-                console.log(res);
+                // console.log(res);
                 setTrainerList(res.data)
                 setPageLoad(true)
             })
@@ -41,7 +40,6 @@ function TrainerSearch() {
 
                                 />
                                 : null)}
-
                         </div>
 
                     </>

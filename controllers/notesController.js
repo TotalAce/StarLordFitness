@@ -9,13 +9,13 @@ module.exports = {
                 note: req.body.note,
                 completed: req.body.completed,
                 UserId: req.body.UserId,
-                ClientId: req.body.ClientId
+                ClientId: req.body.ClientId 
             })
             .then(function (data) {
                 res.json(data);
             })
             .catch(function (err) {
-                console.log(err);
+                res.send(err);
             })
     },
 
@@ -29,7 +29,7 @@ module.exports = {
                 res.json(data);
             })
             .catch(function (err) {
-                console.log(err);
+                res.send(err);
             })
     }
 

@@ -5,12 +5,7 @@ module.exports = {
     getWorkoutPlan: (req, res) => {
         db.WorkoutPlan.findAll(
             {
-                where: { UserId: req.params.id },
-                // include: [db.WorkoutPlan]
-                // [{
-                //     model: db.Client,
-                //     include: [db.WorkoutPlan]
-                // }]
+                where: { UserId: req.params.id }
             })
             .then((data) => res.send(data))
             .catch((err) => console.log(err))

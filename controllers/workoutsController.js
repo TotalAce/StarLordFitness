@@ -2,18 +2,6 @@ const db = require("../models");
 
 module.exports = {
 
-    // allWorkouts: (req, res) => {
-    //     db.Workout.findAll({
-    //         group: ['muscleGroup']
-    //     })
-    //         .then(function (data) {
-    //             res.json(data);
-    //         })
-    //         .catch(function (err) {
-    //             console.log(err);
-    //         })
-    // },
-
     allMuscleGroups: (req, res) => {
         db.Workout.findAll({
             group: ['muscleGroup']

@@ -7,7 +7,7 @@ import moment from 'moment'
 import WorkoutForm from '../../components/WorkoutForm'
 
 function ClientProfile() {
-    const { isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user")) || ""
+    const { isLoggedIn, isTrainer, id } = JSON.parse(localStorage.getItem("user")) || ""
 
     const [client, setClient] = useState({})
     const [workouts, setWorkouts] = useState([])
@@ -26,10 +26,8 @@ function ClientProfile() {
         axios.get("/api/client/" + ClientId)
             .then(res => {
                 // console.log(res);
-                // console.log(res.data[0]);
                 setClient(res.data[0])
                 setWorkouts(res.data[0].WorkoutPlans)
-                // setFormObject({ ...formObject, UserId: ClientId })
             })
             .catch(err => console.log(err));
 
@@ -69,16 +67,10 @@ function ClientProfile() {
     const todaysWorkoutAddFive = workouts.filter(workout => workout.date === dateAddFive)
     const todaysWorkoutAddSix = workouts.filter(workout => workout.date === dateAddSix)
 
-    // console.log(todaysWorkout);
-    // console.log(workouts);
-
     function handleInputChange(event) {
         let { name, value } = event.target;
         setFormObject({ ...formObject, [name]: value })
     };
-
-    // console.log(formObject);
-    // console.log(formObject.date);
 
     function handleDelete(event) {
         event.preventDefault();
@@ -94,7 +86,6 @@ function ClientProfile() {
                 })
                 .catch(err => console.log(err))
         }
-
     }
 
     function handleFormSubmit(event) {
@@ -133,7 +124,7 @@ function ClientProfile() {
 
                     <h1 className="justify-content-center">{client.firstName} {client.lastName}</h1>
                     <div className="img-container justify-content-center">
-                        <img src="https://i.pravatar.cc/300" alt="Trainer Img" style={{borderRadius: "50%"}}/>
+                        <img src={`https://randomuser.me/api/portraits/men/${id}.jpg`} alt="Client Img" style={{borderRadius: "50%", width: "200px", height: "200px"}}/>
                     </div>
 
                     <br />

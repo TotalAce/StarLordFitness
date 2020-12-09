@@ -1,9 +1,9 @@
-const db = require("../../models");
 const express = require("express");
 const router = express.Router();
 const clientsController = require("../../controllers/clientsController")
 const notesController = require("../../controllers/notesController")
 
+// ---------------CREATE TRAINER FROM SIGNUP---------------
 router.route("/signup")
     .post(clientsController.create)
 
@@ -21,6 +21,7 @@ router.route("/notes")
     .post(notesController.createNote)
     .put(notesController.editNote)
 
+// ---------------GET CHOSEN CLIENT---------------
 router.route("/:id")
     .get(clientsController.findClient)
 

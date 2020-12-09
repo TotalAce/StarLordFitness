@@ -5,14 +5,11 @@ const routes = require("./routes");
 const app = express();
 const PORT = process.env.PORT || 3001;
 const db = require("./models");
-require("dotenv").config();
 
 const http = require("http")
 const server = http.createServer(app)
 const socket = require("socket.io")
 const io = socket(server)
-
-// io.on("connection")
 
 io.on('connection', socket => {
   socket.on('message', ({ name, message }) => {

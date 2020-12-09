@@ -24,9 +24,6 @@ function TrainerProfile() {
             .catch(err => console.log(err));
     }, [result])
 
-    // console.log(result);
-    // console.log(id);
-
     function handleTrainer(e) {
         e.preventDefault()
         // console.log("clicked");
@@ -48,14 +45,13 @@ function TrainerProfile() {
             {(isLoggedIn === false || !isLoggedIn ?
                 <Redirect to="/login" /> :
 
-
                 <div className="container">
 
                     {(isTrainer === true ? <TrainerNavBar /> : <ClientNavBar />)}
 
                     <h1 className="justify-content-center">{trainer.firstName} {trainer.lastName}</h1>
                     <div className="img-container justify-content-center">
-                        <img src="https://i.pravatar.cc/300" alt="Trainer Img" style={{ borderRadius: "50%" }} />
+                    <img src={`https://randomuser.me/api/portraits/men/${id}.jpg`} alt="Trainer Img" style={{borderRadius: "50%", width: "200px", height: "200px"}}/>
                     </div>
                     <br />
                     <div>
@@ -82,8 +78,6 @@ function TrainerProfile() {
                     )}
 
                 </div>
-
-
             )}
         </>
     )

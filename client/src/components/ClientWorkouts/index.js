@@ -18,12 +18,6 @@ function ClientWorkouts(props) {
                                         <strong>Sets: </strong>{exercise.sets}
                                         <strong>Reps: </strong>{exercise.reps}
                                         <span>
-                                            {/* <button
-                                                value={exercise.id}
-                                                onClick={props.delete}
-                                                hidden={props.trainer}
-                                            >X
-                                            </button> */}
                                             <input
                                                 type="image"
                                                 src={Delete}
