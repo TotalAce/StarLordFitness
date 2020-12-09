@@ -152,54 +152,68 @@ function ClientProfile() {
                     {workouts.length > 0 ?
                         <div className="week-workouts">
                             <div className="row">
-                                <ClientWorkouts
-                                    date={date}
-                                    array={todaysWorkout}
-                                    delete={handleDelete}
-                                    trainer={!isTrainer}
-                                />
-                                <ClientWorkouts
-                                    date={dateAddOne}
-                                    array={todaysWorkoutAddOne}
-                                    delete={handleDelete}
-                                    trainer={!isTrainer}
-                                />
-                                <ClientWorkouts
-                                    date={dateAddTwo}
-                                    array={todaysWorkoutAddTwo}
-                                    delete={handleDelete}
-                                    trainer={!isTrainer}
-                                />
+                                <div className="col-lg-12">
+                                    <ClientWorkouts
+                                        date={date}
+                                        array={todaysWorkout}
+                                        delete={handleDelete}
+                                        trainer={!isTrainer}
+                                    />
+                                </div>
                             </div>
                             <br />
                             <div className="row">
-                                <ClientWorkouts
-                                    date={dateAddThree}
-                                    array={todaysWorkoutAddThree}
-                                    delete={handleDelete}
-                                    trainer={!isTrainer}
-                                />
-                                <ClientWorkouts
-                                    date={dateAddFour}
-                                    array={todaysWorkoutAddFour}
-                                    delete={handleDelete}
-                                    trainer={!isTrainer}
-                                />
-                                <ClientWorkouts
-                                    date={dateAddFive}
-                                    array={todaysWorkoutAddFive}
-                                    delete={handleDelete}
-                                    trainer={!isTrainer}
-                                />
+                                <div className="col-lg-4">
+                                    <ClientWorkouts
+                                        date={dateAddOne}
+                                        array={todaysWorkoutAddOne}
+                                        delete={handleDelete}
+                                        trainer={!isTrainer}
+                                    />
+                                </div>
+                                <div className="col-lg-4">
+                                    <ClientWorkouts
+                                        date={dateAddTwo}
+                                        array={todaysWorkoutAddTwo}
+                                        delete={handleDelete}
+                                        trainer={!isTrainer}
+                                    />
+                                </div>
+                                <div className="col-lg-4">
+                                    <ClientWorkouts
+                                        date={dateAddThree}
+                                        array={todaysWorkoutAddThree}
+                                        delete={handleDelete}
+                                        trainer={!isTrainer}
+                                    />
+                                </div>
                             </div>
                             <br />
                             <div className="row">
-                                <ClientWorkouts
-                                    date={dateAddSix}
-                                    array={todaysWorkoutAddSix}
-                                    delete={handleDelete}
-                                    trainer={!isTrainer}
-                                />
+                                <div className="col-lg-4">
+                                    <ClientWorkouts
+                                        date={dateAddFour}
+                                        array={todaysWorkoutAddFour}
+                                        delete={handleDelete}
+                                        trainer={!isTrainer}
+                                    />
+                                </div>
+                                <div className="col-lg-4">
+                                    <ClientWorkouts
+                                        date={dateAddFive}
+                                        array={todaysWorkoutAddFive}
+                                        delete={handleDelete}
+                                        trainer={!isTrainer}
+                                    />
+                                </div>
+                                <div className="col-lg-4">
+                                    <ClientWorkouts
+                                        date={dateAddSix}
+                                        array={todaysWorkoutAddSix}
+                                        delete={handleDelete}
+                                        trainer={!isTrainer}
+                                    />
+                                </div>
                             </div>
                         </div>
                         : ""}
