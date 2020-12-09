@@ -9,7 +9,6 @@ A fitness app to connect trainers to their clients. This allows for ease of trac
 ## Table of Contents
 
 * [Installation](#installation)
-<!-- * [Test Instructions](#test%20instructions) -->
 * [Usage Information](#usage%20information)
 * [Contributions](#contributions)
 * [License](#license)
@@ -38,7 +37,9 @@ npm run start
 
 ![Trainer](client\src\assets\images\MachiFitness-Trainer.gif)
 
-![Trainer](client\src\assets\images\MachiFitness-Client.gif)
+<br/>
+
+![Client](client\src\assets\images\MachiFitness-Client.gif)
 
 <!-- Provide instructions and examples for use. Include screenshots as needed.  -->
 
@@ -51,7 +52,10 @@ This project is licensed under the MIT license.
 <!-- The last section of a good README is a license. This lets other developers know what they can and cannot do with your project. If you need help choosing a license, use [https://choosealicense.com/](https://choosealicense.com/) -->
 
 ## Credits
-Aaron Oberg, Josh Illg, Shue Moua, Tsin Moua
+Aaron Oberg: https://github.com/TotalAce \
+Josh Illg: https://github.com/jishllg \
+Shue Moua: https://github.com/ShueMoua \
+Tsin Moua: https://github.com/tsinmoua
 <!-- List your collaborators, if any, with links to their GitHub profiles.
 If you used any third-party assets that require attribution, list the creators with links to their primary web presence in this section.
 If you followed tutorials, include links to those here as well. -->
