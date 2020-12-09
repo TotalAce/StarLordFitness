@@ -4,6 +4,7 @@ import axios from "axios";
 import LoggedInContext from '../../utils/loggedInContext'
 import Background from "../../assets/images/backgroundImg.jpg"
 import Header from '../../components/Header'
+import TextField from '@material-ui/core/TextField';
 
 function Login(props) {
     const { isTrainer, isLoggedIn } = useContext(LoggedInContext);
@@ -80,7 +81,21 @@ function Login(props) {
                             <h1>Login</h1>
 
                             <form onSubmit={handleSubmit}>
-                                <input
+                                <TextField label="Username" variant="outlined" autoFocus
+                                    style={{ margin: "5px" }}
+                                    type="text"
+                                    value={userName}
+                                    placeholder="Username"
+                                    onChange={event => setUserName(event.target.value)} />
+                                <br />
+                                <TextField label="Password" variant="outlined"
+                                    style={{ margin: "5px" }}
+                                    type="password"
+                                    value={password}
+                                    placeholder="Password"
+                                    onChange={event => setPassword(event.target.value)}
+                                />
+                                {/* <input
                                     autoFocus
                                     style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
                                     type="text"
@@ -95,7 +110,8 @@ function Login(props) {
                                     value={password}
                                     placeholder="Password"
                                     onChange={event => setPassword(event.target.value)}
-                                /><br />
+                                /> */}
+                                <br />
                                 <input type="submit" className="btn btn-primary" value="Log In" style={{ marginTop: "5px" }} />
                             </form>
 
