@@ -77,7 +77,7 @@ function ClientProfile() {
         event.stopPropagation();
         let { value } = event.target;
         let confirmDelete = window.confirm("Are you sure you want to delete this exercise?")
-        console.log(value);
+        // console.log(value);
         if (confirmDelete === true) {
             axios.delete("/api/workoutplan/" + value)
                 .then(res => {
