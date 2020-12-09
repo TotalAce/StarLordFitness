@@ -27,16 +27,20 @@ function Trainer() {
                 <Redirect to="/login" /> :
                 (isTrainer === false ? <Redirect to="/unauthorized" /> :
 
-                    <div className="container">
+                    <div>
 
                         <TrainerNavBar />
+                        <div className="container">
+                            <br/>
                         <h1>List of Clients</h1>
+                            <br/>
 
                         {(pageLoad ?
                             <ClientList
                                 array={clientList}
                             />
                             : null)}
+                        </div>
                     </div>
                 )
             )}

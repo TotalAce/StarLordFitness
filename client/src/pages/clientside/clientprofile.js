@@ -118,10 +118,11 @@ function ClientProfile() {
             {(isLoggedIn === false || !isLoggedIn ?
                 <Redirect to="/login" /> :
 
-                <div className="container">
+                <div>
 
                     {(isTrainer === true ? <TrainerNavBar /> : <ClientNavBar />)}
-
+                <div className="container">
+                    <br/>
                     <h1 className="justify-content-center">{client.firstName} {client.lastName}</h1>
                     <div className="img-container justify-content-center">
                         <img src={`https://randomuser.me/api/portraits/men/${ClientId}.jpg`} alt="Client Img" style={{ borderRadius: "50%", width: "200px", height: "200px" }} />
@@ -208,7 +209,7 @@ function ClientProfile() {
                             </div>
                         </div>
                         : ""}
-
+                    </div>
                 </div>
             )}
         </>

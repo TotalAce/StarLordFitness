@@ -47,16 +47,16 @@ function TrainerProfile() {
             {(isLoggedIn === false || !isLoggedIn ?
                 <Redirect to="/login" /> :
 
-                <div className="container">
+                <div>
 
                     {(isTrainer === true ? <TrainerNavBar /> : <ClientNavBar />)}
-
+                    <br/>
                     <h1 className="justify-content-center">{trainer.firstName} {trainer.lastName}</h1>
                     <div className="img-container justify-content-center">
                     <img src={`https://randomuser.me/api/portraits/men/${result}.jpg`} alt="Trainer Img" style={{borderRadius: "50%", width: "200px", height: "200px"}}/>
                     </div>
                     <br />
-                    <div>
+                    <div className="container">
                         <div className="row justify-content-center">
                             {/* <h3>Credentials: {trainer.credentials}</h3> */}
                             <h3>Certifications: ISSA, ACE, NASM </h3>

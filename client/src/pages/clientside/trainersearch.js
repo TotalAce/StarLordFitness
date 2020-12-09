@@ -32,16 +32,19 @@ function TrainerSearch() {
                     :
 
                     <>
-                        <div className="container">
+                        <div>
                             <ClientNavBar />
+                            <br/>
                             <h1>Choose a Personal Trainer to Work With:</h1>
-
+                            <div className="container">
+                                <br/>
                             {(pageLoad ?
                                 <TrainerList
                                     array={trainerList}
 
                                 />
                                 : null)}
+                            </div>
                         </div>
 
                     </>
