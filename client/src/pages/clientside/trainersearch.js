@@ -21,6 +21,8 @@ function TrainerSearch() {
             .catch(err => console.log(err));
     }, [])
 
+    // console.log(trainerList);
+
     return (
         <>
             {(isLoggedIn === false || !isLoggedIn ?

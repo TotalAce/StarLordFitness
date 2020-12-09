@@ -7,7 +7,7 @@ import moment from 'moment'
 import WorkoutForm from '../../components/WorkoutForm'
 
 function ClientProfile() {
-    const { isLoggedIn, isTrainer, id } = JSON.parse(localStorage.getItem("user")) || ""
+    const { isLoggedIn, isTrainer } = JSON.parse(localStorage.getItem("user")) || ""
 
     const [client, setClient] = useState({})
     const [workouts, setWorkouts] = useState([])
@@ -124,7 +124,7 @@ function ClientProfile() {
 
                     <h1 className="justify-content-center">{client.firstName} {client.lastName}</h1>
                     <div className="img-container justify-content-center">
-                        <img src={`https://randomuser.me/api/portraits/men/${id}.jpg`} alt="Client Img" style={{borderRadius: "50%", width: "200px", height: "200px"}}/>
+                        <img src={`https://randomuser.me/api/portraits/men/${ClientId}.jpg`} alt="Client Img" style={{ borderRadius: "50%", width: "200px", height: "200px" }} />
                     </div>
 
                     <br />

@@ -3,7 +3,7 @@ import "./style.css";
 import Delete from '../../assets/images/delete.png'
 
 function ClientWorkouts(props) {
-    console.log(props.array.length)
+    // console.log(props.array.length)
     if (props.array.length === 0) {
         return (
             <div className="client-workout-card">

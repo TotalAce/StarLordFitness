@@ -20,6 +20,7 @@ function Trainer() {
             .catch(err => console.log(err));
     }, [id])
 
+    // console.log(clientList);
     return (
         <>
             {(isLoggedIn === false || !isLoggedIn ?
