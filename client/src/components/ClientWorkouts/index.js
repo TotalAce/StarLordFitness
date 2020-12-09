@@ -7,7 +7,7 @@ function ClientWorkouts(props) {
         <div className="client-workout-card" {...props}>
             <div className="card workout-card" >
                 <div className="card-body workout-card-body">
-                    <h6 className="card-title">{props.date}</h6>
+                    <h6 className="card-title" style={{ fontWeight: "bolder" }}>{props.date}</h6>
 
                     <div className="card-text">
                         <ul className="workout-list">

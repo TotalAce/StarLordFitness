@@ -10,8 +10,8 @@ function WorkoutForm(props) {
     }
 
     return (
-        <form onSubmit={props.onSubmit}>
-            <div className="row">
+        <form onSubmit={props.onSubmit} className="container">
+            <div className="row exercise-selection">
                 <div className="form-group">
                     <label htmlFor="date">Date</label>
                     <input type="date" className="form-control" id="add-workout-date" name="date" onChange={props.handleinputchange}/>

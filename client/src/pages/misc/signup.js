@@ -46,7 +46,7 @@ function Signup() {
                 lastName: capitalizeFirstLetter(lastName)
             })
             .then(function (res) {
-                console.log(res);
+                // console.log(res);
 
                 alert(`Profile ${userName} has been created. Please login with this information`)
                 window.location.href = "/login"
@@ -68,7 +68,7 @@ function Signup() {
                         <h1>Sign Up</h1>
                         <br />
                         <form onSubmit={handleSubmit}>
-                            <label htmlFor="firstName" style={{ fontSize: "20px" }}>First Name:</label><br />
+                            <label htmlFor="firstName" style={{ fontSize: "20px", margin: "auto" }}>First Name:</label><br />
                             <input
                                 autoFocus
                                 style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
@@ -77,7 +77,7 @@ function Signup() {
                                 onChange={event => setFirstName(event.target.value)}
                             />
                             <br />
-                            <label htmlFor="lastName" style={{ fontSize: "20px" }}>Last Name:</label><br />
+                            <label htmlFor="lastName" style={{ fontSize: "20px", margin: "auto"  }}>Last Name:</label><br />
                             <input
                                 style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
                                 type="text"
@@ -85,7 +85,7 @@ function Signup() {
                                 onChange={event => setLastName(event.target.value)}
                             />
                             <br />
-                            <label htmlFor="email" style={{ fontSize: "20px" }}>Email:</label><br />
+                            <label htmlFor="email" style={{ fontSize: "20px", margin: "auto"  }}>Email:</label><br />
                             <input
                                 type="text"
                                 style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
@@ -93,7 +93,7 @@ function Signup() {
                                 onChange={event => setEmail(event.target.value)}
                             />
                             <br />
-                            <label htmlFor="username" style={{ fontSize: "20px" }}>Username:</label><br />
+                            <label htmlFor="username" style={{ fontSize: "20px", margin: "auto"  }}>Username:</label><br />
                             <input
                                 type="text"
                                 style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
@@ -101,7 +101,7 @@ function Signup() {
                                 onChange={event => setUserName(event.target.value)}
                             />
                             <br />
-                            <label htmlFor="password" style={{ fontSize: "20px" }}>Password:</label><br />
+                            <label htmlFor="password" style={{ fontSize: "20px", margin: "auto"  }}>Password:</label><br />
                             <input
                                 type="password"
                                 style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
@@ -109,7 +109,7 @@ function Signup() {
                                 onChange={event => setPassword(event.target.value)}
                             />
                             <br />
-                            <label htmlFor="password" style={{ fontSize: "20px" }}>Confirm Password:</label><br />
+                            <label htmlFor="password" style={{ fontSize: "20px", margin: "auto"  }}>Confirm Password:</label><br />
                             <input
                                 type="password"
                                 style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
@@ -151,7 +151,7 @@ function Signup() {
                         <br />
                     </div>
                 </div>
-                
+
                 :
                 (isLoggedIn === true ? (isTrainer === true ? <Redirect to="/trainer" /> : <Redirect to="/clienthome" />) : null))}
         </>
