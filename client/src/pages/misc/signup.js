@@ -69,99 +69,48 @@ function Signup() {
                         <h1>Sign Up</h1>
                         <br />
                         <form onSubmit={handleSubmit}>
-                            <TextField label="First Name" variant="outlined" autoFocus
+                            <TextField label="First Name" variant="outlined"
                                 autoFocus
-                                style={{ margin: "5px"}}
+                                style={{ margin: "5px" }}
                                 type="text"
                                 value={firstName}
                                 onChange={event => setFirstName(event.target.value)}
                             />
                             <br />
-                            <TextField label="Last Name" variant="outlined" 
+                            <TextField label="Last Name" variant="outlined"
                                 style={{ margin: "5px" }}
                                 type="text"
                                 value={lastName}
                                 onChange={event => setLastName(event.target.value)}
                             />
                             <br />
-                            <TextField label="Email" variant="outlined" 
+                            <TextField label="Email" variant="outlined"
                                 type="text"
-                                style={{ margin: "5px"}}
+                                style={{ margin: "5px" }}
                                 value={email}
                                 onChange={event => setEmail(event.target.value)}
                             />
                             <br />
-                            <TextField label="Username" variant="outlined" 
+                            <TextField label="Username" variant="outlined"
                                 type="text"
-                                style={{ margin: "5px"}}
+                                style={{ margin: "5px" }}
                                 value={userName}
                                 onChange={event => setUserName(event.target.value)}
                             />
                             <br />
-                            <TextField label="Password" variant="outlined" 
-                                 type="password"
-                                 style={{ margin: "5px"}}
-                                 value={password}
-                                 onChange={event => setPassword(event.target.value)}
-                            />
-                            <br />
-                            <TextField label="Confirm Password" variant="outlined" 
+                            <TextField label="Password" variant="outlined"
                                 type="password"
-                                style={{ margin: "5px"}}
-                                value={passwordConfirm}
-                                onChange={event => setPasswordConfirm(event.target.value)}
-                            />
-                            <br />
-
-                            {/* <label htmlFor="firstName" style={{ fontSize: "20px", margin: "auto" }}>First Name:</label><br />
-                            <input
-                                autoFocus
-                                style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
-                                type="text"
-                                value={firstName}
-                                onChange={event => setFirstName(event.target.value)}
-                            />
-                            <br />
-                            <label htmlFor="lastName" style={{ fontSize: "20px", margin: "auto"  }}>Last Name:</label><br />
-                            <input
-                                style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
-                                type="text"
-                                value={lastName}
-                                onChange={event => setLastName(event.target.value)}
-                            />
-                            <br />
-                            <label htmlFor="email" style={{ fontSize: "20px", margin: "auto"  }}>Email:</label><br />
-                            <input
-                                type="text"
-                                style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
-                                value={email}
-                                onChange={event => setEmail(event.target.value)}
-                            />
-                            <br />
-                            <label htmlFor="username" style={{ fontSize: "20px", margin: "auto"  }}>Username:</label><br />
-                            <input
-                                type="text"
-                                style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
-                                value={userName}
-                                onChange={event => setUserName(event.target.value)}
-                            />
-                            <br />
-                            <label htmlFor="password" style={{ fontSize: "20px", margin: "auto"  }}>Password:</label><br />
-                            <input
-                                type="password"
-                                style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
+                                style={{ margin: "5px" }}
                                 value={password}
                                 onChange={event => setPassword(event.target.value)}
                             />
                             <br />
-                            <label htmlFor="password" style={{ fontSize: "20px", margin: "auto"  }}>Confirm Password:</label><br />
-                            <input
+                            <TextField label="Confirm Password" variant="outlined"
                                 type="password"
-                                style={{ margin: "5px", padding: "5px", borderRadius: "5px", border: "2px solid gray" }}
+                                style={{ margin: "5px" }}
                                 value={passwordConfirm}
                                 onChange={event => setPasswordConfirm(event.target.value)}
-                            /> */}
-                            <br />
+                            />
                             <br />
                             <div className="custom-control custom-radio">
                                 <input type="radio"
@@ -173,7 +122,7 @@ function Signup() {
                                 />
                                 <label className="custom-control-label" htmlFor="customRadio1" style={{ fontSize: "15px", paddingRight: "6px" }}>
                                     I am a Client
-                        </label>
+                                </label>
                             </div>
                             <div className="custom-control custom-radio">
                                 <input type="radio"
@@ -184,10 +133,9 @@ function Signup() {
                                     onChange={event => setTrainer(event.target.value)} />
                                 <label className="custom-control-label" htmlFor="customRadio2" style={{ fontSize: "15px" }}>
                                     I am a Trainer
-                        </label>
+                                </label>
                             </div>
                             <br />
-
                             <input className="btn btn-primary" type="submit" value="Sign Up" />
                         </form>
 
@@ -196,7 +144,6 @@ function Signup() {
                         <br />
                     </div>
                 </div>
-
                 :
                 (isLoggedIn === true ? (isTrainer === true ? <Redirect to="/trainer" /> : <Redirect to="/clienthome" />) : null))}
         </>

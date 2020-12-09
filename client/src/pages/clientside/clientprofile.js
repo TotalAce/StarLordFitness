@@ -77,7 +77,7 @@ function ClientProfile() {
         event.stopPropagation();
         let { value } = event.target;
         let confirmDelete = window.confirm("Are you sure you want to delete this exercise?")
-
+        console.log(value);
         if (confirmDelete === true) {
             axios.delete("/api/workoutplan/" + value)
                 .then(res => {
@@ -155,7 +155,7 @@ function ClientProfile() {
                             </div>
                             <br />
                             <div className="row">
-                                <div className="col-lg-4">
+                                <div className="col-lg-4" style={{padding: "0"}}>
                                     <ClientWorkouts
                                         date={dateAddOne}
                                         array={todaysWorkoutAddOne}
@@ -163,7 +163,7 @@ function ClientProfile() {
                                         trainer={!isTrainer}
                                     />
                                 </div>
-                                <div className="col-lg-4">
+                                <div className="col-lg-4" style={{padding: "0"}}>
                                     <ClientWorkouts
                                         date={dateAddTwo}
                                         array={todaysWorkoutAddTwo}
@@ -171,7 +171,7 @@ function ClientProfile() {
                                         trainer={!isTrainer}
                                     />
                                 </div>
-                                <div className="col-lg-4">
+                                <div className="col-lg-4" style={{padding: "0"}}>
                                     <ClientWorkouts
                                         date={dateAddThree}
                                         array={todaysWorkoutAddThree}
@@ -182,7 +182,7 @@ function ClientProfile() {
                             </div>
                             <br />
                             <div className="row">
-                                <div className="col-lg-4">
+                                <div className="col-lg-4" style={{padding: "0"}}>
                                     <ClientWorkouts
                                         date={dateAddFour}
                                         array={todaysWorkoutAddFour}
@@ -190,7 +190,7 @@ function ClientProfile() {
                                         trainer={!isTrainer}
                                     />
                                 </div>
-                                <div className="col-lg-4">
+                                <div className="col-lg-4" style={{padding: "0"}}>
                                     <ClientWorkouts
                                         date={dateAddFive}
                                         array={todaysWorkoutAddFive}
@@ -198,7 +198,7 @@ function ClientProfile() {
                                         trainer={!isTrainer}
                                     />
                                 </div>
-                                <div className="col-lg-4">
+                                <div className="col-lg-4" style={{padding: "0"}}>
                                     <ClientWorkouts
                                         date={dateAddSix}
                                         array={todaysWorkoutAddSix}

@@ -16,7 +16,6 @@ function Chat() {
         socket.on('message', ({ name, message }) => {
             setChat([...chat, { name, message }])
         })
-
     })
 
     const onTextChange = e => {
@@ -34,7 +33,7 @@ function Chat() {
         return chat.map(({ name, message }, index) => (
             <div key={index}>
                 <h3 style={{ textAlign: "left" }}>
-                    {name}: <span>{message}</span>
+                    <span style={{ fontWeight: "bold" }}>{name}: </span><span>{message}</span>
                 </h3>
             </div>
         ))
@@ -49,7 +48,7 @@ function Chat() {
 
                     {(isTrainer === true ? <TrainerNavBar /> : <ClientNavBar />)}
                     <div className="container">
-                        <br/>
+                        <br />
                         <form onSubmit={onMessageSubmit}>
                             <div className="render-chat">
                                 <h1>Chat with other members and trainers</h1>
