@@ -34,9 +34,12 @@ Run the following in your command line or you can find the app [here](https://ma
 ```
 npm run start
 ```
+As a trainer: 
+<br/>
 
 ![Trainer](client\src\assets\images\MachiFitness-Trainer.gif)
 
+As a client: 
 <br/>
 
 ![Client](client\src\assets\images\MachiFitness-Client.gif)
