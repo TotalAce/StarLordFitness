@@ -22,7 +22,7 @@ function App() {
         firstName: "",
         lastName: "",
         isTrainer: null,
-        isLoggedIn: null,
+        isLoggedIn: false,
     })
 
     useEffect(() => {

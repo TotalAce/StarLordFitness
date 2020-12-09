@@ -14,9 +14,9 @@ function Landing() {
             <div style={{ overflowX: "hidden" }}>
 
                 <Header />
-                <div class="container-fluid" style={{ justifyContent: "flex-start", alignItems: "center", display: "flex", marginLeft: "15%" }}>
-                    <div class="row">
-                        <div class="col-5" style={{ background: "rgba(255, 255, 255, 0.6)", padding: "20px"}}>
+                <div className="container-fluid" style={{ justifyContent: "flex-start", alignItems: "center", display: "flex", marginLeft: "15%" }}>
+                    <div className="row">
+                        <div className="col-5" style={{ background: "rgba(255, 255, 255, 0.6)", padding: "20px"}}>
                             <h2 style={{ padding: "2%"}}>Shape Your Mind &amp; Body</h2>
 
                             <h4 style={{ padding: "2%" }}>Leave nothing to chance. <br/>Leave nothing to Luck. <br/>Own it. <br/>You're writing your own story. <br/>Why not make it awesome?</h4>

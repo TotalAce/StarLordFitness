@@ -11,3 +11,7 @@
 .numbers {
     width: 10%;
 }
+
+.exercise-selection {
+    display: flex;
+}
