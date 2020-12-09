@@ -37,12 +37,12 @@ npm run start
 As a trainer: 
 <br/>
 
-![Trainer](client\src\assets\images\MachiFitness-Trainer.gif)
+![Trainer](./client/src/assets/images/MachiFitness-Trainer.gif)
 
 As a client: 
 <br/>
 
-![Client](client\src\assets\images\MachiFitness-Client.gif)
+![Client](./client/src/assets/images/MachiFitness-Client.gif)
 
 <!-- Provide instructions and examples for use. Include screenshots as needed.  -->
 
