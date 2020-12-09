@@ -56,6 +56,50 @@ function ClientHome() {
 
     const todaysWorkout = workout.filter(workout => workout.date === date)
 
+    if (todaysWorkout.length === 0) {
+        return (
+            <>
+                {(!isLoggedIn || isLoggedIn === false ?
+                    <Redirect to="/login" /> :
+                    (isTrainer ? <Redirect to="/unauthorized" />
+                        :
+                        (Trainerid === null ? <Redirect to="/trainersearch" /> :
+    
+                            <div>
+                                <ClientNavBar />
+                                <div className="container col-12 text-center">
+                                <br/>
+                                    <h1 className="row justify-content-center">Welcome back {username}!</h1>
+                                    <br/>
+                                    <h1 className="row justify-content-center">Here is today's workout:</h1>
+                                    <br/>
+                                    <h1 className="row justify-content-center">{moment().format('l')}</h1>
+    
+                                    <ul className="container list-group col-6 text-center">
+                                            <li className="list-group-item list-group-item-action">No Workout Listed</li>
+                                    </ul>
+    
+                                    <textarea rows="4" cols="50" placeholder="Notes for the workout" name="note" onChange={handleInputChange} style={{ margin: "2%" }} />
+    
+                                    <div>
+                                        <input className="form-check-input" type="checkbox" id="completed" onClick={handleButtonClick} />
+                                        <label className="form-check-label" htmlFor="completed">
+                                            Workout Completed
+                                    </label>
+                                    </div>
+                                    <br/>
+                                    <div className="row justify-content-center">
+                                        <button type="button" className="btn btn-primary" onClick={handleFormSubmit} disabled={submitted}>Submit</button>
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    )
+                )}
+            </>
+        )
+    }
+
     return (
         <>
             {(!isLoggedIn || isLoggedIn === false ?
@@ -64,13 +108,15 @@ function ClientHome() {
                     :
                     (Trainerid === null ? <Redirect to="/trainersearch" /> :
 
-                        <div className="container">
+                        <div>
                             <ClientNavBar />
                             <div className="container col-12 text-center">
-                                <h1 className="row justify-content-center">{moment().format('l')}</h1>
-                                <br />
+                            <br/>
                                 <h1 className="row justify-content-center">Welcome back {username}!</h1>
-                                <h1 className="row justify-content-center">Here is todays workout:</h1>
+                                <br/>
+                                <h1 className="row justify-content-center">Here is today's workout:</h1>
+                                <br/>
+                                <h1 className="row justify-content-center">{moment().format('l')}</h1>
 
                                 <ul className="container list-group col-6 text-center">
                                     {todaysWorkout.map((workout, index) => {
@@ -80,13 +126,13 @@ function ClientHome() {
 
                                 <textarea rows="4" cols="50" placeholder="Notes for the workout" name="note" onChange={handleInputChange} style={{ margin: "2%" }} />
 
-                                <div className="container">
+                                <div>
                                     <input className="form-check-input" type="checkbox" id="completed" onClick={handleButtonClick} />
                                     <label className="form-check-label" htmlFor="completed">
                                         Workout Completed
                                 </label>
                                 </div>
-
+                                <br/>
                                 <div className="row justify-content-center">
                                     <button type="button" className="btn btn-primary" onClick={handleFormSubmit} disabled={submitted}>Submit</button>
                                 </div>

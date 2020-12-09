@@ -45,10 +45,11 @@ function Chat() {
             {(isLoggedIn === false || !isLoggedIn ?
                 <Redirect to="/login" /> :
 
-                <div className="container">
+                <div>
 
                     {(isTrainer === true ? <TrainerNavBar /> : <ClientNavBar />)}
                     <div className="container">
+                        <br/>
                         <form onSubmit={onMessageSubmit}>
                             <div className="render-chat">
                                 <h1>Chat with other members and trainers</h1>
