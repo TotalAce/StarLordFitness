@@ -22,7 +22,7 @@ router.route("/notes")
     .put(notesController.editNote)
 
 // ---------------GET CHOSEN CLIENT---------------
-router.route("/:id")
+router.route("/:username")
     .get(clientsController.findClient)
 
 module.exports = router;

@@ -50,13 +50,6 @@ function Login(props) {
                                     ClientId: res.data.Clients[0].id
                                 })
                             )
-
-                            // Each session only lasts 30 mins
-                            setTimeout(() => {
-                                localStorage.clear()
-                                alert(`Your session has ended. Please login again`)
-                                window.location.href = "/login"
-                            }, 1000 * 60 * 30);
                         })
                 }
             })

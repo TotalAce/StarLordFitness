@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import axios from "axios"
-import { Link } from "react-router-dom";
 import Background from "../../assets/images/backgroundImg.jpg"
 import Header from '../../components/Header';
 import "../style.css"
@@ -45,9 +44,9 @@ function Logout() {
             <div style={{ overflowX: "hidden" }}>
 
                 <Header />
-                <div class="container-fluid" style={{ justifyContent: "flex-start", alignItems: "center", display: "flex", marginLeft: "15%" }}>
-                    <div class="row">
-                        <div class="col-lg" style={{ background: "rgba(255, 255, 255, 0.6)", padding: "20px"}}>
+                <div className="container-fluid" style={{ justifyContent: "flex-start", alignItems: "center", display: "flex", marginLeft: "15%" }}>
+                    <div className="row">
+                        <div className="col-lg" style={{ background: "rgba(255, 255, 255, 0.6)", padding: "20px"}}>
                             <h2 style={{ padding: "2%"}}>Shape Your Mind &amp; Body</h2>
 
                             <h4 style={{ padding: "2%" }}>Leave nothing to chance. <br/>Leave nothing to Luck. <br/>Own it. <br/>You're writing your own story. <br/>Why not make it awesome?</h4>

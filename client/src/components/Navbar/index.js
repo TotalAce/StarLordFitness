@@ -6,18 +6,14 @@ import "./style.css";
 
 function ClientNavBar() {
 
-    const { id, Trainerid } = JSON.parse(localStorage.getItem("user")) || ""
+    const { Trainerid, username, id } = JSON.parse(localStorage.getItem("user")) || ""
 
     return (
-        <nav className="navbar navbar-expand navbar-light bg-light sticky-top" style={{margin: "0px"}}>
-            {/* <div className="navbar-brand">
-                <img src={Logo} className="d-inline-block align-top" alt="" loading="lazy" />
-                <span id="machli">Machli Fitness</span>
-            </div> */}
-            <a className="navbar-brand" href="/clienthome">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+            <Link className="navbar-brand" to="/clienthome">
                 <img src={Logo} alt="" width="30" height="24" className="d-inline-block align-top" />
                 <span> Machli Fitness</span>
-            </a>
+            </Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
@@ -25,7 +21,7 @@ function ClientNavBar() {
             <div className="collapse navbar-collapse fl" id="navbarNavDropdown">
                 <ul className="navbar-nav ml-auto ">
                     <li className="nav-item">
-                        <Link className="nav-link" to={`/clientprofile/${id}`} >My Upcoming Workouts</Link>
+                        <Link className="nav-link" to={`/clientprofile/${username}?UserId=${id}`} >My Profile</Link>
                     </li>
                     {(Trainerid === null ?
                         null
@@ -55,10 +51,10 @@ function TrainerNavBar() {
 
     return (
         <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
-            <a className="navbar-brand" href="/trainer">
+            <Link className="navbar-brand" to="/trainer">
                 <img src={Logo} alt="" width="30" height="24" className="d-inline-block align-top" />
                 <span>Machli Fitness</span>
-            </a>
+            </Link>
             <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
                 aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                 <span className="navbar-toggler-icon"></span>
