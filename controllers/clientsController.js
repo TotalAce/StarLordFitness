@@ -4,7 +4,7 @@ module.exports = {
 
     findClient: (req, res) => {
         db.User.findAll({
-            where: { id: req.params.id },
+            where: { username: req.params.username },
             include: [db.Note,
             {
                 model: db.WorkoutPlan,

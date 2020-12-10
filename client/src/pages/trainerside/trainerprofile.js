@@ -5,7 +5,13 @@ import axios from 'axios'
 
 function TrainerProfile() {
 
-    const { isLoggedIn, isTrainer, id, Trainerid } = JSON.parse(localStorage.getItem("user")) || ""
+    const
+        {
+            isLoggedIn,
+            isTrainer,
+            id,
+            Trainerid
+        } = JSON.parse(localStorage.getItem("user")) || ""
 
     const [trainer, setTrainer] = useState({})
 
@@ -59,11 +65,26 @@ function TrainerProfile() {
                     <div className="container">
                         <div className="row justify-content-center">
                             {/* <h3>Credentials: {trainer.credentials}</h3> */}
-                            <h3><span style={{fontWeight: "bold"}}>Certifications: </span> ISSA, ACE, NASM </h3>
+                            <h3><span style={{ fontWeight: "bold" }}>Certifications: </span> ISSA, ACE, NASM </h3>
                         </div>
                         <div className="row justify-content-center">
                             {/* <h5>About:{trainer.about}</h5> */}
-                            <h5><span style={{fontWeight: "bold"}}>About: </span>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tincidunt eget nullam non nisi est sit amet facilisis magna. Varius quam quisque id diam vel quam elementum. Praesent elementum facilisis leo vel fringilla est ullamcorper. Odio morbi quis commodo odio aenean sed adipiscing diam donec. Nam at lectus urna duis. Adipiscing at in tellus integer feugiat. Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt. Ornare suspendisse sed nisi lacus. Dapibus ultrices in iaculis nunc sed augue. Sem integer vitae justo eget magna fermentum iaculis eu. Amet nulla facilisi morbi tempus iaculis urna id volutpat. Ultrices eros in cursus turpis. Porttitor lacus luctus accumsan tortor.</h5>
+                            <h5>
+                                <span style={{ fontWeight: "bold" }}>
+                                    About:&nbsp;
+                                </span>
+                                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                                Tincidunt eget nullam non nisi est sit amet facilisis magna.
+                                Varius quam quisque id diam vel quam elementum.
+                                Praesent elementum facilisis leo vel fringilla est ullamcorper.
+                                Odio morbi quis commodo odio aenean sed adipiscing diam donec.
+                                Nam at lectus urna duis. Adipiscing at in tellus integer feugiat.
+                                Dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras tincidunt.
+                                Ornare suspendisse sed nisi lacus. Dapibus ultrices in iaculis nunc sed augue.
+                                Sem integer vitae justo eget magna fermentum iaculis eu.
+                                Amet nulla facilisi morbi tempus iaculis urna id volutpat.
+                                Ultrices eros in cursus turpis. Porttitor lacus luctus accumsan tortor.
+                            </h5>
                         </div>
                     </div>
 

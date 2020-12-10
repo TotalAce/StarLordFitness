@@ -18,12 +18,15 @@ function ClientProfile() {
 
     const params = window.location.href
     // console.log(params);
-    const ClientId = /[^/]*$/.exec(params)[0];
+    const url = new URL(params)
+    const ClientUserId = url.searchParams.get("UserId")
+    // console.log(ClientUserId);
+    const username = /[^/]*$/.exec(params)[0];
     // console.log(ClientId);
 
     useEffect(() => {
 
-        axios.get("/api/client/" + ClientId)
+        axios.get("/api/client/" + username)
             .then(res => {
                 // console.log(res);
                 setClient(res.data[0])
@@ -49,7 +52,7 @@ function ClientProfile() {
             })
             .catch(err => console.log(err));
 
-    }, [formObject.muscleGroup, ClientId, submitted])
+    }, [formObject.muscleGroup, username, submitted])
 
     const date = moment().format('YYYY-MM-DD')
     const dateAddOne = moment().add(1, 'days').format("YYYY-MM-DD")
@@ -94,11 +97,17 @@ function ClientProfile() {
         if (formObject.date < date) {
             alert("Cannot post to a previous date")
         }
-        if (formObject.date === undefined || formObject.exercise === undefined || formObject.sets === undefined || formObject.reps === undefined) {
+        if (formObject.date === undefined
+            ||
+            formObject.exercise === undefined
+            ||
+            formObject.sets === undefined
+            ||
+            formObject.reps === undefined) {
             alert("Please fill out all fields before adding an exercise")
         }
         else {
-            axios.post("/api/workoutplan/" + ClientId, {
+            axios.post("/api/workoutplan/" + ClientUserId, {
                 date: formObject.date,
                 exercise: formObject.exercise,
                 sets: formObject.sets,
@@ -121,94 +130,99 @@ function ClientProfile() {
                 <div>
 
                     {(isTrainer === true ? <TrainerNavBar /> : <ClientNavBar />)}
-                <div className="container">
-                    <br/>
-                    <h1 className="justify-content-center">{client.firstName} {client.lastName}</h1>
-                    <div className="img-container justify-content-center">
-                        <img src={`https://randomuser.me/api/portraits/men/${ClientId}.jpg`} alt="Client Img" style={{ borderRadius: "50%", width: "200px", height: "200px" }} />
-                    </div>
-
-                    <br />
-
-                    {(isTrainer === false ? null :
-                        <WorkoutForm
-                            muscle={muscleGroups}
-                            handleinputchange={handleInputChange}
-                            onSubmit={handleFormSubmit}
-                            exercise={(exercises.length > 0 ? exercises : [])}
-                        />
-                    )}
-
-                    <br />
-
-                    {workouts.length > 0 ?
-                        <div className="week-workouts">
-                            <div className="row">
-                                <div className="col-lg-12">
-                                    <ClientWorkouts
-                                        date={date}
-                                        array={todaysWorkout}
-                                        delete={handleDelete}
-                                        trainer={!isTrainer}
-                                    />
-                                </div>
-                            </div>
-                            <br />
-                            <div className="row">
-                                <div className="col-lg-4" style={{padding: "0"}}>
-                                    <ClientWorkouts
-                                        date={dateAddOne}
-                                        array={todaysWorkoutAddOne}
-                                        delete={handleDelete}
-                                        trainer={!isTrainer}
-                                    />
-                                </div>
-                                <div className="col-lg-4" style={{padding: "0"}}>
-                                    <ClientWorkouts
-                                        date={dateAddTwo}
-                                        array={todaysWorkoutAddTwo}
-                                        delete={handleDelete}
-                                        trainer={!isTrainer}
-                                    />
-                                </div>
-                                <div className="col-lg-4" style={{padding: "0"}}>
-                                    <ClientWorkouts
-                                        date={dateAddThree}
-                                        array={todaysWorkoutAddThree}
-                                        delete={handleDelete}
-                                        trainer={!isTrainer}
-                                    />
-                                </div>
-                            </div>
-                            <br />
-                            <div className="row">
-                                <div className="col-lg-4" style={{padding: "0"}}>
-                                    <ClientWorkouts
-                                        date={dateAddFour}
-                                        array={todaysWorkoutAddFour}
-                                        delete={handleDelete}
-                                        trainer={!isTrainer}
-                                    />
-                                </div>
-                                <div className="col-lg-4" style={{padding: "0"}}>
-                                    <ClientWorkouts
-                                        date={dateAddFive}
-                                        array={todaysWorkoutAddFive}
-                                        delete={handleDelete}
-                                        trainer={!isTrainer}
-                                    />
-                                </div>
-                                <div className="col-lg-4" style={{padding: "0"}}>
-                                    <ClientWorkouts
-                                        date={dateAddSix}
-                                        array={todaysWorkoutAddSix}
-                                        delete={handleDelete}
-                                        trainer={!isTrainer}
-                                    />
-                                </div>
-                            </div>
+                    <div className="container">
+                        <br />
+                        <h1 className="justify-content-center">
+                            {client.firstName} {client.lastName}
+                        </h1>
+                        <div className="img-container justify-content-center">
+                            <img src={`https://randomuser.me/api/portraits/men/${ClientUserId}.jpg`}
+                                alt="Client Img"
+                                style={{ borderRadius: "50%", width: "200px", height: "200px" }}
+                            />
                         </div>
-                        : ""}
+
+                        <br />
+
+                        {(isTrainer === false ? null :
+                            <WorkoutForm
+                                muscle={muscleGroups}
+                                handleinputchange={handleInputChange}
+                                onSubmit={handleFormSubmit}
+                                exercise={(exercises.length > 0 ? exercises : [])}
+                            />
+                        )}
+
+                        <br />
+
+                        {workouts.length > 0 ?
+                            <div className="week-workouts">
+                                <div className="row">
+                                    <div className="col-lg-12">
+                                        <ClientWorkouts
+                                            date={date}
+                                            array={todaysWorkout}
+                                            delete={handleDelete}
+                                            trainer={!isTrainer}
+                                        />
+                                    </div>
+                                </div>
+                                <br />
+                                <div className="row">
+                                    <div className="col-lg-4" style={{ padding: "0" }}>
+                                        <ClientWorkouts
+                                            date={dateAddOne}
+                                            array={todaysWorkoutAddOne}
+                                            delete={handleDelete}
+                                            trainer={!isTrainer}
+                                        />
+                                    </div>
+                                    <div className="col-lg-4" style={{ padding: "0" }}>
+                                        <ClientWorkouts
+                                            date={dateAddTwo}
+                                            array={todaysWorkoutAddTwo}
+                                            delete={handleDelete}
+                                            trainer={!isTrainer}
+                                        />
+                                    </div>
+                                    <div className="col-lg-4" style={{ padding: "0" }}>
+                                        <ClientWorkouts
+                                            date={dateAddThree}
+                                            array={todaysWorkoutAddThree}
+                                            delete={handleDelete}
+                                            trainer={!isTrainer}
+                                        />
+                                    </div>
+                                </div>
+                                <br />
+                                <div className="row">
+                                    <div className="col-lg-4" style={{ padding: "0" }}>
+                                        <ClientWorkouts
+                                            date={dateAddFour}
+                                            array={todaysWorkoutAddFour}
+                                            delete={handleDelete}
+                                            trainer={!isTrainer}
+                                        />
+                                    </div>
+                                    <div className="col-lg-4" style={{ padding: "0" }}>
+                                        <ClientWorkouts
+                                            date={dateAddFive}
+                                            array={todaysWorkoutAddFive}
+                                            delete={handleDelete}
+                                            trainer={!isTrainer}
+                                        />
+                                    </div>
+                                    <div className="col-lg-4" style={{ padding: "0" }}>
+                                        <ClientWorkouts
+                                            date={dateAddSix}
+                                            array={todaysWorkoutAddSix}
+                                            delete={handleDelete}
+                                            trainer={!isTrainer}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            : ""}
                     </div>
                 </div>
             )}

@@ -4,7 +4,7 @@ module.exports = {
 
     findTrainer: (req, res) => {
         db.Trainer.findOne(
-            { where: { UserId: req.params.id } })
+            { where: { id: req.params.id } })
             .then((data) => res.send(data))
             .catch((err) => console.log(err))
     },

@@ -37,6 +37,14 @@ function App() {
 
     function handleChange(status) {
         localStorage.setItem("user", JSON.stringify(status))
+
+        // Each session only lasts 30 mins
+        setTimeout(() => {
+            localStorage.clear()
+            alert(`Your session has ended. Please login again`)
+            window.location.href = "/login"
+        }, 1000 * 60 * 30);
+
         setLoggedInState(JSON.parse(localStorage.getItem("user")))
     }
 
