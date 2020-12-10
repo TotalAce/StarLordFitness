@@ -9,7 +9,7 @@ function ClientNavBar() {
     const { Trainerid, username, id } = JSON.parse(localStorage.getItem("user")) || ""
 
     return (
-        <nav className="navbar navbar-expand navbar-light bg-light sticky-top" style={{ margin: "0px" }}>
+        <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
             <Link className="navbar-brand" to="/clienthome">
                 <img src={Logo} alt="" width="30" height="24" className="d-inline-block align-top" />
                 <span> Machli Fitness</span>
@@ -21,7 +21,7 @@ function ClientNavBar() {
             <div className="collapse navbar-collapse fl" id="navbarNavDropdown">
                 <ul className="navbar-nav ml-auto ">
                     <li className="nav-item">
-                        <Link className="nav-link" to={`/clientprofile/${username}?UserId=${id}`} >My Upcoming Workouts</Link>
+                        <Link className="nav-link" to={`/clientprofile/${username}?UserId=${id}`} >My Profile</Link>
                     </li>
                     {(Trainerid === null ?
                         null
